@@ -1,0 +1,404 @@
+/**
+ * Product Gallery Styles - Vertical Swiper
+ * Адаптировано из CodePen примера: https://codepen.io/hqdrone/pen/dypEyNq
+ */
+
+/* Product Gallery Container */
+.product-gallery {
+    color: #333;
+}
+
+.product-gallery .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.product-gallery__flex {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Thumbnails Column */
+.product-gallery__col {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    margin-right: 24px;
+}
+
+/* Navigation Buttons */
+.product-gallery__prev,
+.product-gallery__next {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    color: #005bff;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.product-gallery__prev:hover,
+.product-gallery__next:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: #005bff;
+}
+
+.product-gallery__prev:focus,
+.product-gallery__next:focus {
+    outline: 2px solid #005bff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0, 91, 255, 0.1);
+}
+
+/* Thumbnails Swiper */
+.product-gallery__thumbs {
+    height: calc(500px - 96px);
+    overflow: hidden; /* КРИТИЧНО: скрываем лишние миниатюры */
+}
+
+.product-gallery__thumbs .swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* КРИТИЧНО */
+}
+
+.product-gallery__thumbs .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.product-gallery__thumbs .swiper-slide {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0; /* Не позволяем слайдам сжиматься */
+    cursor: pointer;
+}
+
+.product-gallery__thumbs .swiper-slide:focus {
+    outline: 2px solid #005bff;
+    outline-offset: 2px;
+}
+
+.product-gallery__thumbs .product-gallery__image {
+    transition: 0.25s;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.product-gallery__thumbs .product-gallery__image:hover {
+    opacity: 1;
+}
+
+.product-gallery__thumbs .swiper-slide-thumb-active .product-gallery__image {
+    filter: grayscale(0%);
+    opacity: 1;
+    border: 2px solid #005bff;
+}
+
+/* Main Images Swiper */
+.product-gallery__images {
+    height: 500px;
+    flex: 1;
+    overflow: hidden; /* КРИТИЧНО: скрываем всё, что выходит за пределы */
+}
+
+.product-gallery__images .swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* КРИТИЧНО */
+}
+
+.product-gallery__images .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.product-gallery__images .swiper-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0; /* Не позволяем слайдам сжиматься */
+}
+
+.product-gallery__images .product-gallery__image {
+    width: 100%;
+    height: 100%;
+}
+
+.product-gallery__images .product-gallery__image img {
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.product-gallery__images .product-gallery__image img:focus {
+    outline: 2px solid #005bff;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 6px rgba(0, 91, 255, 0.1);
+}
+
+.product-gallery__images .product-gallery__image:hover img {
+    transform: scale(1.05);
+}
+
+/* Image Container */
+.product-gallery__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.product-gallery__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Lightbox Modal */
+.product-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-lightbox.active {
+    display: flex;
+}
+
+.product-lightbox-swiper {
+    width: 90%;
+    height: 90%;
+}
+
+.product-lightbox-swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-lightbox-swiper .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Lightbox Navigation */
+.product-lightbox .swiper-button-next,
+.product-lightbox .swiper-button-prev {
+    color: #fff;
+}
+
+.product-lightbox .swiper-button-next:after,
+.product-lightbox .swiper-button-prev:after {
+    font-size: 32px;
+}
+
+/* Lightbox Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Lightbox Pagination */
+.product-lightbox .swiper-pagination {
+    color: #fff;
+}
+
+/* Body No Scroll */
+body.lightbox-open {
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-gallery {
+        flex-direction: column-reverse;
+    }
+
+    .product-gallery-thumbs-col {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 16px;
+        width: 100%;
+    }
+
+    .product-gallery-main {
+        width: 100%;
+        max-width: 100%;
+        height: 400px;
+    }
+
+    .product-gallery-thumbs {
+        height: 80px;
+        width: calc(100% - 96px);
+        margin: 0 8px;
+    }
+
+    .product-gallery-thumbs .slider__image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .product-gallery-prev,
+    .product-gallery-next {
+        height: auto;
+        width: 40px;
+        flex-shrink: 0;
+    }
+
+    .product-lightbox-swiper {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* Lightbox Modal */
+.product-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-lightbox.active {
+    display: flex;
+}
+
+.product-lightbox-swiper {
+    width: 90%;
+    height: 90%;
+}
+
+.product-lightbox-swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-lightbox-swiper .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Lightbox Navigation */
+.product-lightbox .swiper-button-next,
+.product-lightbox .swiper-button-prev {
+    color: #fff;
+}
+
+.product-lightbox .swiper-button-next:after,
+.product-lightbox .swiper-button-prev:after {
+    font-size: 32px;
+}
+
+/* Lightbox Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Lightbox Pagination */
+.product-lightbox .swiper-pagination {
+    color: #fff;
+}
+
+/* Body No Scroll */
+body.lightbox-open {
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-gallery__flex {
+        flex-direction: column-reverse;
+    }
+
+    .product-gallery__col {
+        flex-direction: row;
+        align-items: center;
+        margin-right: 0;
+        margin-top: 24px;
+        width: 100%;
+    }
+
+    .product-gallery__images {
+        width: 100%;
+        height: 400px;
+    }
+
+    .product-gallery__thumbs {
+        height: 80px;
+        width: calc(100% - 96px);
+        margin: 0 16px;
+    }
+
+    .product-gallery__prev,
+    .product-gallery__next {
+        height: auto;
+        width: 40px;
+    }
+
+    .product-lightbox-swiper {
+        width: 100%;
+        height: 100%;
+    }
+}

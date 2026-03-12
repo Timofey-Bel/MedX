@@ -1,0 +1,28 @@
+﻿PHPUnit 11.5.53 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: C:\OS\home\myapp\phpunit.xml
+
+.....................FF.......................................... 65 / 69 ( 94%)
+....                                                              69 / 69 (100%)
+
+Time: 00:06.580, Memory: 24.00 MB
+
+There were 2 failures:
+
+1) Tests\Feature\CartCsrfExceptionTest::test_api_cart_accepts_requests_without_csrf_token
+Failed asserting that an array has the key 'total'.
+
+C:\OS\home\myapp\vendor\laravel\framework\src\Illuminate\Testing\AssertableJsonString.php:303
+C:\OS\home\myapp\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1001
+C:\OS\home\myapp\tests\Feature\CartCsrfExceptionTest.php:25
+
+2) Tests\Feature\CartCsrfExceptionTest::test_can_add_product_to_cart_without_csrf_token
+Failed asserting that an array has the key 'items'.
+
+C:\OS\home\myapp\vendor\laravel\framework\src\Illuminate\Testing\AssertableJsonString.php:303
+C:\OS\home\myapp\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1001
+C:\OS\home\myapp\tests\Feature\CartCsrfExceptionTest.php:48
+
+FAILURES!
+Tests: 69, Assertions: 303, Failures: 2, PHPUnit Deprecations: 31.

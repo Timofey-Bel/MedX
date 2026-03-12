@@ -1,0 +1,9 @@
+/* Временный файл для отладки кнопок навигации */
+/* Подключите этот файл в Blade если кнопки не видны */
+
+.product-gallery-thumbs .swiper-button-next,
+.product-gallery-thumbs .swiper-button-prev {
+    background: red !important;
+    opacity: 1 !important;
+    z-index: 999 !important;
+}

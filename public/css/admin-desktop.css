@@ -1,0 +1,1164 @@
+/* ============================================
+   Admin Desktop Styles - Windows 10 Theme
+   ============================================ */
+
+/* ============================================
+   ExtJS Modal Windows Override
+   ============================================ */
+
+/* Убрано жесткое переопределение z-index - ExtJS сам управляет через WindowManager */
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================================
+   Desktop - фон Windows 10
+   ============================================ */
+
+.desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 43px;
+    background: url('https://images.frandroid.com/wp-content/uploads/2019/12/windows-10-wallpaper.jpg') center center no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+/* ============================================
+   Ярлыки на рабочем столе
+   ============================================ */
+
+.desktop-shortcuts {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.shortcut {
+    width: 80px;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    transition: all 0.15s ease;
+    user-select: none;
+    position: absolute;
+}
+
+.shortcut:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.shortcut.selected {
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.shortcut.dragging {
+    opacity: 0.5;
+    cursor: move !important;
+}
+
+.shortcut-icon {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+}
+
+.shortcut-icon .material-icons {
+    font-size: 48px;
+}
+}
+
+.shortcut-icon i {
+    font-size: 48px;
+}
+
+.shortcut-text {
+    font-size: 11px;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    line-height: 1.3;
+}
+
+.shortcut.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   Логотип издательства
+   ============================================ */
+
+.desktop-logo {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    opacity: 0.08;
+    pointer-events: none;
+    text-align: right;
+    line-height: 0.9;
+    color: white;
+}
+
+.desktop-logo-main {
+    font-size: 180px;
+    font-weight: 600;
+    letter-spacing: -5px;
+}
+
+.desktop-logo-sub {
+    font-size: 45px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+/* ============================================
+   Панель задач - Windows 10
+   ============================================ */
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 43px;
+    background: #004172;
+    display: flex;
+    align-items: center;
+    z-index: 100000;
+}
+
+/* Кнопка Пуск */
+.start-button {
+    width: 48px;
+    height: 43px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+    transition: background 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Разделитель */
+.taskbar-separator {
+    width: 1px;
+    height: 24px;
+    background: rgba(128, 128, 128, 0.5);
+    margin: 0 4px;
+}
+
+/* Контейнер открытых окон */
+.taskbar-windows {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+}
+
+/* Кнопка окна на панели задач - Windows 10 Style */
+.window-button {
+    height: 43px;
+    padding: 0 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 4px solid transparent;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Hover - лёгкая подсветка */
+.window-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Открытое окно (неактивное) - линия подчёркивания */
+.window-button.open {
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Активное окно - подсвечено + яркая линия */
+.window-button.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Минимизированное окно - линия + прозрачность */
+.window-button.minimized {
+    opacity: 0.6;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Минимизированное + hover */
+.window-button.minimized:hover {
+    opacity: 0.8;
+}
+
+/* ============================================
+   Системный трей
+   ============================================ */
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 8px;
+}
+
+.tray-button {
+    width: 42px;
+    height: 43px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.tray-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Часы */
+.clock {
+    padding: 6px 12px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.3;
+    cursor: pointer;
+    min-width: 70px;
+    transition: background 0.1s ease;
+}
+
+.clock:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.clock-time {
+    font-weight: 400;
+}
+
+.clock-date {
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+/* ============================================
+   Меню Пуск - Windows 10 Style
+   ============================================ */
+
+#start-menu-modal {
+    background: #005a9e;
+    position: fixed;
+    left: 0;
+    bottom: 43px;
+    height: 600px;
+    color: white;
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 50px 250px 400px;
+    cursor: default;
+    z-index: 19000; /* Понижаем z-index чтобы модальные окна ExtJS были поверх */
+    animation-duration: 0.15s;
+}
+
+#start-menu-modal.open {
+    visibility: visible;
+    animation-name: slideUp;
+}
+
+@keyframes slideUp {
+    from {
+        height: 550px;
+        opacity: 0.7;
+    }
+    to {
+        height: 600px;
+        opacity: 1;
+    }
+}
+
+/* Левая панель - иконки пользователя */
+#start-menu-modal #user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-menu-modal #user a {
+    color: whitesmoke;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#start-menu-modal #user a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#start-menu-modal #user .push {
+    margin-bottom: auto;
+}
+
+/* Центральная панель - список приложений */
+#start-menu-modal #apps {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 10px;
+    /* Тонкая полупрозрачная лента прокрутки в стиле Windows 10 */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Стилизация скроллбара для WebKit браузеров (Chrome, Edge, Safari) */
+#start-menu-modal #apps::-webkit-scrollbar {
+    width: 8px;
+}
+
+#start-menu-modal #apps::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#start-menu-modal #apps::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+#start-menu-modal #apps::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#start-menu-modal #apps::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#start-menu-modal #apps a {
+    color: whitesmoke;
+    display: flex;
+    text-decoration: none;
+    padding: 8px 16px;
+    line-height: 1.8;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    align-items: center;
+    gap: 12px;
+}
+
+#start-menu-modal #apps a span.app-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-menu-modal #apps a span.app-icon i {
+    font-size: 20px;
+}
+
+#start-menu-modal #apps a span.app-text {
+    color: whitesmoke;
+}
+
+#start-menu-modal #apps a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#start-menu-modal #apps a.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#start-menu-modal #apps a.category {
+    height: 30px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: default;
+}
+
+#start-menu-modal #apps a.category:hover {
+    background: transparent;
+}
+
+#start-menu-modal #apps .separator {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 8px 0;
+}
+
+/* Правая панель - плитки приложений */
+#start-menu-modal #others {
+    padding: 20px;
+}
+
+#start-menu-modal #others .title-others {
+    color: whitesmoke;
+    padding-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+#start-menu-modal #others .box-others {
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    gap: 4px;
+}
+
+#start-menu-modal #others .box-others .box {
+    height: 90px;
+    width: 90px;
+    position: relative;
+    background: #0078d7;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-menu-modal #others .box-others .box.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#start-menu-modal #others .box-others .box .box-icon {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+}
+
+#start-menu-modal #others .box-others .box .box-icon .material-icons {
+    font-size: 40px;
+}
+
+#start-menu-modal #others .box-others .box span {
+    font-size: 11px;
+    text-align: center;
+    padding: 0 4px;
+}
+
+#start-menu-modal #others .box-others .box:hover:not(.disabled) {
+    border: 2px solid #7fbbeb;
+}
+
+/* ============================================
+   Окна ExtJS - минимальные стили Windows 10
+   ============================================ */
+
+.x-window {
+    /* Стандартные стили ExtJS остаются */
+}
+
+/* Убираем padding у окна */
+.x-window-default {
+    padding: 0 !important;
+}
+
+/* Заголовок окна - увеличиваем высоту на 4px */
+.x-window-header {
+    background: #ffffff !important;
+    background-image: none !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    height: 36px !important; /* было 32px, теперь 36px */
+    line-height: 36px !important;
+}
+
+.x-box-inner {
+    /*height: 30px !important;*/
+}
+
+.x-window-header-text {
+    color: #000000 !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 24px !important;
+}
+
+/* Кнопки управления - подстраиваем под новую высоту */
+.x-window-header .x-tool {
+    height: 36px !important;
+    line-height: 36px !important;
+    transition: background 0.1s ease !important;
+}
+
+/* Убираем top у кнопок */
+.x-tool.x-box-item.x-tool-default.x-tool-after-title {
+    top: 0 !important;
+}
+
+
+
+/* Тело окна */
+.x-window-body {
+    background: #ffffff !important;
+}
+
+.x-window-body-default {
+    border-style: none !important;
+}
+
+/* Убираем лишнюю окантовку у панелей */
+.x-panel-body-default {
+    border-style: none !important;
+}
+
+/* ============================================
+   Стили Windows 10 22H2 Settings
+   ============================================ */
+
+.win10-settings {
+    background: #f3f3f3;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #000000;
+}
+
+.win10-settings-header {
+    padding: 24px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.win10-settings-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.win10-settings-search {
+    padding: 16px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.win10-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    border-radius: 2px;
+    padding: 0 8px;
+    transition: all 0.1s;
+}
+
+.win10-search-box:focus-within {
+    background: #ffffff;
+    border-color: #0078d7;
+    box-shadow: inset 0 0 0 1px #0078d7;
+}
+
+.win10-search-box .material-icons {
+    font-size: 18px;
+    color: #767676;
+    margin-right: 8px;
+}
+
+.win10-search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 4px;
+    font-size: 14px;
+    outline: none;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+.win10-search-box input::placeholder {
+    color: #767676;
+}
+
+.win10-settings-content {
+    padding: 0;
+    background: #f3f3f3;
+}
+
+.win10-setting-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.win10-setting-item:hover {
+    background: #f5f5f5;
+}
+
+.win10-setting-item:active {
+    background: #ebebeb;
+}
+
+.win10-setting-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.win10-setting-icon .material-icons {
+    font-size: 32px;
+    color: #0078d7;
+}
+
+.win10-setting-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.win10-setting-title {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 2px;
+    line-height: 1.4;
+}
+
+.win10-setting-desc {
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.4;
+}
+
+.win10-setting-arrow {
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.win10-setting-arrow .material-icons {
+    font-size: 20px;
+    color: #767676;
+}
+
+/* Информационные окна (О системе) */
+.win10-info-container {
+    background: #f3f3f3;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+.win10-info-header {
+    padding: 24px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.win10-info-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.win10-info-section {
+    background: #ffffff;
+    margin-top: 8px;
+    padding: 16px 32px 8px;
+}
+
+.win10-info-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0078d7;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.win10-info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.win10-info-item:last-child {
+    border-bottom: none;
+}
+
+.win10-info-label {
+    font-size: 14px;
+    color: #000000;
+}
+
+.win10-info-value {
+    font-size: 14px;
+    color: #767676;
+    text-align: right;
+}
+
+/* Окно безопасности */
+.win10-security-item {
+    display: flex;
+    padding: 16px 32px;
+    background: #ffffff;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.win10-security-item:hover {
+    background: #f5f5f5;
+}
+
+.win10-security-item:active {
+    background: #ebebeb;
+}
+
+.win10-security-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.win10-security-icon .material-icons {
+    font-size: 32px;
+    color: #0078d7;
+}
+
+.win10-security-content {
+    flex: 1;
+}
+
+.win10-security-title {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.win10-security-desc {
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.win10-security-status {
+    font-size: 13px;
+    color: #0078d7;
+    font-weight: 600;
+}
+
+/* ============================================
+   Стили для GrapesJS Page Builder
+   ============================================ */
+
+#gjs-editor {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Правая панель с настройками */
+.panel__right {
+    flex: 0 0 300px;
+    position: relative;
+    overflow-y: auto;
+    background: #f8f8f8;
+    border-left: 1px solid #ddd;
+}
+
+.panel__switcher {
+    display: flex;
+    justify-content: space-around;
+    background: #444;
+    padding: 10px 0;
+}
+
+.panel__switcher button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 18px;
+}
+
+.panel__switcher button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.layers-container,
+.styles-container,
+.traits-container {
+    padding: 10px;
+}
+
+/* Перекрываем стили GrapesJS для интеграции с ExtJS */
+.gjs-cv-canvas {
+    background: white;
+    width: 100%;
+    height: 100%;
+}
+
+.gjs-block {
+    min-height: 50px;
+    padding: 10px;
+    margin: 5px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.gjs-block:hover {
+    background: #f0f0f0;
+    border-color: #0078d7;
+}
+
+.gjs-block i {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+/* Адаптивные устройства */
+.gjs-pn-devices-c {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ============================================
+   Меню пользователя - Windows 10 Style
+   ============================================ */
+
+#user-menu {
+    position: fixed;
+    right: 0;
+    bottom: 43px;
+    width: 320px;
+    background: #1e1e1e;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.15s ease;
+    z-index: 19001; /* Понижаем z-index чтобы модальные окна ExtJS были поверх */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#user-menu.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.user-menu-header {
+    padding: 24px 20px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #3f3f3f;
+}
+
+.user-menu-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.user-menu-avatar .material-icons {
+    font-size: 36px;
+    color: white;
+}
+
+.user-menu-name {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.user-menu-email {
+    font-size: 13px;
+    color: #b0b0b0;
+}
+
+.user-menu-actions {
+    padding: 8px 0;
+}
+
+.user-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background 0.1s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.user-menu-item:hover {
+    background: #3f3f3f;
+}
+
+.user-menu-item .material-icons {
+    font-size: 20px;
+    margin-right: 16px;
+    color: #b0b0b0;
+}
+
+.user-menu-item-text {
+    flex: 1;
+    font-size: 14px;
+}
+
+.user-menu-separator {
+    height: 1px;
+    background: #3f3f3f;
+    margin: 8px 0;
+}
+
+/* ============================================
+   Контекстное меню - Windows 10 Style
+   ============================================ */
+
+/* ============================================
+   Custom Modal Dialog - Windows 10 Style
+   ============================================ */
+
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.custom-modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.custom-modal {
+    background: #1e1e1e;
+    color: white;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.custom-modal-overlay.show .custom-modal {
+    transform: scale(1) translateY(0);
+}
+
+.custom-modal-header {
+    padding: 20px 24px 16px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #3f3f3f;
+    display: flex;
+    align-items: center;
+}
+
+.custom-modal-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.custom-modal-icon.question {
+    background: linear-gradient(135deg, #3742fa 0%, #2f3542 100%);
+}
+
+.custom-modal-icon .material-icons {
+    font-size: 24px;
+    color: white;
+}
+
+.custom-modal-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.custom-modal-body {
+    padding: 20px 24px;
+}
+
+.custom-modal-message {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.custom-modal-actions {
+    padding: 16px 24px 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.custom-modal-button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    min-width: 80px;
+}
+
+.custom-modal-button.primary {
+    background: #0078d7;
+    color: white;
+}
+
+.custom-modal-button.primary:hover {
+    background: #005a9e;
+}
+
+.custom-modal-button.secondary {
+    background: #3f3f3f;
+    color: white;
+    border: 1px solid #5f5f5f;
+}
+
+.custom-modal-button.secondary:hover {
+    background: #4f4f4f;
+}
+
+.custom-modal-button:focus {
+    outline: 2px solid #0078d7;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   Контекстное меню - Windows 10 Style
+   ============================================ */
+
+.context-menu {
+    position: fixed;
+    background: #f0f0f0;
+    border: 1px solid #999;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    min-width: 200px;
+    z-index: 100001;
+    display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    padding: 2px 0;
+}
+
+.context-menu.show {
+    display: block;
+}
+
+.context-menu-item {
+    padding: 6px 32px 6px 28px;
+    cursor: pointer;
+    color: #000;
+    position: relative;
+    white-space: nowrap;
+}
+
+.context-menu-item:hover {
+    background: #0078d7;
+    color: white;
+}
+
+.context-menu-item .material-icons {
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.context-menu-separator {
+    height: 1px;
+    background: #d7d7d7;
+    margin: 2px 0;
+}

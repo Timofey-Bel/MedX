@@ -1,0 +1,618 @@
+/* Product Page Responsive Styles - Mobile Adaptations */
+
+/* ============================================
+   TASK 9.1: Адаптивные стили для галереи
+   ============================================ */
+
+@media (max-width: 767px) {
+    /* Галерея в полную ширину на мобильных */
+    .product-gallery {
+        margin: 0 -16px;
+        border-radius: 0;
+        padding: 12px;
+    }
+
+    /* Контейнер галереи - вертикальная компоновка */
+    .gallery-container {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    /* Миниатюры - горизонтальная прокрутка */
+    .gallery-thumbnails-vertical {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 8px;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #e5e5e5 transparent;
+    }
+
+    .gallery-thumbnails-vertical::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .gallery-thumbnails-vertical::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .gallery-thumbnails-vertical::-webkit-scrollbar-thumb {
+        background: #e5e5e5;
+        border-radius: 2px;
+    }
+
+    /* Миниатюры - адаптация размеров для touch */
+    .thumbnail-vertical {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        /* Touch-friendly размер (минимум 44x44px) */
+    }
+
+    /* Главное изображение - адаптация */
+    .gallery-main-wrapper {
+        width: 100%;
+    }
+
+    .gallery-main {
+        min-height: 300px;
+        padding: 20px;
+        /* Touch-навигация для переключения изображений */
+        touch-action: pan-y pinch-zoom;
+        position: relative;
+    }
+
+    .gallery-main img {
+        max-height: 300px;
+        /* Поддержка touch-zoom */
+        touch-action: manipulation;
+    }
+
+    /* Навигация стрелками для touch-устройств */
+    .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #e5e5e5;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* Touch-friendly размер (минимум 44x44px) */
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0;
+        transition: all 0.2s;
+    }
+
+    .gallery-nav:active {
+        background: rgba(255, 255, 255, 1);
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    .gallery-prev {
+        left: 8px;
+    }
+
+    .gallery-next {
+        right: 8px;
+    }
+
+    /* Swipe индикатор для пользователя */
+    .gallery-main::after {
+        content: '';
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        pointer-events: none;
+    }
+}
+
+/* ============================================
+   TASK 9.2: Адаптивные стили для блока цены
+   ============================================ */
+
+@media (max-width: 767px) {
+    /* Блок покупки - фиксированный внизу экрана */
+    .product-purchase-sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: #ffffff;
+        border-top: 1px solid #e5e5e5;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        padding: 0;
+    }
+
+    .purchase-sticky-content {
+        position: static;
+        border-radius: 0;
+        border: none;
+        padding: 12px 16px;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    /* Компактный блок цены */
+    .product-price-block {
+        padding: 0 0 12px 0;
+        margin-bottom: 12px;
+    }
+
+    .price-main {
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+
+    .price-current {
+        font-size: 24px;
+    }
+
+    .price-discount-badge {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+
+    .price-old {
+        font-size: 14px;
+    }
+
+    /* Селектор количества - компактный */
+    .quantity-selector {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .quantity-btn {
+        width: 44px;
+        height: 44px;
+        /* Touch-friendly размер (минимум 44x44px) */
+        min-width: 44px;
+        min-height: 44px;
+        flex-shrink: 0;
+    }
+
+    .quantity-input {
+        height: 44px;
+        font-size: 14px;
+    }
+
+    /* Кнопки действий - адаптация для touch */
+    .product-actions {
+        gap: 8px;
+        margin-bottom: 0;
+    }
+
+    .btn-add-cart,
+    .btn-add-to-cart {
+        padding: 14px 20px;
+        font-size: 15px;
+        /* Touch-friendly размер (минимум 44x44px) */
+        min-height: 48px;
+        border-radius: 12px;
+    }
+
+    .btn-favorite-action,
+    .product-favorite {
+        padding: 10px 16px;
+        font-size: 13px;
+        /* Touch-friendly размер */
+        min-height: 44px;
+    }
+
+    /* Скрытие дополнительных блоков в мобильной версии */
+    .seller-info,
+    .product-delivery,
+    .promo-badge-section {
+        display: none;
+    }
+
+    /* Отступ снизу для контента, чтобы не перекрывался фиксированным блоком */
+    .product-page {
+        padding-bottom: 200px;
+    }
+
+    /* Sticky positioning для блока покупки при скролле */
+    .purchase-sticky-content.scrolled {
+        padding: 8px 16px;
+    }
+
+    .purchase-sticky-content.scrolled .product-price-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .purchase-sticky-content.scrolled .price-main {
+        margin: 0;
+    }
+
+    .purchase-sticky-content.scrolled .quantity-selector,
+    .purchase-sticky-content.scrolled .btn-favorite-action {
+        display: none;
+    }
+
+    .purchase-sticky-content.scrolled .product-actions {
+        margin: 0;
+        flex: 1;
+        max-width: 200px;
+    }
+}
+
+/* ============================================
+   TASK 9.3: Адаптивные стили для табов
+   ============================================ */
+
+@media (max-width: 767px) {
+    /* Табы - горизонтальный скролл */
+    .product-tabs {
+        margin: 0 -16px;
+        border-radius: 0;
+    }
+
+    .tabs-header {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 0 16px;
+    }
+
+    .tabs-header::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Кнопки табов - touch-friendly */
+    .tab-btn {
+        flex: none;
+        min-width: auto;
+        padding: 14px 20px;
+        white-space: nowrap;
+        font-size: 14px;
+        /* Touch-friendly размер (минимум 44x44px) */
+        min-height: 48px;
+        border-bottom-width: 2px;
+    }
+
+    .tab-btn.active {
+        border-bottom-width: 3px;
+    }
+
+    /* Контент табов */
+    .tabs-content {
+        padding: 20px 16px;
+    }
+
+    .tab-pane h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .tab-pane h3 {
+        font-size: 16px;
+        margin: 20px 0 12px;
+    }
+
+    .tab-pane p {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    /* Альтернатива: Вертикальный аккордеон (закомментировано, можно активировать) */
+    /*
+    .tabs-header {
+        display: none;
+    }
+
+    .tab-pane {
+        display: block !important;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 0;
+    }
+
+    .tab-pane-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        background: #f8f8f8;
+        cursor: pointer;
+        min-height: 56px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .tab-pane-content {
+        display: none;
+        padding: 16px;
+    }
+
+    .tab-pane.active .tab-pane-content {
+        display: block;
+    }
+
+    .tab-pane-header::after {
+        content: '▼';
+        transition: transform 0.2s;
+    }
+
+    .tab-pane.active .tab-pane-header::after {
+        transform: rotate(180deg);
+    }
+    */
+}
+
+/* ============================================
+   TASK 9.4: Адаптивные стили для карусели похожих товаров
+   ============================================ */
+
+@media (max-width: 767px) {
+    /* Блок похожих товаров */
+    .related-products {
+        margin: 0 -16px;
+        padding: 20px 0;
+        background: #ffffff;
+    }
+
+    .related-products h3 {
+        padding: 0 16px;
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+
+    /* Карусель - touch-навигация и swipe */
+    .products-carousel {
+        position: relative;
+        overflow: hidden;
+        padding: 0 16px;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 8px;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Карточки товаров - адаптация размеров */
+    .product-card {
+        flex: 0 0 160px;
+        width: 160px;
+        scroll-snap-align: start;
+        background: #ffffff;
+        border: 1px solid #e5e5e5;
+        border-radius: 12px;
+        padding: 12px;
+        transition: all 0.2s;
+    }
+
+    .product-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Изображение товара */
+    .product-image {
+        width: 100%;
+        height: 160px;
+        margin-bottom: 8px;
+        background: #f8f8f8;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Информация о товаре */
+    .product-info {
+        margin-bottom: 8px;
+    }
+
+    .product-name {
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-height: 34px;
+    }
+
+    .product-price {
+        font-size: 16px;
+        font-weight: 600;
+        color: #0d0d0d;
+    }
+
+    /* Кнопка корзины - touch-friendly */
+    .btn-add-to-cart-mini {
+        width: 100%;
+        padding: 10px 12px;
+        background: #005bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        /* Touch-friendly размер (минимум 44x44px) */
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+
+    .btn-add-to-cart-mini:active {
+        background: #0051e6;
+        transform: scale(0.98);
+    }
+
+    /* Навигация карусели - кнопки */
+    .carousel-btn {
+        display: none;
+        /* Скрываем кнопки на мобильных, используем swipe */
+    }
+
+    /* Точки навигации - адаптация */
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 0 16px;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #e5e5e5;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.2s;
+        /* Touch-friendly размер */
+        min-width: 32px;
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel-dot::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #e5e5e5;
+        transition: all 0.2s;
+    }
+
+    .carousel-dot.active::before {
+        background: #005bff;
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* Swipe индикатор */
+    .carousel-track::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        pointer-events: none;
+    }
+}
+
+/* ============================================
+   Дополнительные адаптации для очень маленьких экранов
+   ============================================ */
+
+@media (max-width: 374px) {
+    /* Галерея */
+    .thumbnail-vertical {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+    }
+
+    .gallery-main {
+        min-height: 250px;
+        padding: 16px;
+    }
+
+    .gallery-main img {
+        max-height: 250px;
+    }
+
+    /* Блок цены */
+    .price-current {
+        font-size: 20px;
+    }
+
+    /* Карусель */
+    .product-card {
+        flex: 0 0 140px;
+        width: 140px;
+    }
+
+    .product-image {
+        height: 140px;
+    }
+
+    .product-name {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   Landscape ориентация для планшетов
+   ============================================ */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* Галерея - компактная версия */
+    .gallery-main {
+        min-height: 400px;
+    }
+
+    .gallery-main img {
+        max-height: 400px;
+    }
+
+    /* Блок покупки - sticky но не фиксированный */
+    .product-purchase-sidebar {
+        position: relative;
+    }
+
+    .purchase-sticky-content {
+        position: sticky;
+        top: 80px;
+    }
+}

@@ -1,0 +1,1 @@
+<?php /**PATH C:\OS\home\sfera\resources\views/errors/404.blade.php ENDPATH**/ ?>

@@ -1,0 +1,109 @@
+/* Стили для статических страниц контента */
+
+.page-content {
+    padding: 40px 0;
+    min-height: 400px;
+}
+
+.page-content .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-content h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #001a34;
+}
+
+.page-content h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: #001a34;
+}
+
+.page-content h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: #001a34;
+}
+
+.page-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: rgba(0, 26, 52, 0.8);
+}
+
+.page-content ul,
+.page-content ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.page-content li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: rgba(0, 26, 52, 0.8);
+}
+
+.page-content a {
+    color: var(--cbPrimaryColor);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.page-content a:hover {
+    color: #0077cc;
+    text-decoration: underline;
+}
+
+.page-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 16px 0;
+}
+
+.page-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+.page-content table th,
+.page-content table td {
+    padding: 12px;
+    border: 1px solid rgba(0, 26, 52, 0.1);
+    text-align: left;
+}
+
+.page-content table th {
+    background-color: rgba(0, 48, 120, 0.04);
+    font-weight: 500;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 24px 0;
+    }
+    
+    .page-content h1 {
+        font-size: 24px;
+    }
+    
+    .page-content h2 {
+        font-size: 20px;
+    }
+    
+    .page-content h3 {
+        font-size: 18px;
+    }
+}
