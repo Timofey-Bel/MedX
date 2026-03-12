@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=figd_xcZPucKi2ie7JTlbNlECvDfLr2f8rZEvoz6Tkq4K",
+        "--stdio"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "get_figma_data",
+        "download_figma_images"
+      ],
+      "disabledTools": []
+    }
+  }
+}
