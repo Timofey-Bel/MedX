@@ -1,0 +1,123 @@
+/* Learn Section Styles */
+
+.learn-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.learn-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.learn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.learn-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.learn-description {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.learn-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.learn-feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.learn-text .btn {
+    align-self: flex-start;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #667eea;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.learn-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.learn-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .learn-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .learn-title {
+        font-size: 28px;
+    }
+    
+    .learn-description {
+        font-size: 16px;
+    }
+    
+    .learn-feature {
+        font-size: 14px;
+    }
+    
+    .learn-text .btn {
+        align-self: stretch;
+        text-align: center;
+    }
+}

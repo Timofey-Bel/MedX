@@ -1,0 +1,448 @@
+:root {
+
+    --color-medium: #009aab;
+    --light-blue: #74B5BC;     /* Самый светлый синий */
+    --primary-blue: #419AA4;   /* Средний синий */
+    --primary-blue-40: rgba(65, 154, 164, 0.4);
+    --dark-blue: #007C89;      /* Самый темный синий */
+    --dark-blue-20: rgba(0, 124, 137, 0.2);
+    --text-dark: #28282F;      /* Темный текст */
+    --text-dark-60: rgba(40, 40, 47, 0.6);
+    --text-dark-40: rgba(40, 40, 47, 0.4);
+
+    --white: #FFFFFF;          /* Белый */
+    --white-80:rgba(255, 255, 255, 0.8);
+    --bg-light: #EDF4F4;       /* Светлый фон */
+
+
+    --font-onest: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-involve: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.08);
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --radius-sm: 12px;
+    --radius-pill: 999px;
+
+    /* Отступы */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 60px;
+}
+
+.page-title {
+    font-family: 'Onest', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.page-subtitle {
+    font-family: 'Onest', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.page-header {
+    text-align: center;
+    margin: var(--space-lg) auto 0 auto;
+    position: relative;
+    padding: var(--space-xl) 0;
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    max-width: 1280px;
+    height: 167px;
+}
+
+.page-header::before,
+.page-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.page-header-bg-1 {
+    position: absolute;
+    left: 425px;
+    top: 0;
+    width: 1280px;
+    height: 167px;
+    background-image: url('/site/modules/medx/showcase/img/about/vector-96.png');
+    background-repeat: no-repeat;
+    z-index: 0; /* ниже заголовков */
+}
+
+.page-header-bg-2 {
+    position: absolute;
+    /*left: -51px;*/
+    top: 0;
+    width: 571px;
+    height: 167px;
+    background-image: url('/site/modules/medx/showcase/img/about/vector-97.png');
+    background-repeat: no-repeat;
+    z-index: 0; /* ниже заголовков */
+}
+
+/* Основные стили */
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*body {*/
+/*    font-family: 'Onest', sans-serif;*/
+/*    background: var(--bg-light);*/
+/*    position: relative;*/
+/*    overflow-x: hidden;*/
+/*}*/
+
+/*.container {*/
+/*    width: 1440px;*/
+/*    margin: 0 auto;*/
+/*    position: relative;*/
+/*    height: 5827px;*/
+/*}*/
+
+/* Декоративные элементы */
+.vector-16 {
+    position: absolute;
+    width: 1979px;
+    height: 744.19px;
+    left: -123px;
+    top: 1829px;
+    border: 23.6115px solid rgba(255, 255, 255, 0.4);
+}
+
+.vector-54 {
+    position: absolute;
+    width: 1628.92px;
+    height: 1194.62px;
+    left: -157px;
+    top: 496px;
+    border: 20px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Заголовок команды */
+.team-title {
+    position: absolute;
+    width: 373px;
+    height: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 56px;
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 56px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--color-medium) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+/* Основная карточка основателя */
+.founder-card {
+    position: relative;
+    width: 510px;
+    height: 610px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 120px;
+    background: linear-gradient(180deg, var(--dark-blue) 0%, #3E8E96 100%);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.founder-photo {
+    width: 470px;
+    height: 438px;
+    background: var(--white);
+    border-radius: 12px;
+}
+
+.founder-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 367px;
+}
+
+.founder-role {
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: var(--white-80);
+}
+
+.founder-name {
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.bio-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.bio-link span {
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: var(--white-80);
+}
+
+.team-info .bio-link span {
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: var(--white-80);
+}
+.team-info .bio-link img {
+    width: 13px;
+    height: 13px;
+}
+
+/* Сетка карточек команды */
+.team {
+    position: relative;
+    margin: 0 auto;
+}
+.team-grid {
+    position: relative;
+    width: 1280px;
+    /*left: 80px;*/
+    /*top: 1077.98px;*/
+    display: grid;
+    /*grid-template-columns: repeat(4, 288px);*/
+    grid-template-columns: repeat(2, 640px);
+    grid-gap: 300px 350px;
+    /*grid-gap: 32px;*/
+    z-index: 1;
+}
+
+.team-grid::before {
+    content: "";
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-51%);
+    width: 1023px;
+    /*max-width: calc(100% + 200px);*/
+    height: 1045px;
+    background-image: url("/site/modules/medx/showcase/img/about/about-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 1;
+}
+
+.team-card {
+    width: 288.36px;
+    height: 344.9px;
+    background: linear-gradient(180deg, var(--dark-blue) 0%, #01636E 100%);
+    border-radius: 11.3083px;
+    padding: 11.3083px;
+    display: flex;
+    flex-direction: column;
+    gap: 7.92px;
+    z-index: 1;
+}
+
+.team-card .card-1{
+    display: flex;
+    justify-content: left;
+}
+
+.team-card .card-2{
+    display: flex;
+    justify-content: right;
+
+}
+
+.team-card .card-3{
+
+}
+
+.team-card .card-4{
+
+}
+
+.team-photo {
+    width: 265.74px;
+    height: 247.65px;
+    background: var(--white);
+    border-radius: 6.78497px;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4.52px;
+    width: 218px;
+}
+
+.team-role {
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9.04663px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: var(--white-80);
+}
+
+.team-name {
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15.8316px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.team-authors-title {
+    margin: 128px auto;
+}
+
+/* Заголовок авторов */
+.authors-title {
+    position: relative;
+    width: 118px;
+    height: 36px;
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    top: 84px;
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    margin: 0 auto;
+}
+
+/* Сетка авторов */
+.authors-grid {
+    /*position: absolute;*/
+    width: 1280px;
+    left: 80px;
+    top: 2240px;
+    display: grid;
+    grid-template-columns: repeat(4, 288.36px);
+    grid-gap: 42px;
+}
+
+/* Кнопки */
+.load-more-btn {
+    position: relative;
+    width: 1240px;
+    height: 48px;
+    /*left: 100px;*/
+    /*top: 5348px;*/
+    background: var(--white);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.join-btn {
+    position: relative;
+    width: 480px;
+    height: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 600px;
+    background: var(--dark-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Декоративные элементы сетки */
+.grid-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Имена команд из макета */
+.team-names {
+    font-family: 'Onest';
+    text-transform: uppercase;
+}

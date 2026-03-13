@@ -89,6 +89,15 @@ Route::prefix('api')->group(function () {
 Route::get('/', [ShowcaseController::class, 'index'])->name('home');
 
 // ============================================
+// MedX Platform Routes
+// ============================================
+Route::prefix('medx')->name('medx.')->group(function () {
+    Route::get('/', [App\Http\Controllers\MedxController::class, 'showcase'])->name('showcase');
+    Route::get('/login', [App\Http\Controllers\MedxController::class, 'login'])->name('login');
+    Route::get('/register', [App\Http\Controllers\MedxController::class, 'register'])->name('register');
+});
+
+// ============================================
 // Авторизация / Регистрация
 // ============================================
 Route::get('/login', [AuthController::class, 'login'])->name('login');
