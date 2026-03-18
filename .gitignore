@@ -1,6 +1,5 @@
 *.log
 .DS_Store
-.osp
 .env
 .env.backup
 .env.production
@@ -17,19 +16,9 @@
 /public/build
 /public/hot
 /public/storage
-/public/import_files
-/public/o_images
-/public/upload
-
 /storage/*.key
 /storage/pail
 /vendor
-/dist
-/docs/.obsidian
-/.kiro/specs/.obsidian
-
-/sql
-
 Homestead.json
 Homestead.yaml
 Thumbs.db

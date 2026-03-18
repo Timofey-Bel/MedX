@@ -14,5 +14,10 @@ export default defineConfig({
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },
+        cors: {
+            origin: ['https://myapp', 'http://myapp'], // разрешить оба протокола
+            methods: ['GET', 'POST'],
+            credentials: true,
+        },
     },
 });

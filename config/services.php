@@ -35,10 +35,4 @@ return [
         ],
     ],
 
-    'dadata' => [
-        'token' => env('DADATA_TOKEN'),
-        'secret' => env('DADATA_SECRET'),
-        'url' => 'https://suggestions.dadata.ru/suggestions/api/4_1/rs',
-    ],
-
 ];

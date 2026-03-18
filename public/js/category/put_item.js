@@ -26,7 +26,7 @@ function put_item(guid, id_cat) {
 	$.ajax({
 
 		type: "POST",
-		url: '/api/cart',
+		url: '/cart/',
 		data: pars,
 		dataType: "json",
 		success: function (data, textStatus) {
