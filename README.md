@@ -8,6 +8,8 @@
 
 ## 🚀 Быстрый старт
 
+⚠️ **ВАЖНО:** Перед развертыванием прочитайте [SECURITY.md](SECURITY.md) для настройки конфиденциальных данных.
+
 ```bash
 # 1. Проверьте версию PHP (должна быть 8.5+)
 php -v
@@ -19,7 +21,11 @@ composer install
 cp .env.example .env
 php artisan key:generate
 
-# 4. Запустите сервер
+# 4. Создайте базу данных
+touch database/database.sqlite
+php artisan migrate
+
+# 5. Запустите сервер
 php artisan serve
 ```
 

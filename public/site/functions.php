@@ -787,11 +787,11 @@ function send_email($subject, $body, $recipient_email)
      
     $mail->Host = 'ssl://smtp.mail.ru';
     $mail->Port = 465;
-    $mail->Username = 'orders@ru.market';
-    $mail->Password = 'GMitiRtY^u16';
+    $mail->Username = 'your-email@example.com'; // TODO: Replace with your email
+    $mail->Password = 'your-password-here'; // TODO: Replace with your password or use environment variable
      
     // От кого
-    $mail->setFrom('orders@ru.market', 'ru.market');      
+    $mail->setFrom('your-email@example.com', 'Your Name'); // TODO: Replace with your email      
      
     // Кому
     $mail->addAddress($recipient_email, '');

@@ -238,7 +238,7 @@ require '../../../vendor/autoload.php';
 
 
 $inn     = '7721581040';
-$token   = "3ab30f043510035177906a0ffdee464036ee48ab";
+$token   = "YOUR_DADATA_API_TOKEN_HERE"; // TODO: Replace with your DaData API token
 $dadata  = new DadataClient($token, null);
 $result  = $dadata->findById("party", $inn, 1);
 
