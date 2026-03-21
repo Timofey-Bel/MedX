@@ -3,9 +3,9 @@
 @section('title', 'MedX — Вход в личный кабинет')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/medx/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/medx/css/login.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/medx/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
 @endsection
 
 @section('content')
@@ -38,7 +38,7 @@
                             required
                     />
                     <button type="button" class="password-toggle" aria-label="Показать пароль">
-                        <img src="{{ asset('site/modules/medx/showcase/img/eye.png') }}" alt="eye" class="password-toggle__icon">
+                        <img src="{{ asset('images/medical/eye.png') }}" alt="eye" class="password-toggle__icon">
                     </button>
                 </label>
 
@@ -53,13 +53,13 @@
                 <div class="login__alternative">
                     <div class="login__alternative-icons">
                         <a href="#" class="login__alternative-icon">
-                            <img src="{{ asset('site/modules/medx/showcase/img/vk.svg') }}" alt="VK"/>
+                            <img src="{{ asset('images/social/vk.svg') }}" alt="VK"/>
                         </a>
                         <a href="#" class="login__alternative-icon">
-                            <img src="{{ asset('site/modules/medx/showcase/img/google.svg') }}" alt="Google"/>
+                            <img src="{{ asset('images/social/google.svg') }}" alt="Google"/>
                         </a>
                         <a href="#" class="login__alternative-icon">
-                            <img src="{{ asset('site/modules/medx/showcase/img/telegram.svg') }}" alt="Telegram"/>
+                            <img src="{{ asset('images/social/telegram.svg') }}" alt="Telegram"/>
                         </a>
                     </div>
                 </div>

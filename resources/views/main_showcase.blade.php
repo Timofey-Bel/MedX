@@ -3,8 +3,8 @@
 @section('title', 'MedX учись практикуй расти')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/medx/main_styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/medx/css/main_header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main_styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main_header.css') }}">
 @endsection
 
 @section('content')
@@ -53,7 +53,7 @@
     <!-- Приветствие -->
     <section class="greeting-section">
         <div class="weather-icon">
-            <img src="{{ asset('assets/medx/img/main/showcase/sun.png') }}" alt="sun">
+            <img src="{{ asset('images/main/sun.png') }}" alt="sun">
         </div>
         <div class="greeting-text">
             <h1>ДОБРЫЙ ДЕНЬ, КРИСТИНА!</h1>
@@ -239,6 +239,7 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('assets/medx/main_script.js') }}"></script>
 <script>
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('toggleBtn');

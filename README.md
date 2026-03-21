@@ -34,11 +34,18 @@ php artisan serve
 
 ## 🌐 Доступные страницы
 
-| URL | Описание |
-|-----|----------|
-| `/` | Главная страница (showcase) |
-| `/login` | Страница входа |
-| `/main_showcase` | База знаний (личный кабинет) |
+| URL | Описание | Контроллер |
+|-----|----------|------------|
+| `/` | Главная страница (showcase) | ShowcaseController |
+| `/login` | Страница входа | LoginController |
+| `/register` | Регистрация | RegisterController |
+| `/main_showcase` | База знаний (личный кабинет) | MainShowcaseController |
+| `/main_settings` | Настройки профиля | MainSettingsController |
+| `/main_tests` | Тесты и задания | MainTestsController |
+| `/main_community` | Сообщество | MainCommunityController |
+| `/profile` | Профиль пользователя | ProfileController |
+| `/about` | О нас | AboutController |
+| `/faq` | Часто задаваемые вопросы | FaqController |
 
 ## 📚 Документация
 
@@ -136,9 +143,16 @@ chmod -R 775 storage bootstrap/cache
 
 ## 📦 Что включено
 
+✅ 10 полностью функциональных страниц  
 ✅ Главная страница с полным дизайном  
-✅ Страница входа с формой авторизации  
+✅ Страницы входа и регистрации  
 ✅ База знаний (личный кабинет)  
+✅ Настройки профиля  
+✅ Тесты и задания  
+✅ Сообщество  
+✅ FAQ с аккордеоном  
+✅ О нас (команда)  
+✅ Профиль пользователя  
 ✅ Адаптивный дизайн  
 ✅ Мобильное меню  
 ✅ Все CSS стили и анимации  

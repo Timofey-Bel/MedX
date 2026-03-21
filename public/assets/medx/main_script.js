@@ -5,7 +5,7 @@ const overlay = document.getElementById('overlay');
 function openSidebar() {
     sidebar.classList.add('expanded');
     overlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Блокируем скролл
+    document.body.style.overflow = 'hidden';
 }
 
 function closeSidebar() {
@@ -23,7 +23,6 @@ toggleBtn.addEventListener('click', (e) => {
     }
 });
 
-// Закрытие кликом на оверлей или вне сайдбара
 overlay.addEventListener('click', closeSidebar);
 document.addEventListener('click', (e) => {
     if (!sidebar.contains(e.target) && sidebar.classList.contains('expanded')) {
@@ -31,12 +30,64 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Закрытие на ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && sidebar.classList.contains('expanded')) {
         closeSidebar();
     }
 });
+
+// Поиск по страницам
+const searchPages = [
+    { title: 'Главная', path: '/main_showcase', keywords: ['главная', 'витрина', 'showcase'] },
+    { title: 'Настройки', path: '/main_settings', keywords: ['настройки', 'профиль', 'settings'] },
+    { title: 'Оформление', path: '/design_settings', keywords: ['оформление', 'тема', 'дизайн', 'design'] },
+    { title: 'Поддержка', path: '/support_settings', keywords: ['поддержка', 'помощь', 'support', 'faq'] },
+    { title: 'Тесты', path: '/main_tests', keywords: ['тесты', 'экзамены', 'tests'] },
+    { title: 'Сообщество', path: '/main_community', keywords: ['сообщество', 'community'] },
+    { title: 'Правила сообщества', path: '/main_community_rules', keywords: ['правила', 'rules'] },
+    { title: 'Конфиденциальность', path: '/main_confidentiality', keywords: ['конфиденциальность', 'privacy'] },
+    { title: 'База знаний', path: '/main_base', keywords: ['база знаний', 'знания', 'материалы', 'knowledge'] },
+    { title: 'Клинические дисциплины', path: '/main_base_clinical', keywords: ['клинические', 'clinical'] }
+];
+
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+if (searchInput && searchResults) {
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length === 0) {
+            searchResults.classList.remove('active');
+            searchResults.innerHTML = '';
+            return;
+        }
+        
+        const results = searchPages.filter(page => {
+            return page.title.toLowerCase().includes(query) || 
+                   page.keywords.some(keyword => keyword.includes(query));
+        });
+        
+        if (results.length > 0) {
+            searchResults.innerHTML = results.map(page => `
+                <div class="search-result-item" onclick="window.location.href='${page.path}'">
+                    <div class="search-result-title">${page.title}</div>
+                    <div class="search-result-path">${page.path}</div>
+                </div>
+            `).join('');
+            searchResults.classList.add('active');
+        } else {
+            searchResults.innerHTML = '<div class="search-no-results">Ничего не найдено</div>';
+            searchResults.classList.add('active');
+        }
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.classList.remove('active');
+        }
+    });
+}
 
 
 // Сердечко
@@ -49,11 +100,58 @@ if (favoriteBtn) {
 }
 
 // Меню навигация
-const navItems = document.querySelectorAll('.nav-item');
-navItems.forEach(item => {
-    item.addEventListener('click', function () {
-        navItems.forEach(nav => nav.classList.remove('active'));
-        this.classList.add('active');
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    // Группы страниц для подсветки родительского пункта
+    const pageGroups = {
+        '/main_settings': ['/main_settings', '/design_settings', '/support_settings'],
+        '/main_base': ['/main_base', '/main_base_clinical'],
+        '/main_community': ['/main_community', '/main_community_rules', '/main_confidentiality']
+    };
+    
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        
+        const link = item.querySelector('a');
+        if (link) {
+            const linkPath = new URL(link.href).pathname;
+            
+            // Проверяем прямое совпадение
+            if (linkPath === currentPath) {
+                item.classList.add('active');
+            } else {
+                // Проверяем группы страниц
+                const group = pageGroups[linkPath];
+                if (group && group.includes(currentPath)) {
+                    item.classList.add('active');
+                }
+            }
+        }
+        
+        item.addEventListener('click', function(e) {
+            if (!e.target.closest('a')) {
+                navItems.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // Аккордеоны
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        if (header) {
+            header.addEventListener('click', () => {
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        }
     });
 });
 
@@ -61,6 +159,8 @@ navItems.forEach(item => {
 document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('oopsModal');
     const closeBtn = document.getElementById('closeOopsModal');
+
+    if (!modal || !closeBtn) return;
 
     // Функция показа модалки
     window.showOopsModal = function () {
@@ -76,7 +176,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // События закрытия
     closeBtn.addEventListener('click', closeModal);
-    modal.querySelector('.oops-modal-overlay').addEventListener('click', closeModal);
+    const overlay = modal.querySelector('.oops-modal-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
 
     // ESC
     document.addEventListener('keydown', (e) => {

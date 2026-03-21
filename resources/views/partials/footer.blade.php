@@ -3,7 +3,7 @@
           <div class="footer__top">
             <div class="footer__brand">
               <div class="footer__logo">
-                <img src="{{ asset('site/modules/medx/showcase/img/footer/logo-footer.svg') }}" alt="MedX" />
+                <img src="{{ asset('images/pages/footer/logo-footer.svg') }}" alt="MedX" />
               </div>
               <p class="footer__description">
                 интерактивная образовательная платформа для медиков
@@ -13,25 +13,25 @@
             <div class="footer__social">
               <div class="footer__social-list">
                 <a href="#" class="footer__social-item" aria-label="YouTube">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-youtube.svg') }}" alt="YouTube" />
+                  <img src="{{ asset('images/pages/footer/icon-youtube.svg') }}" alt="YouTube" />
                 </a>
                 <a href="#" class="footer__social-item" aria-label="Instagram">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-instagram.svg') }}" alt="Instagram" />
+                  <img src="{{ asset('images/pages/footer/icon-instagram.svg') }}" alt="Instagram" />
                 </a>
                 <a href="#" class="footer__social-item" aria-label="VK">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-vk.svg') }}" alt="VK" />
+                  <img src="{{ asset('images/pages/footer/icon-vk.svg') }}" alt="VK" />
                 </a>
                 <a href="#" class="footer__social-item" aria-label="TikTok">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-tiktok.svg') }}" alt="TikTok" />
+                  <img src="{{ asset('images/pages/footer/icon-tiktok.svg') }}" alt="TikTok" />
                 </a>
                 <a href="#" class="footer__social-item" aria-label="Facebook">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-facebook.svg') }}" alt="Facebook" />
+                  <img src="{{ asset('images/pages/footer/icon-facebook.svg') }}" alt="Facebook" />
                 </a>
                 <a href="#" class="footer__social-item" aria-label="WhatsApp">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-whatsapp.svg') }}" alt="WhatsApp" />
+                  <img src="{{ asset('images/pages/footer/icon-whatsapp.svg') }}" alt="WhatsApp" />
                 </a>
                 <a href="#" class="footer__social-item" aria-label="Telegram">
-                  <img src="{{ asset('site/modules/medx/showcase/img/footer/icon-telegram.svg') }}" alt="Telegram" />
+                  <img src="{{ asset('images/pages/footer/icon-telegram.svg') }}" alt="Telegram" />
                 </a>
               </div>
                 <p class="footer__social-text">

@@ -1,0 +1,31 @@
+.topics-section {
+    position: relative;
+    padding: 28px;
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    max-width: 1280px;
+    height: 383px;
+}
+
+.topics-section h2 {
+    font-size: 20px;
+    font-family: "Involve-Bold", Helvetica;
+    color: #027B8E;
+}
+
+.topics {
+    display: flex;
+    gap: 56px;
+}
+
+.topic {
+    display: inline-grid;
+}
+
+.topic img {
+    width: 372px;
+    height: 215px;
+    border-radius: 4px;
+}

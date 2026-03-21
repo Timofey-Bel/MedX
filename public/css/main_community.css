@@ -1,0 +1,144 @@
+/* Community Page Styles - По аналогии с main_settings */
+
+/* Описание */
+.community-description {
+    margin: 0 40px 40px;
+    font-family: 'Involve', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.33em;
+    background: linear-gradient(90deg, #027B8E 0%, #419AA4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+/* Миссии сообщества */
+.missions-title {
+    margin: 0 40px 20px;
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.275em;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #027B8E 0%, #419AA4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Сетка карточек миссий */
+.missions-grid {
+    margin: 0 40px 40px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 28px;
+    max-width: 1280px;
+}
+
+.mission-card {
+    border-radius: 20px;
+    padding: 24px 16px;
+    color: #FFFFFF;
+    box-shadow: 0 20px 35px -8px rgba(0, 20, 30, 0.15), 0 8px 12px -4px rgba(0,0,0,0.05);
+}
+
+.mission-card-1 {
+    grid-column: 1 / 9;
+    grid-row: 1;
+    background: linear-gradient(48deg, #047E8B 0%, #72B4BB 88%);
+    opacity: 0.7;
+}
+
+.mission-card-2 {
+    grid-column: 9 / 13;
+    grid-row: 1;
+    background: linear-gradient(-32deg, #047E8B 0%, #72B4BB 100%);
+    opacity: 0.8;
+}
+
+.mission-card-3 {
+    grid-column: 1 / 6;
+    grid-row: 2;
+    background: linear-gradient(139deg, #047E8B 17%, #72B4BB 100%);
+    opacity: 0.8;
+}
+
+.mission-card-4 {
+    grid-column: 6 / 13;
+    grid-row: 2;
+    background: linear-gradient(131deg, #047E8B 24%, #72B4BB 100%);
+    opacity: 0.7;
+}
+
+.mission-card-title {
+    font-family: 'Involve', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33em;
+    margin-bottom: 8px;
+}
+
+.mission-card-text {
+    font-family: 'Involve', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.33em;
+}
+
+.mission-card-subtitle {
+    font-family: 'Involve', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.33em;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.mission-divider {
+    width: 100%;
+    max-width: 790px;
+    height: 1px;
+    background: #EDF4F4;
+    margin: 20px 0;
+}
+
+/* Декоративный фон */
+.community-bg-vector {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 1236px;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+main.community-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Адаптивность */
+@media (max-width: 1400px) {
+    .missions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    
+    .mission-card-1,
+    .mission-card-2,
+    .mission-card-3,
+    .mission-card-4 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+

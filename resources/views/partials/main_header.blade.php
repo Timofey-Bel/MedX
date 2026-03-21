@@ -3,7 +3,7 @@
         <div class="header-left">
             <div class="logo">
                 <a href="{{ url('/') }}">
-                    <img class="logo" alt="MedX" src="{{ asset('site/modules/medx/showcase/img/logo@2x.png') }}" style="width: 124px; height: 34px;" />
+                    <img class="logo" alt="MedX" src="{{ asset('images/branding/logo@2x.png') }}" style="width: 124px; height: 34px;" />
                 </a>
             </div>
         </div>
@@ -16,11 +16,12 @@
             </svg>
 
             <div class="search-box">
-                <input type="text" class="search-input" placeholder="Поиск">
+                <input type="text" id="searchInput" class="search-input" placeholder="Поиск">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="36" height="36" rx="18" fill="#74B5BC"/>
                     <path d="M22.5395 22.5404L25.6567 25.6577L27.2154 27.2164M17.344 24.6186C13.3268 24.6186 10.0703 21.3621 10.0703 17.345C10.0703 13.3278 13.3268 10.0713 17.344 10.0713C21.3611 10.0713 24.6176 13.3278 24.6176 17.345C24.6176 21.3621 21.3611 24.6186 17.344 24.6186Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
+            <div id="searchResults" class="search-results"></div>
         </div>
 </header>

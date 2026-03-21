@@ -12,27 +12,48 @@
 ### Страницы перенесены
 1. **Главная страница** (`/`) - showcase с полным дизайном
 2. **Страница входа** (`/login`) - форма авторизации
-3. **База знаний** (`/main_showcase`) - личный кабинет с интерактивными элементами
+3. **Регистрация** (`/register`) - форма регистрации
+4. **База знаний** (`/main_showcase`) - личный кабинет
+5. **Настройки** (`/main_settings`) - настройки профиля
+6. **Тесты** (`/main_tests`) - создание и управление тестами
+7. **Сообщество** (`/main_community`) - информация о сообществе
+8. **Профиль** (`/profile`) - личный кабинет пользователя
+9. **О нас** (`/about`) - информация о команде
+10. **FAQ** (`/faq`) - часто задаваемые вопросы
 
 ### Созданные файлы
 
-#### Views (8 файлов)
+#### Views (10 файлов)
 - `resources/views/layouts/app.blade.php`
 - `resources/views/showcase.blade.php`
 - `resources/views/login.blade.php`
+- `resources/views/register.blade.php`
 - `resources/views/main_showcase.blade.php`
+- `resources/views/main_settings.blade.php`
+- `resources/views/main_tests.blade.php`
+- `resources/views/main_community.blade.php`
+- `resources/views/profile.blade.php`
+- `resources/views/about.blade.php`
+- `resources/views/faq.blade.php`
 - `resources/views/partials/header.blade.php`
 - `resources/views/partials/footer.blade.php`
 - `resources/views/partials/main_header.blade.php`
 - `resources/views/partials/main_mobile_menu.blade.php`
 
-#### Controllers (3 файла)
+#### Controllers (10 файлов)
 - `app/Http/Controllers/ShowcaseController.php`
 - `app/Http/Controllers/LoginController.php`
+- `app/Http/Controllers/RegisterController.php`
 - `app/Http/Controllers/MainShowcaseController.php`
+- `app/Http/Controllers/MainSettingsController.php`
+- `app/Http/Controllers/MainTestsController.php`
+- `app/Http/Controllers/MainCommunityController.php`
+- `app/Http/Controllers/ProfileController.php`
+- `app/Http/Controllers/AboutController.php`
+- `app/Http/Controllers/FaqController.php`
 
 #### Routes
-- Обновлен `routes/web.php` с тремя маршрутами
+- Обновлен `routes/web.php` с 10 маршрутами
 
 #### Статические файлы
 - Скопированы `public/assets/` (CSS, JS, изображения)
@@ -52,9 +73,16 @@
 3. Откройте `http://medx` в браузере
 
 ### Доступные URL
-- `http://medx` → Главная страница
-- `http://medx/login` → Вход
-- `http://medx/main_showcase` → База знаний
+- `/` → Главная страница
+- `/login` → Вход
+- `/register` → Регистрация
+- `/main_showcase` → База знаний
+- `/main_settings` → Настройки
+- `/main_tests` → Тесты
+- `/main_community` → Сообщество
+- `/profile` → Профиль
+- `/about` → О нас
+- `/faq` → FAQ
 
 ## 📋 Что работает
 

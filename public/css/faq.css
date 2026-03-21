@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@600;700&display=swap');
+
+:root {
+    /* Цветовая палитра */
+    --light-blue: #74B5BC;     /* Самый светлый синий */
+    --primary-blue: #419AA4;   /* Средний синий */
+    --dark-blue: #007C89;      /* Самый темный синий */
+    --text-dark: #28282F;      /* Темный текст */
+    --white: #FFFFFF;          /* Белый */
+    --bg-light: #EDF4F4;       /* Светлый фон */
+    --footer-gradient-start: #007C89;
+    --footer-gradient-end: #014C55;
+
+    /* Тени */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    /* Радиусы */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+
+    /* Отступы */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 80px;
+}
+
+
+
+/* Основной контент с декоративным фоном */
+.page-header {
+    text-align: center;
+    margin: var(--space-lg) auto var(--space-xl) auto;
+    position: relative;
+    padding: var(--space-xl) 0;
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    max-width: 1280px;
+    height: 289px;
+}
+
+.page-header::before,
+.page-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/*!* Декоративные полосы на фоне *!*/
+/*.page-header::before {*/
+/*    background-image: url('/site/modules/medx/showcase/img/vector-25.png');*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: center;*/
+/*    background-size: contain;*/
+/*    z-index: 0;*/
+/*    opacity: 1;*/
+/*    left: -51px;*/
+/*    top: -26px;*/
+/*    width: 1390.66px;*/
+/*    height: 386.39px;*/
+/*}*/
+
+/*.page-header::after {*/
+/*    !*background:*!*/
+/*    !*        radial-gradient(circle at 10% 20%, rgba(116, 181, 188, 0.05) 0%, transparent 50%),*!*/
+/*    !*        radial-gradient(circle at 90% 80%, rgba(116, 181, 188, 0.05) 0%, transparent 50%),*!*/
+/*    !*        radial-gradient(circle at 50% 50%, rgba(116, 181, 188, 0.03) 0%, transparent 50%);*!*/
+/*}*/
+
+.page-title {
+    font-family: 'Onest', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.page-subtitle {
+    font-family: 'Onest', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+/* FAQ секции */
+.faq-section {
+    margin-bottom: var(--space-xl);
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
+}
+
+.accordion {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--light-blue);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+    background-color: rgba(237, 244, 244, 0.5);
+}
+
+.accordion-question {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    flex: 1;
+}
+
+.accordion-toggle {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+}
+
+.accordion-toggle::before,
+.accordion-toggle::after {
+    content: '';
+    position: absolute;
+    background-color: var(--light-blue);
+    transition: transform 0.3s;
+}
+
+.accordion-toggle::before {
+    width: 24px;
+    height: 2px;
+    top: 11px;
+    left: 0;
+}
+
+.accordion-toggle::after {
+    width: 2px;
+    height: 24px;
+    top: 0;
+    left: 11px;
+}
+
+.accordion-item.active .accordion-toggle::after {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    padding: 0 var(--space-lg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, padding 0.3s;
+}
+
+.accordion-item.active .accordion-content {
+    padding-bottom: var(--space-lg);
+    max-height: 500px;
+}
+
+.accordion-answer {
+    padding: var(--space-md) 0;
+    font-size: 18px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Блок с вопросами */
+.questions-block {
+    background: linear-gradient(180deg, var(--light-blue) 0%, var(--dark-blue) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg) var(--space-lg);
+    text-align: center;
+    margin: var(--space-xl) 0;
+    position: relative;
+    overflow: hidden;
+    height: 254px;
+}
+
+.questions-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    /*margin-bottom: var(--space-md);*/
+}
+
+.questions-description {
+    font-size: 18px;
+    color: var(--white);
+    max-width: 600px;
+    margin: 0 auto 28px;
+    line-height: 1.5;
+}
+
+.btn-support {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 12px 40px;
+    background-color: var(--bg-light);
+    border-radius: var(--radius-md);
+    color: var(--primary-blue);
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+}
+
+.btn-support:hover {
+    background-color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-support i {
+    font-size: 28px;
+}
+
+
+.vector-26 {
+    position: absolute;
+    width: 560px;
+    height: 334px;
+    left: 968px;
+    top: 0;
+    background-image: url('/site/modules/medx/showcase/img/vector-26.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.vector-27 {
+    position: absolute;
+    width: 560px;
+    height: 334px;
+    left: 0;
+    top: 0;
+    background-image: url('/site/modules/medx/showcase/img/vector-27.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Адаптивность */
+@media (max-width: 1345px) {
+    .page-header {
+        text-align: center;
+        margin: var(--space-lg) var(--space-md) var(--space-xl) var(--space-md);
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .page-title {
+        font-size: 48px;
+    }
+
+    .page-subtitle {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .accordion-question {
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .page-title {
+        font-size: 36px;
+    }
+
+    .page-subtitle {
+        font-size: 28px;
+    }
+
+    .page-header::before {
+        background-size: 50px 100%, 40px 100%, 30px 100%;
+    }
+
+    .questions-block::before,
+    .questions-block::after {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .page-subtitle {
+        font-size: 22px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .accordion-question {
+        font-size: 16px;
+    }
+
+    .questions-title {
+        font-size: 22px;
+    }
+
+    .questions-description {
+        font-size: 16px;
+    }
+
+    .btn-support {
+        padding: 10px 24px;
+        font-size: 16px;
+    }
+}

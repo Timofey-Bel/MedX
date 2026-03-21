@@ -3,9 +3,9 @@
 @section('title', 'MedX учись практикуй расти')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('site/modules/medx/showcase/style_fixed.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/medx/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/medx/css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style_fixed.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
     <section class="mainblock">
         <div class="mainblock-bg"></div>
         <div class="textmain">
-            <img class="logo-2" src="{{ asset('site/modules/medx/showcase/img/logo-2@3x.png') }}"/>
+            <img class="logo-2" src="{{ asset('images/branding/logo-2@3x.png') }}"/>
             <p class="h">ИНТЕРАКТИВНАЯ ОБРАЗОВАТЕЛЬНАЯ ПЛАТФОРМА ДЛЯ МЕДИКОВ</p>
             <p class="h-2">Знания, практика и сообщество <br/>для студентов в один клик</p>
         </div>
@@ -25,15 +25,15 @@
     <section class="conveyor-container">
         <div class="conveyor-bar">
             <p class="element">РЕГИСТРИРУЙСЯ СЕЙЧАС И ПОЛУЧИ ДОСТУП КО ВСЕМ МАТЕРИАЛАМ БЕСПЛАТНО НА 3 ДНЯ</p>
-            <img class="vector-8" src="{{ asset('site/modules/medx/showcase/img/vector-11.png') }}"/>
+            <img class="vector-8" src="{{ asset('images/ui/vector-11.png') }}"/>
             <p class="element">РЕГИСТРИРУЙСЯ СЕЙЧАС И ПОЛУЧИ ДОСТУП КО ВСЕМ МАТЕРИАЛАМ БЕСПЛАТНО НА 3 ДНЯ</p>
-            <img class="vector-8" src="{{ asset('site/modules/medx/showcase/img/vector-11.png') }}"/>
+            <img class="vector-8" src="{{ asset('images/ui/vector-11.png') }}"/>
 
             <!-- Дублируем контент для бесшовной анимации -->
             <p class="element">РЕГИСТРИРУЙСЯ СЕЙЧАС И ПОЛУЧИ ДОСТУП КО ВСЕМ МАТЕРИАЛАМ БЕСПЛАТНО НА 3 ДНЯ</p>
-            <img class="vector-8" src="{{ asset('site/modules/medx/showcase/img/vector-11.png') }}"/>
+            <img class="vector-8" src="{{ asset('images/ui/vector-11.png') }}"/>
             <p class="element">РЕГИСТРИРУЙСЯ СЕЙЧАС И ПОЛУЧИ ДОСТУП КО ВСЕМ МАТЕРИАЛАМ БЕСПЛАТНО НА 3 ДНЯ</p>
-            <img class="vector-8" src="{{ asset('site/modules/medx/showcase/img/vector-11.png') }}"/>
+            <img class="vector-8" src="{{ asset('images/ui/vector-11.png') }}"/>
         </div>
     </section>
     <section class="block-about-us">
@@ -92,62 +92,62 @@
             <div class="btns">
                 <div class="frame-21">
                     <div class="view-4">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/ecg-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/ecg-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Патологическая физиология</div>
                     </div>
                     <div class="view-4">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/pill-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/pill-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Фармакология</div>
                     </div>
                     <div class="view-4">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/amoeba-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/amoeba-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Медицинская биология</div>
                     </div>
                 </div>
                 <div class="frame-22">
                     <div class="view-4">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/dna-2@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/dna-2@2x.png') }}"/>
                         <div class="text-wrapper-25">Медицинская генетика</div>
                     </div>
                     <div class="view-4">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/ultrasound-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/ultrasound-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Медицинская физика</div>
                     </div>
                 </div>
                 <div class="view-5">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/muscle-cell-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/muscle-cell-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Гистология</div>
                 </div>
                 <div class="view-6">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/embryo-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/embryo-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Эмбриология</div>
                 </div>
                 <div class="view-7">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/follicle-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/follicle-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Цитология</div>
                 </div>
                 <div class="view-8">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/red-blood-cells-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/red-blood-cells-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Физиология</div>
                 </div>
                 <div class="view-9">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/biochemistry@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/biochemistry@2x.png') }}"/>
                     <div class="text-wrapper-25">Биохимия</div>
                 </div>
                 <div class="view-10">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/microbiology-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/microbiology-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Микробиология</div>
                 </div>
                 <div class="view-11">
-                    <img class="cell" src="{{ asset('site/modules/medx/showcase/img/cell-1@2x.png') }}"/>
+                    <img class="cell" src="{{ asset('images/medical/cell-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Иммунология</div>
                 </div>
                 <div class="view-12">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/biopsy-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/biopsy-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Патологическая анатомия</div>
                 </div>
                 <div class="view-13">
-                    <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/human-organs-1@2x.png') }}"/>
+                    <img class="img-2" src="{{ asset('images/medical/human-organs-1@2x.png') }}"/>
                     <div class="text-wrapper-25">Анатомия</div>
                 </div>
             </div>
@@ -157,107 +157,107 @@
             <div class="btns-2">
                 <div class="frame-23">
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/heart-3-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/heart-3-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Кардиология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/lungs-2@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/lungs-2@2x.png') }}"/>
                         <div class="text-wrapper-25">Пульмонология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/stomach-2@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/stomach-2@2x.png') }}"/>
                         <div class="text-wrapper-25">Гастроэнтерология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/thyroid-2@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/thyroid-2@2x.png') }}"/>
                         <div class="text-wrapper-25">Эндокринология</div>
                     </div>
                 </div>
                 <div class="frame-24">
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/kidneys@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/kidneys@2x.png') }}"/>
                         <div class="text-wrapper-25">Нефрология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/blood-vessel-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/blood-vessel-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Гематология</div>
                     </div>
                     <div class="view-15">
-                        <img class="joint" src="{{ asset('site/modules/medx/showcase/img/joint-1@2x.png') }}"/>
+                        <img class="joint" src="{{ asset('images/medical/joint-1@2x.png') }}"/>
                         <div class="text-wrapper-27">Ревматология</div>
                     </div>
                     <div class="view-16">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/bacterias-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/bacterias-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Инфекционные болезни</div>
                     </div>
                 </div>
                 <div class="frame-25">
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/surgery-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/surgery-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Общая хирургия</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/eye@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/eye@2x.png') }}"/>
                         <div class="text-wrapper-25">Офтальмология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/ear-6326320@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/ear-6326320@2x.png') }}"/>
                         <div class="text-wrapper-25">Оториноларингология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/bladder-2@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/bladder-2@2x.png') }}"/>
                         <div class="text-wrapper-25">Урология</div>
                     </div>
                 </div>
                 <div class="frame-26">
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/surgery-2@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/surgery-2@2x.png') }}"/>
                         <div class="text-wrapper-25">Сердечно-сосудистая хирургия</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/neurosurgery-2-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/neurosurgery-2-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Нейрохирургия</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/uterus@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/uterus@2x.png') }}"/>
                         <div class="text-wrapper-25">Акушерство и гинекология</div>
                     </div>
                 </div>
                 <div class="frame-27">
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/electrocardiogram-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/electrocardiogram-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Анестезиология и реаниматология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/spine-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/spine-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Травматология и ортопедия</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/cancer-cell-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/cancer-cell-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Онкология</div>
                     </div>
                 </div>
                 <div class="frame-28">
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/rib-cage-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/rib-cage-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Торакальная хирургия</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/hair@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/hair@2x.png') }}"/>
                         <div class="text-wrapper-25">Дерматовенерология</div>
                     </div>
                     <div class="view-14">
-                        <img class="img-2" src="{{ asset('site/modules/medx/showcase/img/baby-1@2x.png') }}"/>
+                        <img class="img-2" src="{{ asset('images/medical/baby-1@2x.png') }}"/>
                         <div class="text-wrapper-25">Педиатрия</div>
                     </div>
                 </div>
                 <div class="frame-29">
                     <div class="view-17">
-                        <img class="img-3" src="{{ asset('site/modules/medx/showcase/img/neuron-1@2x.png') }}"/>
+                        <img class="img-3" src="{{ asset('images/medical/neuron-1@2x.png') }}"/>
                         <div class="text-wrapper-28">Неврология</div>
                     </div>
                     <div class="view-17">
-                        <img class="img-3" src="{{ asset('site/modules/medx/showcase/img/psychologist-1@2x.png') }}"/>
+                        <img class="img-3" src="{{ asset('images/medical/psychologist-1@2x.png') }}"/>
                         <div class="text-wrapper-28">Психиатрия</div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
     </section>
     <section class="block">
         <div class="card">
-            <img class="vector-5" src="{{ asset('site/modules/medx/showcase/img/vector-17.png') }}"/>
+            <img class="vector-5" src="{{ asset('images/ui/vector-17.png') }}"/>
             <div class="text-card">
                 <div class="text-wrapper">БУДУЩЕЕ ВРАЧА НАЧИНАЕТСЯ ЗДЕСЬ</div>
                 <p class="div">
@@ -282,7 +282,7 @@
         </div>
         <div class="card-2">
             <div class="background-card"></div>
-            <img class="vector-6" src="{{ asset('site/modules/medx/showcase/img/vector-18@4x.png') }}"/>
+            <img class="vector-6" src="{{ asset('images/ui/vector-18@4x.png') }}"/>
             <div class="video-card-2"></div>
             <div class="text-card-2">
                 <div class="text-wrapper-3">ТРЕНИРОВКА ЗНАНИЙ КАЖДЫЙ ДЕНЬ</div>
@@ -297,7 +297,7 @@
             </div>
         </div>
         <div class="card-3">
-            <img class="vector-7" src="{{ asset('site/modules/medx/showcase/img/vector-19.png') }}"/>
+            <img class="vector-7" src="{{ asset('images/ui/vector-19.png') }}"/>
             <div class="video-card"></div>
             <div class="text-card-3">
                 <p class="text-wrapper-5">СООБЩЕСТВО МЕДИКОВ, КОТОРОЕ ВСЕГДА С ТОБОЙ</p>
@@ -392,7 +392,7 @@
     </section>
     <section class="under">
         <p class="med-x">MEDX ВСЕГДА С СОБОЙ.<br/>УЧИСЬ НА ЛЮБОМ УСТРОЙСТВЕ.</p>
-        <img class="free-mobile-friendly" src="{{ asset('site/modules/medx/showcase/img/devices.png') }}"/>
+        <img class="free-mobile-friendly" src="{{ asset('images/ui/devices.png') }}"/>
     </section>
 </main>
 @include('partials.footer')

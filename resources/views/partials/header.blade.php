@@ -3,7 +3,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="{{ url('/') }}">
-                <img class="logo" alt="MedX" src="{{ asset('site/modules/medx/showcase/img/logo@2x.png') }}" style="width: 124px; height: 34px;" />
+                <img class="logo" alt="MedX" src="{{ asset('images/branding/logo@2x.png') }}" style="width: 124px; height: 34px;" />
                 </a>
             </div>
 

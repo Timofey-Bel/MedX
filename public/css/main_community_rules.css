@@ -1,0 +1,107 @@
+
+.rules-section,
+.forbidden-section {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+}
+.section-title.forbidden {
+    color: red !important; 
+}
+
+
+.join-block {
+    background: linear-gradient(180deg, #EDF4F4 0%, #419AA4 100%);
+    border-radius: 30px;
+    padding: 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 198px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.join-title {
+    font-size: 24px;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.join-description {
+    font-size: 20px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    max-width: 914px;
+    margin: 0 auto 28px;
+    line-height: 1.275;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-join {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 40px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-join:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-join i {
+    font-size: 28px;
+}
+
+.vector-26 {
+    position: absolute;
+    width: 420px;
+    height: 250px;
+    right: 0;
+    top: -26px;
+    background-image: url('/images/community-rules/vector-26.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.vector-27 {
+    position: absolute;
+    width: 430px;
+    height: 256px;
+    left: 0;
+    top: -37px;
+    background-image: url('/images/community-rules/vector-27.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+    pointer-events: none;
+}
