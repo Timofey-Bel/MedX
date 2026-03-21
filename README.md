@@ -34,18 +34,29 @@ php artisan serve
 
 ## 🌐 Доступные страницы
 
+### Публичные страницы
 | URL | Описание | Контроллер |
 |-----|----------|------------|
 | `/` | Главная страница (showcase) | ShowcaseController |
 | `/login` | Страница входа | LoginController |
 | `/register` | Регистрация | RegisterController |
-| `/main_showcase` | База знаний (личный кабинет) | MainShowcaseController |
-| `/main_settings` | Настройки профиля | MainSettingsController |
-| `/main_tests` | Тесты и задания | MainTestsController |
-| `/main_community` | Сообщество | MainCommunityController |
-| `/profile` | Профиль пользователя | ProfileController |
 | `/about` | О нас | AboutController |
 | `/faq` | Часто задаваемые вопросы | FaqController |
+
+### Личный кабинет (main_*)
+| URL | Описание | Контроллер |
+|-----|----------|------------|
+| `/main_showcase` | Главная (личный кабинет) | MainShowcaseController |
+| `/main_settings` | Настройки профиля | MainSettingsController |
+| `/design_settings` | Оформление (темы) | DesignSettingsController |
+| `/support_settings` | Поддержка и FAQ | SupportSettingsController |
+| `/main_tests` | Тесты и задания | MainTestsController |
+| `/main_community` | Сообщество | MainCommunityController |
+| `/main_community_rules` | Правила сообщества | MainCommunityRulesController |
+| `/main_confidentiality` | Конфиденциальность | MainConfidentialityController |
+| `/main_base` | База знаний (фундаментальные дисциплины) | MainBaseController |
+| `/main_base_clinical` | База знаний (клинические дисциплины) | MainBaseClinicalController |
+| `/profile` | Профиль пользователя | ProfileController |
 
 ## 📚 Документация
 
@@ -70,19 +81,63 @@ php artisan serve
 ```
 MedX/
 ├── app/
-│   └── Http/Controllers/     # Контроллеры
-├── resources/views/          # Blade шаблоны
-│   ├── layouts/             # Layouts
-│   ├── partials/            # Переиспользуемые части
-│   ├── showcase.blade.php   # Главная страница
-│   ├── login.blade.php      # Страница входа
-│   └── main_showcase.blade.php  # База знаний
+│   ├── Helpers/
+│   │   └── ImageHelper.php      # Хелпер для изображений
+│   └── Http/Controllers/        # Контроллеры
+│       ├── ShowcaseController.php
+│       ├── LoginController.php
+│       ├── MainShowcaseController.php
+│       ├── MainSettingsController.php
+│       ├── DesignSettingsController.php
+│       ├── SupportSettingsController.php
+│       ├── MainTestsController.php
+│       ├── MainCommunityController.php
+│       ├── MainCommunityRulesController.php
+│       ├── MainConfidentialityController.php
+│       ├── MainBaseController.php
+│       └── MainBaseClinicalController.php
+├── resources/views/
+│   ├── layouts/
+│   │   └── app.blade.php        # Основной layout
+│   ├── partials/
+│   │   ├── main_header.blade.php
+│   │   └── main_mobile_menu.blade.php
+│   ├── components/
+│   │   └── img.blade.php        # Компонент изображений
+│   ├── showcase.blade.php
+│   ├── login.blade.php
+│   ├── main_showcase.blade.php
+│   ├── main_settings.blade.php
+│   ├── design_settings.blade.php
+│   ├── support_settings.blade.php
+│   ├── main_tests.blade.php
+│   ├── main_community.blade.php
+│   ├── main_community_rules.blade.php
+│   ├── main_confidentiality.blade.php
+│   ├── main_base.blade.php
+│   └── main_base_clinical.blade.php
 ├── public/
-│   ├── assets/              # CSS, JS, изображения
-│   ├── js/                  # JavaScript библиотеки
-│   └── site/                # Модули и изображения
-├── docs/                    # 📚 Документация
-└── routes/web.php           # Маршруты
+│   ├── css/
+│   │   ├── main_styles.css      # Общие стили
+│   │   ├── main_header.css
+│   │   ├── main_settings.css
+│   │   ├── main_tests.css
+│   │   ├── main_base.css
+│   │   └── ...
+│   ├── assets/medx/
+│   │   └── main_script.js       # Основной JavaScript
+│   ├── images/
+│   │   ├── base/                # Изображения базы знаний
+│   │   ├── medical/             # Медицинские иконки
+│   │   ├── community/
+│   │   └── ...
+│   └── js/                      # JavaScript библиотеки
+├── docs/                        # 📚 Документация
+│   ├── DOCS_INDEX.md
+│   ├── QUICK_START.md
+│   ├── IMAGES_GUIDE.md          # Руководство по изображениям
+│   └── ...
+└── routes/web.php               # Маршруты
 ```
 
 ## 🛠️ Разработка
@@ -143,28 +198,35 @@ chmod -R 775 storage bootstrap/cache
 
 ## 📦 Что включено
 
-✅ 10 полностью функциональных страниц  
+✅ 16 полностью функциональных страниц  
 ✅ Главная страница с полным дизайном  
 ✅ Страницы входа и регистрации  
-✅ База знаний (личный кабинет)  
-✅ Настройки профиля  
-✅ Тесты и задания  
-✅ Сообщество  
+✅ Личный кабинет (main_showcase)  
+✅ Настройки профиля с подразделами  
+✅ Оформление (выбор темы)  
+✅ Поддержка с FAQ  
+✅ Тесты и задания с аккордеонами  
+✅ Сообщество с правилами  
+✅ База знаний (2 раздела: фундаментальные и клинические дисциплины)  
+✅ Страница конфиденциальности  
 ✅ FAQ с аккордеоном  
 ✅ О нас (команда)  
 ✅ Профиль пользователя  
 ✅ Адаптивный дизайн  
-✅ Мобильное меню  
+✅ Мобильное меню с анимацией  
+✅ Поиск по страницам в header  
 ✅ Все CSS стили и анимации  
 ✅ JavaScript функционал  
 ✅ Изображения и иконки  
+✅ Медицинские иконки для дисциплин  
 
 ## 🚀 Следующие шаги
 
 - [ ] Добавить аутентификацию Laravel
 - [ ] Подключить базу данных
 - [ ] Создать API для динамического контента
-- [ ] Добавить остальные страницы (register, faq, about)
+- [ ] Добавить функционал тестов
+- [ ] Реализовать систему сообщества
 - [ ] Настроить HTTPS
 
 ## 📞 Поддержка
@@ -180,9 +242,10 @@ MIT License
 
 ---
 
-**Версия:** 1.0.0  
+**Версия:** 2.0.0  
 **PHP:** 8.5+  
 **Laravel:** 12.x  
-**Статус:** ✅ Готов к работе
+**Статус:** ✅ Готов к работе  
+**Страниц:** 16
 
 **Документация:** [docs/](docs/) | **Быстрый старт:** [docs/QUICK_START.md](docs/QUICK_START.md)
