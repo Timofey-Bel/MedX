@@ -33,20 +33,32 @@
         <div class="topics">
             <div class="topic">
                 <img class="light" alt="light_topic" src="{{ asset('images/icons/settings/light_topic.png') }}">
-                <div class="check_down">
-                    <input type="checkbox">светлая
+                <div class="topic-remember">
+                    <input type="checkbox" id="light-topic" name="light-topic" value="1" class="topic-remember-checkbox">
+                    <label for="light-topic" class="topic-remember-label">
+                        <span class="check-topic-box"></span>
+                        <span class="topic-remember-text">Светлая</span>
+                    </label>
                 </div>
             </div>
             <div class="topic">
                 <img class="dark" alt="dark_topic" src="{{ asset('images/icons/settings/dark_topic.png') }}">
-                <div class="check_down">
-                    <input type="checkbox">тёмная
+                <div class="topic-remember">
+                    <input type="checkbox" id="dark-topic" name="dark-topic" value="1" class="topic-remember-checkbox">
+                    <label for="dark-topic" class="topic-remember-label">
+                        <span class="check-topic-box"></span>
+                        <span class="topic-remember-text">Тёмная</span>
+                    </label>
                 </div>
             </div>
             <div class="topic">
                 <img class="auto" alt="auto_topic" src="{{ asset('images/icons/settings/auto_topic.png') }}">
-                <div class="check_down">
-                    <input type="checkbox">автоматическая
+                <div class="topic-remember">
+                    <input type="checkbox" id="auto-topic" name="auto-topic" value="1" class="topic-remember-checkbox">
+                    <label for="auto-topic" class="topic-remember-label">
+                        <span class="check-topic-box"></span>
+                        <span class="topic-remember-text">Авто</span>
+                    </label>
                 </div>
             </div>
         </div>
