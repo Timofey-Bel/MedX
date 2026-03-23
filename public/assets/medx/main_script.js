@@ -188,3 +188,57 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+// Кастомный выпадающий список для часовых поясов
+document.addEventListener('DOMContentLoaded', function() {
+    const customSelect = document.getElementById('customTimeZone');
+    if (!customSelect) return;
+    
+    const trigger = customSelect.querySelector('.custom-select-trigger');
+    const options = customSelect.querySelectorAll('.custom-option');
+    const hiddenInput = document.getElementById('time-zone');
+    
+    // Открытие/закрытие списка
+    trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        customSelect.classList.toggle('open');
+    });
+    
+    // Выбор опции
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            const text = this.textContent;
+            
+            // Обновляем текст в trigger
+            trigger.querySelector('span').textContent = text;
+            
+            // Обновляем скрытое поле
+            hiddenInput.value = value;
+            
+            // Убираем selected со всех опций
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Добавляем selected к выбранной опции
+            this.classList.add('selected');
+            
+            // Закрываем список
+            customSelect.classList.remove('open');
+        });
+    });
+    
+    // Закрытие при клике вне списка
+    document.addEventListener('click', function(e) {
+        if (!customSelect.contains(e.target)) {
+            customSelect.classList.remove('open');
+        }
+    });
+    
+    // Закрытие по ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && customSelect.classList.contains('open')) {
+            customSelect.classList.remove('open');
+        }
+    });
+});

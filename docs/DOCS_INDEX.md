@@ -41,6 +41,13 @@
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Руководство по документации | 5 мин |
 | [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | Структура проекта | 10 мин |
 
+### 🔒 Безопасность и публикация
+| Файл | Описание | Время чтения |
+|------|----------|--------------|
+| [SECURITY.md](SECURITY.md) | Настройка конфиденциальных данных | 5 мин |
+| [PUBLISHING_CHECKLIST.md](PUBLISHING_CHECKLIST.md) | Чеклист публикации на GitHub | 7 мин |
+| [PUBLISH_READY.md](PUBLISH_READY.md) | Сводка готовности к публикации | 3 мин |
+
 ---
 
 ## 🎓 Рекомендуемый порядок чтения
@@ -54,6 +61,11 @@
 1. [SUMMARY.md](SUMMARY.md) - Обзор проекта
 2. [MIGRATION_README.md](MIGRATION_README.md) - Архитектура
 3. [README_PHP85.md](README_PHP85.md) - Детали реализации
+
+### Перед публикацией на GitHub
+1. [SECURITY.md](SECURITY.md) - Проверка безопасности
+2. [PUBLISH_READY.md](PUBLISH_READY.md) - Сводка изменений
+3. [PUBLISHING_CHECKLIST.md](PUBLISHING_CHECKLIST.md) - Пошаговая публикация
 
 ### При проблемах с PHP
 1. [PHP_8.5_UPGRADE.md](PHP_8.5_UPGRADE.md) - Обновление PHP
@@ -74,6 +86,11 @@
 - Миграция из legacy → [MIGRATION_README.md](MIGRATION_README.md)
 - История изменений → [CHANGELOG_PHP85.md](CHANGELOG_PHP85.md)
 
+### Безопасность и публикация
+- Настройка секретов → [SECURITY.md](SECURITY.md)
+- Публикация на GitHub → [PUBLISHING_CHECKLIST.md](PUBLISHING_CHECKLIST.md)
+- Проверка готовности → [PUBLISH_READY.md](PUBLISH_READY.md)
+
 ### Решение проблем
 - Проблемы с PHP → [PHP_8.5_UPGRADE.md](PHP_8.5_UPGRADE.md) (раздел "Возможные проблемы")
 - Проблемы с OSPanel → [OSPANEL_SETUP.md](OSPANEL_SETUP.md) (раздел "Возможные проблемы")
@@ -83,9 +100,9 @@
 
 ## 📊 Статистика документации
 
-- **Всего файлов:** 11
-- **Общий объем:** ~70 страниц
-- **Время на изучение:** ~65 минут
+- **Всего файлов:** 14
+- **Общий объем:** ~85 страниц
+- **Время на изучение:** ~80 минут
 - **Уровень сложности:** ⭐⭐☆☆☆
 
 ---
@@ -104,9 +121,11 @@
 - 📘 [Полное руководство](README_PHP85.md)
 - ⚙️ [Настройка OSPanel](OSPANEL_SETUP.md)
 - 🔧 [Обновление PHP](PHP_8.5_UPGRADE.md)
+- 🔒 [Безопасность](SECURITY.md)
+- 📤 [Публикация на GitHub](PUBLISHING_CHECKLIST.md)
 
 ---
 
-**Последнее обновление:** 18 марта 2024  
-**Версия документации:** 1.0.0  
+**Последнее обновление:** 21 марта 2026  
+**Версия документации:** 2.0.0  
 **Требуемая версия PHP:** 8.5+

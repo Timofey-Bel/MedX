@@ -110,7 +110,9 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    height: 254px;
+    height: 198px;
+    padding: 28px;
+    
 }
 
 .questions-title {
@@ -142,6 +144,8 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
     transition: all 0.2s;
+    height: 52px;
+    width: 313px;
 }
 
 .btn-support:hover {
@@ -176,4 +180,8 @@
     background-repeat: no-repeat;
     z-index: 0;
     pointer-events: none;
+}
+
+h2 a {
+    color: #419aa4;
 }

@@ -115,7 +115,7 @@ git push -u origin main
 
 Ваш проект полностью готов к публикации на GitHub!
 
-Следуйте инструкциям в [.github/PUBLISHING_CHECKLIST.md](.github/PUBLISHING_CHECKLIST.md) для публикации.
+Следуйте инструкциям в [PUBLISHING_CHECKLIST.md](PUBLISHING_CHECKLIST.md) для публикации.
 
 ---
 

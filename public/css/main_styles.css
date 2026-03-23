@@ -1363,3 +1363,18 @@ section {
         min-height: 198px;
     }
 }
+
+
+.showcase-bg-vector {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 1236px;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    /* opacity: 0.5; */
+    top: -50px;
+}

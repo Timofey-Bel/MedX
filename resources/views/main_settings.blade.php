@@ -21,9 +21,9 @@
             <a class="active" href="{{ url('/main_settings') }}">МОЙ ПРОФИЛЬ</a>
             <a href="{{ url('/design_settings') }}">ОФОРМЛЕНИЕ</a>
             <a href="{{ url('/support_settings') }}">ПОДДЕРЖКА</a>
-            <a href="#">Q&A</a>
+            <!-- <a href="#">Q&A</a>
             <a href="#">О НАС</a>
-            <a href="#">КОНТАКТЫ</a>
+            <a href="#">КОНТАКТЫ</a> -->
         </nav>
     </section>
 
@@ -72,7 +72,34 @@
             </div>
             <div class="form-section">
                 <label for="time-zone">Часовой пояс</label>
-                <input id="time-zone" placeholder="Часовой пояс">
+                <select id="time-zone" name="time-zone">
+                    <option value="" disabled selected>Выберите часовой пояс</option>
+                    <option value="GMT-12">GMT-12 (Линия перемены дат)</option>
+                    <option value="GMT-11">GMT-11 (Самоа)</option>
+                    <option value="GMT-10">GMT-10 (Гавайи)</option>
+                    <option value="GMT-9">GMT-9 (Аляска)</option>
+                    <option value="GMT-8">GMT-8 (Лос-Анджелес)</option>
+                    <option value="GMT-7">GMT-7 (Денвер)</option>
+                    <option value="GMT-6">GMT-6 (Чикаго)</option>
+                    <option value="GMT-5">GMT-5 (Нью-Йорк)</option>
+                    <option value="GMT-4">GMT-4 (Каракас)</option>
+                    <option value="GMT-3">GMT-3 (Буэнос-Айрес)</option>
+                    <option value="GMT-2">GMT-2 (Среднеатлантическое время)</option>
+                    <option value="GMT-1">GMT-1 (Азорские острова)</option>
+                    <option value="GMT+0">GMT+0 (Лондон)</option>
+                    <option value="GMT+1">GMT+1 (Берлин, Париж)</option>
+                    <option value="GMT+2">GMT+2 (Киев, Афины)</option>
+                    <option value="GMT+3">GMT+3 (Москва)</option>
+                    <option value="GMT+4">GMT+4 (Самара, Баку)</option>
+                    <option value="GMT+5">GMT+5 (Екатеринбург)</option>
+                    <option value="GMT+6">GMT+6 (Омск, Алматы)</option>
+                    <option value="GMT+7">GMT+7 (Новосибирск, Бангкок)</option>
+                    <option value="GMT+8">GMT+8 (Иркутск, Пекин)</option>
+                    <option value="GMT+9">GMT+9 (Якутск, Токио)</option>
+                    <option value="GMT+10">GMT+10 (Владивосток, Сидней)</option>
+                    <option value="GMT+11">GMT+11 (Магадан)</option>
+                    <option value="GMT+12">GMT+12 (Камчатка, Окленд)</option>
+                </select>
             </div>
         </div>
         <div class="button-group">

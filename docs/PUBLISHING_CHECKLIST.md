@@ -123,7 +123,7 @@ git secrets --scan
 - ❌ НИКОГДА не коммитьте пароли или API ключи
 - ✅ ВСЕГДА проверяйте `git status` перед commit
 - ✅ ВСЕГДА проверяйте `git diff` перед push
-- ✅ Читайте [SECURITY.md](../../SECURITY.md) перед развертыванием
+- ✅ Читайте [SECURITY.md](SECURITY.md) перед развертыванием
 
 ## 🎉 Готово!
 

@@ -50,6 +50,7 @@
 
 
 <main class="showcase">
+        <img src="https://medx/images/ui/Vector-96.png" alt="" class="showcase-bg-vector">
     <!-- Приветствие -->
     <section class="greeting-section">
         <div class="weather-icon">
