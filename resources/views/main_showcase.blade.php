@@ -108,38 +108,13 @@
         <div class="daily-card">
             <div class="calendar">
                 <div class="calendar-nav">
-                    <div class="nav-arrow prev"></div>
-                    <div class="days-container">
-                        <div class="day active">
-                            <div class="day-dot"></div>
-                            <span>29.11</span>
-                        </div>
-                        <div class="day active">
-                            <div class="day-dot"></div>
-                            <span>30.11</span>
-                        </div>
-                        <div class="day missed">
-                            <div class="day-dot"></div>
-                            <span>01.12</span>
-                        </div>
-                        <div class="day active">
-                            <div class="day-dot"></div>
-                            <span>02.12</span>
-                        </div>
-                        <div class="day missed">
-                            <div class="day-dot"></div>
-                            <span>03.12</span>
-                        </div>
-                        <div class="day missed">
-                            <div class="day-dot"></div>
-                            <span>04.12</span>
-                        </div>
-                        <div class="day active">
-                            <div class="day-dot"></div>
-                            <span>05.12</span>
+                    <div class="nav-arrow prev swiper-button-prev-daily"></div>
+                    <div class="swiper daily-swiper">
+                        <div class="swiper-wrapper days-container">
+                            <!-- Дни генерируются динамически через JS -->
                         </div>
                     </div>
-                    <div class="nav-arrow next"></div>
+                    <div class="nav-arrow next swiper-button-next-daily"></div>
                 </div>
             </div>
         </div>
@@ -210,17 +185,28 @@
                 <div class="arrow-icon"></div>
             </a>
         </div>
-        <div class="news-card">
-            <div class="news-image"></div>
-            <div class="news-date">27.09.2025</div>
-            <h3 class="news-title">Команда MedX посетила детский дом</h3>
-            <div class="news-pagination">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+        <div class="swiper news-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="news-card">
+                        <div class="news-item">
+                            <div class="news-image"></div>
+                            <div class="news-date">27.09.2025</div>
+                            <h3 class="news-title">Команда MedX посетила детский дом</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="news-card">
+                        <div class="news-item">
+                            <div class="news-image" style="background-image: url('/assets/medx/img/main/showcase/news-bg.png');"></div>
+                            <div class="news-date">15.09.2025</div>
+                            <h3 class="news-title">Новое обновление платформы MedX</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="swiper-pagination news-pagination"></div>
         </div>
     </section>
 
@@ -229,7 +215,8 @@
 
 @section('scripts')
 <script src="{{ asset('assets/medx/main_script.js') }}"></script>
-<script src="{{ asset('js/pomodoro-debug.js') }}"></script>
+<script src="{{ asset('js/pomodoro-timer.js') }}"></script>
+<script src="{{ asset('js/daily-calendar.js') }}"></script>
 <script>
     // Переключение между таймером и информацией
     document.addEventListener('DOMContentLoaded', function () {
@@ -242,15 +229,25 @@
         
         if (pomodoroHelp && timerBackground && timerBackgroundInfo) {
             pomodoroHelp.addEventListener('click', function() {
-                // Переключаем классы
                 pomodoroHelp.classList.toggle('active');
                 timerBackground.classList.toggle('hidden');
                 timerBackgroundInfo.classList.toggle('active');
                 
-                // Скрываем/показываем элементы таймера
                 if (timerLabel) timerLabel.classList.toggle('hidden');
                 if (timerDisplay) timerDisplay.classList.toggle('hidden');
                 if (timerControls) timerControls.classList.toggle('hidden');
+            });
+        }
+        
+        // Инициализация Swiper для новостей (только на мобильных)
+        if (window.innerWidth <= 768) {
+            const newsSwiper = new Swiper('.news-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 16,
+                pagination: {
+                    el: '.news-pagination',
+                    clickable: true,
+                },
             });
         }
     });

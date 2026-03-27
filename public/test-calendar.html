@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест календаря</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/main_styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #EDF4F4;
+            font-family: 'Onest', sans-serif;
+        }
+        .test-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #419AA4;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Тест календаря ежедневных входов</h1>
+        
+        <section class="daily-section">
+            <div class="section-header">
+                <h2>Ежедневный вход</h2>
+                <a href="#" class="view-all">
+                    <div class="arrow-icon"></div>
+                </a>
+            </div>
+            <div class="daily-card">
+                <div class="calendar">
+                    <div class="calendar-nav">
+                        <div class="nav-arrow prev swiper-button-prev-daily"></div>
+                        <div class="swiper daily-swiper">
+                            <div class="swiper-wrapper days-container">
+                                <!-- Дни генерируются динамически через JS -->
+                            </div>
+                        </div>
+                        <div class="nav-arrow next swiper-button-next-daily"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 12px;">
+            <h3 style="margin-top: 0;">Инструкция:</h3>
+            <ul>
+                <li>Текущий день отмечен синей точкой внизу</li>
+                <li>Посещенные дни имеют галочку ✓</li>
+                <li>Пропущенные дни имеют крестик ✗ (только после первого входа)</li>
+                <li>Используйте стрелки для навигации</li>
+            </ul>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #EDF4F4; border-radius: 8px;">
+                <strong>Дата первого входа:</strong> <span id="firstVisitDisplay">-</span>
+            </div>
+            
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button onclick="clearData()" style="padding: 10px 20px; background: #419AA4; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    Очистить данные
+                </button>
+                <button onclick="setFirstVisitWeekAgo()" style="padding: 10px 20px; background: #007C89; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    Установить первый вход неделю назад
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/daily-calendar.js"></script>
+    <script>
+        function clearData() {
+            localStorage.removeItem('medx_visited_days');
+            localStorage.removeItem('medx_first_visit_date');
+            location.reload();
+        }
+        
+        function setFirstVisitWeekAgo() {
+            const weekAgo = new Date();
+            weekAgo.setDate(weekAgo.getDate() - 7);
+            weekAgo.setHours(0, 0, 0, 0);
+            localStorage.setItem('medx_first_visit_date', weekAgo.toISOString());
+            location.reload();
+        }
+        
+        function displayFirstVisit() {
+            const firstVisit = localStorage.getItem('medx_first_visit_date');
+            if (firstVisit) {
+                const date = new Date(firstVisit);
+                const formatted = date.toLocaleDateString('ru-RU', { 
+                    day: '2-digit', 
+                    month: '2-digit', 
+                    year: 'numeric' 
+                });
+                document.getElementById('firstVisitDisplay').textContent = formatted;
+            } else {
+                document.getElementById('firstVisitDisplay').textContent = 'Сегодня (первый вход)';
+            }
+        }
+        
+        // Отображаем дату первого входа после загрузки
+        setTimeout(displayFirstVisit, 100);
+        
+        console.log('Посещенные дни:', localStorage.getItem('medx_visited_days'));
+        console.log('Первый вход:', localStorage.getItem('medx_first_visit_date'));
+    </script>
+</body>
+</html>

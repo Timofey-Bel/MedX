@@ -152,20 +152,13 @@ header::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    /*background: rgba(0, 0, 0, 0); !* Прозрачный по умолчанию *!*/
-    /*backdrop-filter: blur(0px);*/
     z-index: 0;
-    /*opacity: 0;*/
-    /*visibility: hidden;*/
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: none;
 }
 
 .overlay.active {
-    background: rgba(40, 40, 47, 0.4);; /* Полупрозрачный чёрный */
-    /*backdrop-filter: blur(4px);*/
-    /*opacity: 1;*/
-    /*visibility: visible;*/
+    background: rgba(40, 40, 47, 0.4);
     z-index: 99;
     display: flex;
 }
@@ -512,14 +505,6 @@ header::before {
     position: relative;
 }
 
-.settings-icon {
-    /*margin-top: auto;*/
-    /*position: relative;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-}
-
-
 .user-info {
     display: none;
 }
@@ -586,4 +571,157 @@ header::before {
     color: var(--white);
     font-weight: 500;
     font-size: 20px;
+}
+
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    
+    /* Скрываем sidebar по умолчанию, но оставляем кнопку */
+    .sidebar {
+        width: 0;
+        overflow: visible;
+        padding: 0;
+        box-shadow: none;
+    }
+    
+    /* Показываем только кнопку плюса */
+    .mobile-menu-header {
+        position: fixed;
+        left: 20px;
+        top: 24px;
+        z-index: 1001;
+        width: 40px;
+        height: 40px;
+        display: block;
+    }
+    
+    .logo-plus {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-image: url("/assets/medx/img/main/mobile_menu/plus-icon.svg");
+        cursor: pointer;
+        position: relative;
+        left: 0;
+    }
+    
+    /* Скрываем меню когда sidebar не раскрыт */
+    .sidebar .nav-menu,
+    .sidebar .user-section {
+        display: none;
+    }
+    
+    /* При раскрытии меню */
+    .sidebar.expanded {
+        width: 280px;
+        padding: 24px 0 0;
+        overflow: hidden;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+    }
+    
+    .sidebar.expanded .nav-menu,
+    .sidebar.expanded .user-section {
+        display: flex;
+    }
+    
+    /* Меняем иконку на минус когда меню открыто */
+    .sidebar.expanded .logo-plus {
+        background-image: url("/assets/medx/img/main/mobile_menu/minus-icon.svg");
+        left: 0;
+    }
+    
+    /* Убираем отступ у body */
+    body {
+        margin-left: 0;
+        left: 0;
+    }
+    
+    /* Центрируем контент */
+    main {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mobile-bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--dark-blue-40);
+    transition: all 0.2s ease;
+    position: relative;
+    flex: 1;
+    max-width: 80px;
+}
+
+.mobile-bottom-nav-item svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+}
+
+.mobile-bottom-nav-item span {
+    font-family: var(--font-onest);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: center;
+}
+
+.mobile-bottom-nav-item.active {
+    color: var(--primary-blue);
+}
+
+.mobile-bottom-nav-item:hover {
+    color: var(--dark-blue);
+}
+
+.mobile-nav-badge {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: var(--color-red);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-nav {
+        display: flex;
+    }
+    
+    body {
+        padding-bottom: 70px;
+    }
+    
+    .sidebar {
+        display: none;
+    }
 }
