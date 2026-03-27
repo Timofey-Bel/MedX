@@ -8,6 +8,7 @@
 </head>
 <body>
     @yield('content')
+    <script src="{{ asset('js/pomodoro-timer.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

@@ -19,7 +19,9 @@
             <p class="h-2">Знания, практика и сообщество <br/>для студентов в один клик</p>
         </div>
         <div class="btn_free">
-            <div class="text-wrapper-29">НАЧАТЬ БЕСПЛАТНО</div>
+            <a href="{{ url('/login') }}"
+                <div class="text-wrapper-29">НАЧАТЬ БЕСПЛАТНО</div>
+            </a>
         </div>
     </section>
     <section class="conveyor-container">
