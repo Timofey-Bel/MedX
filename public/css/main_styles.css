@@ -689,6 +689,173 @@ section {
     border-radius: 50%;
 }
 
+/* Модальное окно календаря */
+.calendar-modal {
+    display: none;
+    position: fixed;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    /* background: rgba(0, 0, 0, 0.5); */
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-modal.active {
+    display: flex;
+}
+
+.calendar-modal-content {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    width: 40%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.calendar-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.calendar-modal-header h2 {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.calendar-modal-close {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    color: var(--primary-blue);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.calendar-modal-close:hover {
+    color: var(--dark-blue);
+}
+
+.calendar-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.month-block {
+    margin-bottom: 0;
+}
+
+.month-block:last-child {
+    margin-bottom: 0;
+}
+
+.month-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.month-weekdays div {
+    text-align: center;
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+}
+
+.month-title {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--primary-blue);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.month-day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-onest);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.month-day.visited {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.month-day.visited::after {
+    content: '✓';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
+}
+
+.month-day.first-visit::after {
+    content: '★';
+    font-size: 14px;
+}
+
+.month-day.missed {
+    background: var(--bg-light);
+    color: var(--color-text-muted);
+}
+
+.month-day.missed::after {
+    content: '✗';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
+    color: var(--color-red);
+}
+
+.month-day.future {
+    opacity: 0.3;
+}
+
+.month-day.before-registration {
+    opacity: 0.2;
+}
+
 /* Таймер */
 .timer-section {
     width: 400px;
@@ -1741,5 +1908,49 @@ section {
     
     .news-image {
         height: 180px;
+    }
+    
+    .month-grid {
+        gap: 4px;
+    }
+    
+    .month-weekdays {
+        gap: 4px;
+    }
+    
+    .month-weekdays div {
+        font-size: 10px;
+    }
+    
+    .month-day {
+        font-size: 12px;
+    }
+}
+
+/* Мобильные стили для модального окна календаря */
+@media (max-width: 768px) {
+    .calendar-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .calendar-modal-header {
+        padding: 16px;
+    }
+    
+    .calendar-modal-header h2 {
+        font-size: 18px;
+    }
+    
+    .calendar-modal-header h2 span {
+        font-size: 16px !important;
+    }
+    
+    .calendar-modal-body {
+        padding: 16px;
+    }
+    
+    .month-title {
+        font-size: 16px;
     }
 }

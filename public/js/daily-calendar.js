@@ -220,4 +220,194 @@
         initCalendar();
     }
     
+    // ------------------- Модальное окно полного календаря -------------------
+    
+    let currentMonthOffset = 0; // Смещение от текущего месяца
+    
+    function calculateStreak() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        let streak = 0;
+        let currentDate = new Date(today);
+        
+        // Считаем дни подряд начиная с сегодня и идя назад
+        while (isDayVisited(currentDate)) {
+            streak++;
+            currentDate.setDate(currentDate.getDate() - 1);
+            
+            // Защита от бесконечного цикла
+            if (currentDate < firstVisitDate) break;
+        }
+        
+        return streak;
+    }
+    
+    function openFullCalendar() {
+        const modal = document.getElementById('calendarModal');
+        const container = document.getElementById('fullCalendarContainer');
+        
+        if (!modal || !container) return;
+        
+        currentMonthOffset = 0;
+        container.innerHTML = generateFullCalendar();
+        
+        // Обновляем заголовок со streak
+        const headerTitle = modal.querySelector('.calendar-modal-header h2');
+        if (headerTitle) {
+            const streak = calculateStreak();
+            headerTitle.innerHTML = `История посещений <span style="color: var(--primary-blue); font-size: 20px; margin-left: 16px;">🔥 ${streak} ${getDaysWord(streak)} подряд</span>`;
+        }
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function getDaysWord(count) {
+        const lastDigit = count % 10;
+        const lastTwoDigits = count % 100;
+        
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+            return 'дней';
+        }
+        
+        if (lastDigit === 1) {
+            return 'день';
+        }
+        
+        if (lastDigit >= 2 && lastDigit <= 4) {
+            return 'дня';
+        }
+        
+        return 'дней';
+    }
+    
+    function closeFullCalendar() {
+        const modal = document.getElementById('calendarModal');
+        if (!modal) return;
+        
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    function navigateMonth(direction) {
+        currentMonthOffset += direction;
+        const container = document.getElementById('fullCalendarContainer');
+        if (container) {
+            container.innerHTML = generateFullCalendar();
+        }
+    }
+    
+    function generateFullCalendar() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        // Вычисляем месяц для отображения с учетом смещения
+        const displayMonth = new Date(today.getFullYear(), today.getMonth() + currentMonthOffset, 1);
+        
+        let html = '';
+        
+        const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+                           'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+        
+        const year = displayMonth.getFullYear();
+        const month = displayMonth.getMonth();
+        const monthName = `${monthNames[month]} ${year}`;
+        
+        // Кнопки навигации
+        html += `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <button onclick="window.navigateCalendarMonth(-1)" style="padding: 8px 16px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-family: var(--font-onest);">
+                    ← Назад
+                </button>
+                <span style="font-family: var(--font-onest); font-weight: 600; font-size: 18px; color: var(--primary-blue);">${monthName}</span>
+                <button onclick="window.navigateCalendarMonth(1)" style="padding: 8px 16px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-family: var(--font-onest);">
+                    Вперед →
+                </button>
+            </div>
+        `;
+        
+        html += `<div class="month-block">`;
+        html += `<div class="month-weekdays">`;
+        html += `<div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>`;
+        html += `</div>`;
+        html += `<div class="month-grid">`;
+        
+        // Получаем первый день месяца и количество дней
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const daysInMonth = lastDay.getDate();
+        
+        // Добавляем пустые ячейки до первого дня (понедельник = 0)
+        let firstDayOfWeek = firstDay.getDay();
+        firstDayOfWeek = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1;
+        
+        for (let i = 0; i < firstDayOfWeek; i++) {
+            html += `<div class="month-day" style="opacity: 0;"></div>`;
+        }
+        
+        // Добавляем дни месяца
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(year, month, day);
+            date.setHours(0, 0, 0, 0);
+            
+            const isVisited = isDayVisited(date);
+            const isMissed = isDayMissed(date);
+            const isFuture = date > today;
+            const isBeforeReg = date < firstVisitDate;
+            const isFirstVisit = date.getTime() === firstVisitDate.getTime();
+            
+            let className = 'month-day';
+            if (isBeforeReg) {
+                className += ' before-registration';
+            } else if (isFuture) {
+                className += ' future';
+            } else if (isVisited) {
+                className += ' visited';
+                if (isFirstVisit) {
+                    className += ' first-visit';
+                }
+            } else if (isMissed) {
+                className += ' missed';
+            }
+            
+            html += `<div class="${className}">${day}</div>`;
+        }
+        
+        html += `</div></div>`;
+        
+        return html;
+    }
+    
+    // Глобальная функция для навигации (доступна из inline onclick)
+    window.navigateCalendarMonth = function(direction) {
+        navigateMonth(direction);
+    };
+    
+    // Обработчики событий для модального окна
+    document.addEventListener('DOMContentLoaded', function() {
+        const openBtn = document.getElementById('openFullCalendar');
+        const closeBtn = document.getElementById('closeCalendarModal');
+        const modal = document.getElementById('calendarModal');
+        
+        if (openBtn) {
+            openBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openFullCalendar();
+            });
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeFullCalendar);
+        }
+        
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeFullCalendar();
+                }
+            });
+        }
+    });
+    
 })();

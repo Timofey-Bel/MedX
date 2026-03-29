@@ -101,7 +101,7 @@
     <section class="daily-section">
         <div class="section-header">
             <h2>Ежедневный вход</h2>
-            <a href="#" class="view-all">
+            <a href="#" class="view-all" id="openFullCalendar">
                 <div class="arrow-icon"></div>
             </a>
         </div>
@@ -119,6 +119,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Модальное окно полного календаря -->
+    <div class="calendar-modal" id="calendarModal">
+        <div class="calendar-modal-content">
+            <div class="calendar-modal-header">
+                <h2>История посещений</h2>
+                <button class="calendar-modal-close" id="closeCalendarModal">&times;</button>
+            </div>
+            <div class="calendar-modal-body" id="fullCalendarContainer">
+                <!-- Календарь генерируется через JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- Таймер -->
     <section class="timer-section">
