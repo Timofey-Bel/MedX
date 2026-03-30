@@ -127,6 +127,9 @@
                 <h2>История посещений</h2>
                 <button class="calendar-modal-close" id="closeCalendarModal">&times;</button>
             </div>
+             <div class="calendar-modal-header-2">
+                <h2>История посещений</h2>
+            </div>
             <div class="calendar-modal-body" id="fullCalendarContainer">
                 <!-- Календарь генерируется через JS -->
             </div>

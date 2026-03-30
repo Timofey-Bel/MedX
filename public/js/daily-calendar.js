@@ -8,6 +8,8 @@
     let currentWeekIndex = 5;
     let visitedDays = new Set();
     let firstVisitDate = null; // Дата первого входа пользователя
+    let freezeCount = 5; // Количество заморозок (по умолчанию 5)
+    let usedFreezes = {}; // Объект с использованными заморозками {date: true}
     
     const weekdaysShort = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
     
@@ -73,16 +75,72 @@
             localStorage.setItem('medx_first_visit_date', firstVisitDate.toISOString());
         }
         
+        // Загружаем количество заморозок
+        const savedFreezes = localStorage.getItem('medx_freeze_count');
+        if (savedFreezes !== null) {
+            freezeCount = parseInt(savedFreezes, 10);
+        } else {
+            freezeCount = 5; // По умолчанию 5 заморозок
+            localStorage.setItem('medx_freeze_count', freezeCount);
+        }
+        
+        // Загружаем использованные заморозки
+        const savedUsedFreezes = localStorage.getItem('medx_used_freezes');
+        if (savedUsedFreezes) {
+            try {
+                usedFreezes = JSON.parse(savedUsedFreezes);
+            } catch (e) {
+                usedFreezes = {};
+            }
+        }
+        
         // Автоматически отмечаем сегодняшний день
         const today = formatDateKey(new Date());
         if (!visitedDays.has(today)) {
             visitedDays.add(today);
             saveVisitedDays();
         }
+        
+        // Проверяем и применяем заморозки для пропущенных дней
+        applyFreezesToMissedDays();
     }
     
     function saveVisitedDays() {
         localStorage.setItem('medx_visited_days', JSON.stringify([...visitedDays]));
+    }
+    
+    function saveFreezeCount() {
+        localStorage.setItem('medx_freeze_count', freezeCount);
+    }
+    
+    function saveUsedFreezes() {
+        localStorage.setItem('medx_used_freezes', JSON.stringify(usedFreezes));
+    }
+    
+    // Применяем заморозки к пропущенным дням
+    function applyFreezesToMissedDays() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        let currentDate = new Date(firstVisitDate);
+        currentDate.setHours(0, 0, 0, 0);
+        
+        while (currentDate < today) {
+            const dateKey = formatDateKey(currentDate);
+            
+            // Если день не посещен и заморозка еще не использована
+            if (!visitedDays.has(dateKey) && !usedFreezes[dateKey]) {
+                // Если есть доступные заморозки
+                if (freezeCount > 0) {
+                    usedFreezes[dateKey] = true;
+                    freezeCount--;
+                    saveFreezeCount();
+                    saveUsedFreezes();
+                }
+            }
+            
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
     }
     
     // Проверка, был ли день посещен
@@ -90,7 +148,12 @@
         return visitedDays.has(formatDateKey(date));
     }
     
-    // Проверка, пропущен ли день (прошедший день без посещения ПОСЛЕ первого входа)
+    // Проверка, использована ли заморозка для этого дня
+    function isDayFrozen(date) {
+        return usedFreezes[formatDateKey(date)] === true;
+    }
+    
+    // Проверка, пропущен ли день (прошедший день без посещения ПОСЛЕ первого входа и без заморозки)
     function isDayMissed(date) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -101,9 +164,11 @@
         // 1. Он в прошлом (раньше сегодня)
         // 2. Он не был посещен
         // 3. Он после или равен дате первого входа
+        // 4. На него не была использована заморозка
         return dateNormalized < today && 
                !isDayVisited(date) && 
-               dateNormalized >= firstVisitDate;
+               dateNormalized >= firstVisitDate &&
+               !isDayFrozen(date);
     }
     
     // ------------------- Генерация HTML -------------------
@@ -119,6 +184,7 @@
         weekDays.forEach((day, idx) => {
             const isToday = day.getTime() === today.getTime();
             const isVisited = isDayVisited(day);
+            const isFrozen = isDayFrozen(day);
             const isMissed = isDayMissed(day);
             
             const todayClass = isToday ? 'today' : '';
@@ -128,6 +194,8 @@
             let dotClass = '';
             if (isVisited) {
                 dotClass = 'checked';
+            } else if (isFrozen) {
+                dotClass = 'frozen';
             } else if (isMissed) {
                 dotClass = 'missed';
             }
@@ -252,11 +320,21 @@
         currentMonthOffset = 0;
         container.innerHTML = generateFullCalendar();
         
-        // Обновляем заголовок со streak
-        const headerTitle = modal.querySelector('.calendar-modal-header h2');
+        // Обновляем заголовок со streak и заморозками
+        const headerTitle = modal.querySelector('.calendar-modal-header-2 h2');
         if (headerTitle) {
             const streak = calculateStreak();
-            headerTitle.innerHTML = `История посещений <span style="color: var(--primary-blue); font-size: 20px; margin-left: 16px;">🔥 ${streak} ${getDaysWord(streak)} подряд</span>`;
+            headerTitle.innerHTML = `
+                
+                <span style="display: flex; gap: 12px; align-items: center;">
+                    <span style="color: var(--primary-blue); font-size: 20px;">
+                        🔥 ${streak} ${getDaysWord(streak)} подряд
+                    </span>
+                    <span style="color: var(--light-blue); font-size: 18px;">
+                        ❄️ ${freezeCount}
+                    </span>
+                </span>
+            `;
         }
         
         modal.classList.add('active');
@@ -352,6 +430,7 @@
             date.setHours(0, 0, 0, 0);
             
             const isVisited = isDayVisited(date);
+            const isFrozen = isDayFrozen(date);
             const isMissed = isDayMissed(date);
             const isFuture = date > today;
             const isBeforeReg = date < firstVisitDate;
@@ -367,6 +446,8 @@
                 if (isFirstVisit) {
                     className += ' first-visit';
                 }
+            } else if (isFrozen) {
+                className += ' frozen';
             } else if (isMissed) {
                 className += ' missed';
             }

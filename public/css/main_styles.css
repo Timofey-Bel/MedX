@@ -653,6 +653,22 @@ section {
     background-image: url("/assets/medx/img/main/showcase/checked-icon.svg");
 }
 
+.day-dot.frozen {
+    background: linear-gradient(135deg, #B2DFE4 0%, #74B5BC 100%);
+    border: 2px solid #74B5BC;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(116, 181, 188, 0.3);
+}
+
+.day-dot.frozen::after {
+    content: '❄️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
 .day-dot.missed {
     background-image: url("/assets/medx/img/main/showcase/missed-icon.svg");
 }
@@ -712,6 +728,7 @@ section {
     border-radius: var(--radius-lg);
     width: 40%;
     max-width: 800px;
+    min-width: 400px;
     max-height: 90vh;
     overflow: hidden;
     display: flex;
@@ -723,8 +740,17 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px;
+    padding: 14px 24px;
     border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.calendar-modal-header-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
     flex-wrap: wrap;
     gap: 12px;
 }
@@ -735,7 +761,19 @@ section {
     font-size: 24px;
     color: var(--text-dark);
     margin: 0;
-    display: flex;
+    /* display: flex; */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.calendar-modal-header-2 h2 {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--text-dark);
+    margin: 0;
+    /* display: flex; */
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
@@ -832,6 +870,21 @@ section {
 .month-day.first-visit::after {
     content: '★';
     font-size: 14px;
+}
+
+.month-day.frozen {
+    background: linear-gradient(135deg, #B2DFE4 0%, #74B5BC 100%);
+    color: var(--white);
+    border: 2px solid #74B5BC;
+    box-shadow: 0 2px 4px rgba(116, 181, 188, 0.3);
+}
+
+.month-day.frozen::after {
+    content: '❄️';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
 }
 
 .month-day.missed {
@@ -1952,5 +2005,43 @@ section {
     
     .month-title {
         font-size: 16px;
+    }
+}
+
+/* Адаптивная раскладка заголовка для узких экранов */
+@media (max-width: 545px) {
+    .calendar-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding-bottom: 16px;
+    }
+    
+    .calendar-modal-header h2 {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+    
+    .calendar-modal-header h2 > span:first-of-type {
+        order: 1;
+        margin-bottom: 12px;
+    }
+    
+    .calendar-modal-header h2 > span:last-of-type {
+        order: 2;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding-top: 12px;
+        border-top: 1px solid var(--color-border);
+        width: 100%;
+    }
+    
+    .calendar-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
     }
 }
