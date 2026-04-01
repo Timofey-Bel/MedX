@@ -1,0 +1,151 @@
+/* Сетка достижений */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+/* Карточка достижения */
+.achievement-card {
+    background: var(--white);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.achievement-card.unlocked {
+    border-color: var(--primary-blue);
+    background: linear-gradient(135deg, rgba(65, 154, 164, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.achievement-card.locked {
+    opacity: 0.5;
+    filter: grayscale(0.5);
+}
+
+.achievement-card.locked:hover {
+    opacity: 0.8;
+    filter: grayscale(0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-card.unlocked:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(65, 154, 164, 0.2);
+}
+
+/* Иконка достижения */
+.achievement-card-icon {
+    font-size: 48px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+}
+
+.achievement-card.unlocked .achievement-card-icon {
+    background: linear-gradient(135deg, #B2DFE4 0%, #74B5BC 100%);
+}
+
+/* Контент достижения */
+.achievement-card-content {
+    flex: 1;
+}
+
+.achievement-card-name {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.achievement-card.locked .achievement-card-name {
+    color: var(--color-text-muted);
+}
+
+.achievement-card-description {
+    font-family: var(--font-onest);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-text-muted);
+}
+
+/* Бейдж разблокировано */
+.achievement-card-badge {
+    width: 32px;
+    height: 32px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Замок */
+.achievement-card-lock {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .achievement-card {
+        padding: 16px;
+    }
+    
+    .achievement-card-icon {
+        font-size: 40px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .achievement-card-name {
+        font-size: 14px;
+    }
+    
+    .achievement-card-description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .achievement-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .achievement-card-badge,
+    .achievement-card-lock {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+}

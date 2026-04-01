@@ -654,7 +654,7 @@ section {
 }
 
 .day-dot.frozen {
-    background: linear-gradient(135deg, #B2DFE4 0%, #74B5BC 100%);
+    /* background: linear-gradient(135deg, #B2DFE4 0%, #74B5BC 100%); */
     border: 2px solid #74B5BC;
     position: relative;
     box-shadow: 0 2px 4px rgba(116, 181, 188, 0.3);
@@ -663,10 +663,10 @@ section {
 .day-dot.frozen::after {
     content: '❄️';
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 12px;
+    /* font-size: 12px; */
 }
 
 .day-dot.missed {
@@ -1577,6 +1577,81 @@ section {
     font-family: var(--font-onest);
 }
 
+/* Уведомления о достижениях */
+.achievement-notification {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 400px;
+    background: linear-gradient(135deg, #027B8E 0%, #419AA4 100%);
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 35px -8px rgba(0, 20, 30, 0.25), 0 8px 12px -4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 10000;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    cursor: pointer;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    font-family: var(--font-onest);
+}
+
+.achievement-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.achievement-notification.hiding {
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+.achievement-icon {
+    font-size: 48px;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+}
+
+.achievement-content {
+    flex: 1;
+    color: var(--white);
+}
+
+.achievement-badge {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.achievement-name {
+    font-family: var(--font-onest);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 4px;
+}
+
+.achievement-description {
+    font-family: var(--font-onest);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    opacity: 0.95;
+}
+
 @keyframes slideInRight {
     from {
         transform: translateX(120%);
@@ -1674,6 +1749,29 @@ section {
         width: calc(100% - 40px);
         right: 20px;
         bottom: 20px;
+    }
+    
+    .achievement-notification {
+        width: calc(100% - 40px);
+        right: 20px;
+        bottom: 20px;
+        padding: 16px;
+    }
+    
+    .achievement-icon {
+        font-size: 40px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .achievement-name {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .achievement-description {
+        font-size: 13px;
+        line-height: 17px;
     }
 }
 

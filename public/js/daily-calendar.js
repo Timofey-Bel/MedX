@@ -308,6 +308,11 @@
             if (currentDate < firstVisitDate) break;
         }
         
+        // Проверяем достижения по streak
+        if (window.MedXAchievements) {
+            window.MedXAchievements.checkStreak(streak);
+        }
+        
         return streak;
     }
     

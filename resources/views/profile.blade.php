@@ -37,6 +37,12 @@
                         </svg>
                         <span>Личные данные</span>
                     </a>
+                    <a href="#achievements" class="nav-item" data-tab="achievements">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Достижения</span>
+                    </a>
                 </nav>
 
                 <a href="{{ url('/logout') }}" class="logout-btn">
@@ -69,6 +75,15 @@
                         </form>
                     </div>
                 </section>
+
+                <section class="tab-content" id="achievements">
+                    <h1 class="content-title">Мои достижения</h1>
+                    <div class="profile-section">
+                        <div class="achievements-grid" id="achievementsGrid">
+                            <!-- Достижения генерируются через JS -->
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -80,4 +95,5 @@
 @section('scripts')
 <script src="{{ asset('assets/medx/script.js') }}"></script>
 <script src="{{ asset('assets/medx/js/profile.js') }}"></script>
+<script src="{{ asset('js/profile-achievements.js') }}"></script>
 @endsection
