@@ -16,13 +16,22 @@
             <h1 class="login__title">Личный кабинет</h1>
             <p class="login__subtitle">Войди в личный кабинет удобным способом</p>
 
-            <form class="login__form" action="#" method="post">
+            <form class="login__form" action="{{ route('login') }}" method="post">
+                @csrf
+                
+                @if ($errors->any())
+                    <div style="color: #e74c3c; margin-bottom: 15px; padding: 10px; background: #fee; border-radius: 8px;">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+
                 <label class="login__field">
                     <span class="login__field-label">Логин</span>
                     <input
                             class="login__input"
                             type="email"
                             name="email"
+                            value="{{ old('email') }}"
                             placeholder="Введите логин"
                             required
                     />

@@ -40,10 +40,10 @@
             </svg>
         </div>
         <div class="page-info">
-            <h2 class="page-name">Имя</h2>
-            <h2 class="page-lastname">Фамилия</h2>
+            <h2 class="page-name">{{ Auth::user()->name }}</h2>
+            <h2 class="page-lastname"></h2>
         </div>
-        <h2 class="page-login">kristinavoytova</h2>
+        <h2 class="page-login">{{ Auth::user()->email }}</h2>
     </section>
 
     <section class="section-main-information">
@@ -124,6 +124,14 @@
             <button class="btn btn-primary">СОХРАНИТЬ</button>
             <button class="btn btn-secondary">ОТМЕНИТЬ</button>
         </div>
+    </section>
+
+    <section class="section-login-information">
+        <h2 class="section-header">Выход из аккаунта</h2>
+        <form action="{{ route('logout') }}" method="POST" style="margin-top: 20px;">
+            @csrf
+            <button type="submit" class="btn btn-secondary">ВЫЙТИ ИЗ АККАУНТА</button>
+        </form>
     </section>
 </main>
 @endsection
