@@ -157,13 +157,20 @@ section {
 }
 
 .btn-primary:hover {
-    background: #007C89;
+    background: #066b7a;
 }
 
 .btn-secondary {
     background: #CCE5E7;
     color: #087e90;
     width: 140px;
+    height: 36px;
+}
+
+.btn-secondary.logout{
+    background: #CCE5E7;
+    color: #087e90;
+    width: auto;
     height: 36px;
 }
 

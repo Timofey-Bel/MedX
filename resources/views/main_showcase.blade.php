@@ -21,10 +21,12 @@
         <div class="weather-icon">
             <img src="{{ asset('images/main/sun.png') }}" alt="sun">
         </div>
+        @if(Auth::user()->first_name)
         <div class="greeting-text">
-            <h1>ДОБРЫЙ ДЕНЬ, КРИСТИНА!</h1>
+            <h1>ДОБРЫЙ ДЕНЬ, {{ mb_strtoupper(Auth::user()->first_name) }}!</h1>
             <p>СТАНЕМ СЕГОДНЯ БЛИЖЕ К ЦЕЛИ?</p>
         </div>
+        @endif
     </section>
 
     <!-- Последняя активность -->

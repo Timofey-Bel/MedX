@@ -40,7 +40,7 @@
             </svg>
         </div>
         <div class="page-info">
-            <h2 class="page-name">{{ Auth::user()->name }}</h2>
+            <h2 class="page-name">{{ Auth::user()->display_name }}</h2>
             <h2 class="page-lastname"></h2>
         </div>
         <h2 class="page-login">{{ Auth::user()->email }}</h2>
@@ -48,64 +48,105 @@
 
     <section class="section-main-information">
         <h2 class="section-header">Основная информация</h2>
-        <div class="info-grid">
-            <div class="form-section">
-                <label for="name">Имя</label>
-                <input id="name" placeholder="Имя">
+        
+        @if (session('success'))
+            <div id="successNotification" style="position: fixed; top: 20px; right: 20px; z-index: 9999; color: #087e90; padding: 15px 20px; background: #e0f4f5; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 250px; animation: slideIn 0.3s ease-out;">
+                {{ session('success') }}
             </div>
-            <div class="form-section">
-                <label for="lastname">Фамилия</label>
-                <input id="lastname" placeholder="Фамилия">
+            <style>
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                }
+            </style>
+            <script>
+                setTimeout(() => {
+                    const notification = document.getElementById('successNotification');
+                    if (notification) {
+                        notification.style.animation = 'slideOut 0.3s ease-in';
+                        setTimeout(() => notification.remove(), 300);
+                    }
+                }, 5000);
+            </script>
+        @endif
+
+        <form action="{{ route('main_settings.update_profile') }}" method="POST">
+            @csrf
+            <div class="info-grid">
+                <div class="form-section">
+                    <label for="first_name">Имя</label>
+                    <input id="first_name" name="first_name" placeholder="Имя" value="{{ old('first_name', Auth::user()->first_name) }}">
+                </div>
+                <div class="form-section">
+                    <label for="last_name">Фамилия</label>
+                    <input id="last_name" name="last_name" placeholder="Фамилия" value="{{ old('last_name', Auth::user()->last_name) }}">
+                </div>
+                <div class="form-section">
+                    <label for="gender">Пол</label>
+                    <select id="gender" name="gender">
+                        <option value="" {{ !Auth::user()->gender ? 'selected' : '' }}>Не указан</option>
+                        <option value="male" {{ Auth::user()->gender === 'male' ? 'selected' : '' }}>Мужской</option>
+                        <option value="female" {{ Auth::user()->gender === 'female' ? 'selected' : '' }}>Женский</option>
+                        <option value="other" {{ Auth::user()->gender === 'other' ? 'selected' : '' }}>Другой</option>
+                    </select>
+                </div>
+                <div class="form-section">
+                    <label for="birthdate">Дата рождения</label>
+                    <input type="date" id="birthdate" name="birthdate" placeholder="Дата рождения" value="{{ old('birthdate', Auth::user()->birthdate?->format('Y-m-d')) }}">
+                </div>
+                <div class="form-section">
+                    <label for="timezone">Часовой пояс</label>
+                    <select id="timezone" name="timezone">
+                        <option value="" {{ !Auth::user()->timezone ? 'selected' : '' }}>Выберите часовой пояс</option>
+                        <option value="GMT-12" {{ Auth::user()->timezone === 'GMT-12' ? 'selected' : '' }}>GMT-12 (Линия перемены дат)</option>
+                        <option value="GMT-11" {{ Auth::user()->timezone === 'GMT-11' ? 'selected' : '' }}>GMT-11 (Самоа)</option>
+                        <option value="GMT-10" {{ Auth::user()->timezone === 'GMT-10' ? 'selected' : '' }}>GMT-10 (Гавайи)</option>
+                        <option value="GMT-9" {{ Auth::user()->timezone === 'GMT-9' ? 'selected' : '' }}>GMT-9 (Аляска)</option>
+                        <option value="GMT-8" {{ Auth::user()->timezone === 'GMT-8' ? 'selected' : '' }}>GMT-8 (Лос-Анджелес)</option>
+                        <option value="GMT-7" {{ Auth::user()->timezone === 'GMT-7' ? 'selected' : '' }}>GMT-7 (Денвер)</option>
+                        <option value="GMT-6" {{ Auth::user()->timezone === 'GMT-6' ? 'selected' : '' }}>GMT-6 (Чикаго)</option>
+                        <option value="GMT-5" {{ Auth::user()->timezone === 'GMT-5' ? 'selected' : '' }}>GMT-5 (Нью-Йорк)</option>
+                        <option value="GMT-4" {{ Auth::user()->timezone === 'GMT-4' ? 'selected' : '' }}>GMT-4 (Каракас)</option>
+                        <option value="GMT-3" {{ Auth::user()->timezone === 'GMT-3' ? 'selected' : '' }}>GMT-3 (Буэнос-Айрес)</option>
+                        <option value="GMT-2" {{ Auth::user()->timezone === 'GMT-2' ? 'selected' : '' }}>GMT-2 (Среднеатлантическое время)</option>
+                        <option value="GMT-1" {{ Auth::user()->timezone === 'GMT-1' ? 'selected' : '' }}>GMT-1 (Азорские острова)</option>
+                        <option value="GMT+0" {{ Auth::user()->timezone === 'GMT+0' ? 'selected' : '' }}>GMT+0 (Лондон)</option>
+                        <option value="GMT+1" {{ Auth::user()->timezone === 'GMT+1' ? 'selected' : '' }}>GMT+1 (Берлин, Париж)</option>
+                        <option value="GMT+2" {{ Auth::user()->timezone === 'GMT+2' ? 'selected' : '' }}>GMT+2 (Киев, Афины)</option>
+                        <option value="GMT+3" {{ Auth::user()->timezone === 'GMT+3' ? 'selected' : '' }}>GMT+3 (Москва)</option>
+                        <option value="GMT+4" {{ Auth::user()->timezone === 'GMT+4' ? 'selected' : '' }}>GMT+4 (Самара, Баку)</option>
+                        <option value="GMT+5" {{ Auth::user()->timezone === 'GMT+5' ? 'selected' : '' }}>GMT+5 (Екатеринбург)</option>
+                        <option value="GMT+6" {{ Auth::user()->timezone === 'GMT+6' ? 'selected' : '' }}>GMT+6 (Омск, Алматы)</option>
+                        <option value="GMT+7" {{ Auth::user()->timezone === 'GMT+7' ? 'selected' : '' }}>GMT+7 (Новосибирск, Бангкок)</option>
+                        <option value="GMT+8" {{ Auth::user()->timezone === 'GMT+8' ? 'selected' : '' }}>GMT+8 (Иркутск, Пекин)</option>
+                        <option value="GMT+9" {{ Auth::user()->timezone === 'GMT+9' ? 'selected' : '' }}>GMT+9 (Якутск, Токио)</option>
+                        <option value="GMT+10" {{ Auth::user()->timezone === 'GMT+10' ? 'selected' : '' }}>GMT+10 (Владивосток, Сидней)</option>
+                        <option value="GMT+11" {{ Auth::user()->timezone === 'GMT+11' ? 'selected' : '' }}>GMT+11 (Магадан)</option>
+                        <option value="GMT+12" {{ Auth::user()->timezone === 'GMT+12' ? 'selected' : '' }}>GMT+12 (Камчатка, Окленд)</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-section">
-                <label for="gender">Пол</label>
-                <select id="gender" name="gender">
-                    <option value="" disabled selected>Не указан</option>
-                    <option value="male">Мужской</option>
-                    <option value="female">Женский</option>
-                    <option value="other">Другой</option>
-                </select>
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">СОХРАНИТЬ</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.reload()">ОТМЕНИТЬ</button>
             </div>
-            <div class="form-section">
-                <label for="birthdate">Дата рождения</label>
-                <input type="date" id="birthdate" name="birthdate" placeholder="Дата рождения">
-            </div>
-            <div class="form-section">
-                <label for="time-zone">Часовой пояс</label>
-                <select id="time-zone" name="time-zone">
-                    <option value="" disabled selected>Выберите часовой пояс</option>
-                    <option value="GMT-12">GMT-12 (Линия перемены дат)</option>
-                    <option value="GMT-11">GMT-11 (Самоа)</option>
-                    <option value="GMT-10">GMT-10 (Гавайи)</option>
-                    <option value="GMT-9">GMT-9 (Аляска)</option>
-                    <option value="GMT-8">GMT-8 (Лос-Анджелес)</option>
-                    <option value="GMT-7">GMT-7 (Денвер)</option>
-                    <option value="GMT-6">GMT-6 (Чикаго)</option>
-                    <option value="GMT-5">GMT-5 (Нью-Йорк)</option>
-                    <option value="GMT-4">GMT-4 (Каракас)</option>
-                    <option value="GMT-3">GMT-3 (Буэнос-Айрес)</option>
-                    <option value="GMT-2">GMT-2 (Среднеатлантическое время)</option>
-                    <option value="GMT-1">GMT-1 (Азорские острова)</option>
-                    <option value="GMT+0">GMT+0 (Лондон)</option>
-                    <option value="GMT+1">GMT+1 (Берлин, Париж)</option>
-                    <option value="GMT+2">GMT+2 (Киев, Афины)</option>
-                    <option value="GMT+3">GMT+3 (Москва)</option>
-                    <option value="GMT+4">GMT+4 (Самара, Баку)</option>
-                    <option value="GMT+5">GMT+5 (Екатеринбург)</option>
-                    <option value="GMT+6">GMT+6 (Омск, Алматы)</option>
-                    <option value="GMT+7">GMT+7 (Новосибирск, Бангкок)</option>
-                    <option value="GMT+8">GMT+8 (Иркутск, Пекин)</option>
-                    <option value="GMT+9">GMT+9 (Якутск, Токио)</option>
-                    <option value="GMT+10">GMT+10 (Владивосток, Сидней)</option>
-                    <option value="GMT+11">GMT+11 (Магадан)</option>
-                    <option value="GMT+12">GMT+12 (Камчатка, Окленд)</option>
-                </select>
-            </div>
-        </div>
-        <div class="button-group">
-            <button class="btn btn-primary">СОХРАНИТЬ</button>
-            <button class="btn btn-secondary">ОТМЕНИТЬ</button>
-        </div>
+        </form>
     </section>
 
     <section class="section-login-information">
@@ -113,25 +154,23 @@
         <div class="info-grid">
             <div class="form-section">
                 <label for="login">Логин</label>
-                <input id="login" placeholder="Логин">
+                <input id="login" placeholder="Логин" value="{{ Auth::user()->email }}">
             </div>
             <div class="form-section">
                 <label for="password">Пароль</label>
-                <input id="password" type="password" placeholder="Пароль">
+                <input id="password" type="password" placeholder="Пароль" value="••••••••">
             </div>
         </div>
-        <div class="button-group">
-            <button class="btn btn-primary">СОХРАНИТЬ</button>
-            <button class="btn btn-secondary">ОТМЕНИТЬ</button>
+        <div class="button-group" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary">СОХРАНИТЬ</button>
+                <button class="btn btn-secondary">ОТМЕНИТЬ</button>
+            </div>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-secondary logout">ВЫЙТИ ИЗ АККАУНТА</button>
+            </form>
         </div>
-    </section>
-
-    <section class="section-login-information">
-        <h2 class="section-header">Выход из аккаунта</h2>
-        <form action="{{ route('logout') }}" method="POST" style="margin-top: 20px;">
-            @csrf
-            <button type="submit" class="btn btn-secondary">ВЫЙТИ ИЗ АККАУНТА</button>
-        </form>
     </section>
 </main>
 @endsection

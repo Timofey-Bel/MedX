@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'gender',
+        'birthdate',
+        'timezone',
     ];
 
     /**
@@ -43,6 +48,24 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'birthdate' => 'date',
         ];
+    }
+
+    public function getDisplayNameAttribute(): string
+    {
+        if ($this->first_name && $this->last_name) {
+            return $this->first_name . ' ' . $this->last_name;
+        }
+        
+        if ($this->first_name) {
+            return $this->first_name;
+        }
+        
+        if ($this->last_name) {
+            return $this->last_name;
+        }
+        
+        return $this->name;
     }
 }

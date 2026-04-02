@@ -57,8 +57,8 @@
             </a>
         </div>
         <div class="user-info">
-            <div class="user-name">Кристина Войтова</div>
-            <div class="user-email">@kristinavoytova@gmail.com</div>
+            <div class="user-name">{{ Auth::user()->display_name }}</div>
+            <div class="user-email">{{ Auth::user()->email }}</div>
         </div>
     </div>
 

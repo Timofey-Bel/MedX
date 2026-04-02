@@ -31,6 +31,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/main_showcase', [MainShowcaseController::class, 'index'])->name('main_showcase');
     Route::get('/main_settings', [MainSettingsController::class, 'index'])->name('main_settings');
+    Route::post('/main_settings/profile', [MainSettingsController::class, 'updateProfile'])->name('main_settings.update_profile');
     Route::get('/design_settings', [DesignSettingsController::class, 'index'])->name('design_settings');
     Route::get('/support_settings', [SupportSettingsController::class, 'index'])->name('support_settings');
     Route::get('/main_tests', [MainTestsController::class, 'index'])->name('main_tests');
