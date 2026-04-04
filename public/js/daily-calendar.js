@@ -231,12 +231,37 @@
     
     // ------------------- Инициализация -------------------
     
+    function calculateStreak() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        let streak = 0;
+        let currentDate = new Date(today);
+        
+        // Считаем дни подряд начиная с сегодня и идя назад
+        while (isDayVisited(currentDate)) {
+            streak++;
+            currentDate.setDate(currentDate.getDate() - 1);
+            
+            // Защита от бесконечного цикла
+            if (currentDate < firstVisitDate) break;
+        }
+        
+        return streak;
+    }
+    
     function initCalendar() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         
         // Загружаем посещенные дни
         loadVisitedDays();
+        
+        // Проверяем достижения по streak
+        const streak = calculateStreak();
+        if (window.MedXAchievements) {
+            window.MedXAchievements.checkStreak(streak);
+        }
         
         // Генерируем недели
         weeksData = generateWeeksAround(today);
@@ -291,30 +316,6 @@
     // ------------------- Модальное окно полного календаря -------------------
     
     let currentMonthOffset = 0; // Смещение от текущего месяца
-    
-    function calculateStreak() {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        let streak = 0;
-        let currentDate = new Date(today);
-        
-        // Считаем дни подряд начиная с сегодня и идя назад
-        while (isDayVisited(currentDate)) {
-            streak++;
-            currentDate.setDate(currentDate.getDate() - 1);
-            
-            // Защита от бесконечного цикла
-            if (currentDate < firstVisitDate) break;
-        }
-        
-        // Проверяем достижения по streak
-        if (window.MedXAchievements) {
-            window.MedXAchievements.checkStreak(streak);
-        }
-        
-        return streak;
-    }
     
     function openFullCalendar() {
         const modal = document.getElementById('calendarModal');

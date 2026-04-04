@@ -7,7 +7,7 @@
         first_login: {
             id: 'first_login',
             name: 'Первые шаги',
-            description: 'Добро пожаловать в MedX! Начните свой путь к знаниям',
+            description: 'Добро пожаловать в MedX!',
             icon: '🎯',
             condition: () => true // Выдается при первом входе
         },
@@ -194,6 +194,57 @@
         }
     }
     
+    // Универсальная проверка streak достижений при загрузке любой страницы
+    function checkStreakOnLoad() {
+        // Загружаем данные календаря из localStorage
+        const savedVisitedDays = localStorage.getItem('medx_visited_days');
+        const savedFirstVisit = localStorage.getItem('medx_first_visit_date');
+        
+        if (!savedVisitedDays || !savedFirstVisit) {
+            return; // Нет данных календаря
+        }
+        
+        let visitedDays;
+        try {
+            visitedDays = new Set(JSON.parse(savedVisitedDays));
+        } catch (e) {
+            return;
+        }
+        
+        const firstVisitDate = new Date(savedFirstVisit);
+        firstVisitDate.setHours(0, 0, 0, 0);
+        
+        // Функция проверки посещения дня
+        function isDayVisited(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            const dateKey = `${year}-${month}-${day}`;
+            return visitedDays.has(dateKey);
+        }
+        
+        // Вычисляем streak
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        let streak = 0;
+        let currentDate = new Date(today);
+        
+        // Считаем дни подряд начиная с сегодня и идя назад
+        while (isDayVisited(currentDate)) {
+            streak++;
+            currentDate.setDate(currentDate.getDate() - 1);
+            
+            // Защита от бесконечного цикла
+            if (currentDate < firstVisitDate) break;
+        }
+        
+        // Проверяем достижения
+        if (streak > 0) {
+            checkStreakAchievements(streak);
+        }
+    }
+    
     // Глобальные функции для использования из других скриптов
     window.MedXAchievements = {
         unlock: unlockAchievement,
@@ -203,11 +254,81 @@
         getUnlocked: loadUnlockedAchievements
     };
     
-    // Проверяем первый вход при загрузке
+    // Проверяем первый вход и streak при загрузке
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', checkFirstLogin);
+        document.addEventListener('DOMContentLoaded', () => {
+            checkFirstLogin();
+            checkStreakOnLoad();
+        });
     } else {
         checkFirstLogin();
+        checkStreakOnLoad();
+    }
+    
+})();
+
+
+// Отображение достижений в профиле
+(function() {
+    'use strict';
+    
+    function renderProfileAchievements() {
+        const container = document.getElementById('achievementsGrid');
+        if (!container) {
+            return;
+        }
+        
+        if (!window.MedXAchievements) {
+            console.error('MedXAchievements не загружен');
+            return;
+        }
+        
+        const allAchievements = window.MedXAchievements.getAll();
+        const unlockedSet = window.MedXAchievements.getUnlocked();
+        
+        let html = '';
+        
+        // Сортируем: сначала разблокированные, потом заблокированные
+        const achievementsList = Object.values(allAchievements);
+        const unlocked = achievementsList.filter(a => unlockedSet.has(a.id));
+        const locked = achievementsList.filter(a => !unlockedSet.has(a.id));
+        
+        // Рендерим разблокированные
+        unlocked.forEach(achievement => {
+            html += `
+                <div class="achievement-card unlocked">
+                    <div class="achievement-card-icon">${achievement.icon}</div>
+                    <div class="achievement-card-content">
+                        <div class="achievement-card-name">${achievement.name}</div>
+                        <div class="achievement-card-description">${achievement.description}</div>
+                    </div>
+                    <div class="achievement-card-badge">✓</div>
+                </div>
+            `;
+        });
+        
+        // Рендерим заблокированные
+        locked.forEach(achievement => {
+            html += `
+                <div class="achievement-card locked">
+                    <div class="achievement-card-icon">${achievement.icon}</div>
+                    <div class="achievement-card-content">
+                        <div class="achievement-card-name">???</div>
+                        <div class="achievement-card-description">${achievement.description}</div>
+                    </div>
+                    <div class="achievement-card-lock">🔒</div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+    
+    // Инициализация рендеринга достижений в профиле
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderProfileAchievements);
+    } else {
+        renderProfileAchievements();
     }
     
 })();

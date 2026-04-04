@@ -50,7 +50,7 @@
 
     <div class="user-section">
         <div class="user-avatar">
-            <a href="{{ url('/main_settings') }}">
+            <a href="{{ url('/profile') }}">
                 <svg width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 24C20 20.6127 15.7467 17.8667 10.5 17.8667C5.25329 17.8667 1 20.6127 1 24M10.5 13.2667C7.0022 13.2667 4.16667 10.5207 4.16667 7.13333C4.16667 3.74599 7.0022 1 10.5 1C13.9978 1 16.8333 3.74599 16.8333 7.13333C16.8333 10.5207 13.9978 13.2667 10.5 13.2667Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
