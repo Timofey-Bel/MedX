@@ -51,6 +51,14 @@
                     </button>
                 </label>
 
+                <div class="login__remember">
+                    <input type="checkbox" id="remember" name="remember" value="1" class="login__remember-checkbox">
+                    <label for="remember" class="login__remember-label">
+                        <span class="login__remember-box"></span>
+                        <span class="login__remember-text">Запомнить меня</span>
+                    </label>
+                </div>
+
                 <div class="login__divider">
                     <span class="login__divider-line"></span>
                     <span class="login__divider-text">или</span>

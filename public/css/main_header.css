@@ -494,6 +494,7 @@ header::before {
     height: 40px;
     /*top: 800px;*/
     flex-shrink: 0;
+    padding-top: 6px;
 }
 
 .user-section {

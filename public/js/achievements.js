@@ -106,6 +106,11 @@
     // Сохранение достижений
     function saveUnlockedAchievements(achievements) {
         localStorage.setItem('medx_achievements', JSON.stringify([...achievements]));
+        
+        // Синхронизация с БД
+        if (window.UserDataSync) {
+            window.UserDataSync.saveAchievements();
+        }
     }
     
     // Проверка и разблокировка достижения
@@ -195,18 +200,33 @@
     }
     
     // Универсальная проверка streak достижений при загрузке любой страницы
-    function checkStreakOnLoad() {
+    async function checkStreakOnLoad() {
+        // Ждем пока данные синхронизируются из БД
+        await new Promise(resolve => {
+            if (window.UserDataSync) {
+                // Даем время на синхронизацию
+                setTimeout(resolve, 500);
+            } else {
+                resolve();
+            }
+        });
+        
         // Загружаем данные календаря из localStorage
         const savedVisitedDays = localStorage.getItem('medx_visited_days');
         const savedFirstVisit = localStorage.getItem('medx_first_visit_date');
+        const savedUsedFreezes = localStorage.getItem('medx_used_freezes');
         
         if (!savedVisitedDays || !savedFirstVisit) {
             return; // Нет данных календаря
         }
         
         let visitedDays;
+        let usedFreezes = {};
         try {
             visitedDays = new Set(JSON.parse(savedVisitedDays));
+            if (savedUsedFreezes) {
+                usedFreezes = JSON.parse(savedUsedFreezes);
+            }
         } catch (e) {
             return;
         }
@@ -223,6 +243,15 @@
             return visitedDays.has(dateKey);
         }
         
+        // Функция проверки заморозки дня
+        function isDayFrozen(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            const dateKey = `${year}-${month}-${day}`;
+            return usedFreezes[dateKey] === true;
+        }
+        
         // Вычисляем streak
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -231,7 +260,8 @@
         let currentDate = new Date(today);
         
         // Считаем дни подряд начиная с сегодня и идя назад
-        while (isDayVisited(currentDate)) {
+        // Учитываем как посещенные дни, так и замороженные
+        while (isDayVisited(currentDate) || isDayFrozen(currentDate)) {
             streak++;
             currentDate.setDate(currentDate.getDate() - 1);
             
@@ -272,11 +302,21 @@
 (function() {
     'use strict';
     
-    function renderProfileAchievements() {
+    async function renderProfileAchievements() {
         const container = document.getElementById('achievementsGrid');
         if (!container) {
             return;
         }
+        
+        // Ждем пока данные синхронизируются из БД
+        await new Promise(resolve => {
+            if (window.UserDataSync) {
+                // Даем время на синхронизацию
+                setTimeout(resolve, 500);
+            } else {
+                resolve();
+            }
+        });
         
         if (!window.MedXAchievements) {
             console.error('MedXAchievements не загружен');

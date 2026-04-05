@@ -105,15 +105,56 @@ if (window.MedXAchievements) {
 ```
 
 ## Хранение данных
-```javascript
-// localStorage: medx_achievements
-["first_login", "streak_3", "streak_7"]
+
+### База данных (основное хранилище)
+Достижения хранятся в таблице `users` в поле `achievements` (JSON массив):
+
+```php
+// Пример в БД
+achievements: ["first_login", "streak_3", "streak_7"]
 ```
 
+### localStorage (временный кэш)
+localStorage используется только как кэш. При загрузке страницы данные автоматически синхронизируются из БД:
+
+```javascript
+// Автоматическая синхронизация
+medx_achievements → из БД
+```
+
+### API для работы с достижениями
+
+```javascript
+// Получить все достижения с статусом
+GET /api/achievements/
+
+// Разблокировать достижение
+POST /api/achievements/unlock
+Body: { achievement_id: "first_login" }
+
+// Проверить и выдать достижения за streak
+POST /api/achievements/check-streak
+Body: { streak: 7 }
+```
+
+### Автоматическая синхронизация
+- При разблокировке достижения оно сохраняется в localStorage
+- Скрипт `user-data-sync.js` автоматически синхронизирует изменения с БД
+- При загрузке страницы данные загружаются из БД в localStorage
+
 ## Файлы
-- `public/js/achievements.js` - логика системы достижений
-- `public/js/profile-achievements.js` - отображение в профиле
+
+### Frontend
+- `public/js/achievements.js` - логика системы достижений + отображение в профиле
+- `public/js/user-data-sync.js` - синхронизация данных между localStorage и БД
 - `public/css/main_styles.css` - стили уведомлений
 - `public/css/profile.css` - стили карточек достижений
 - `resources/views/layouts/app.blade.php` - подключение скрипта
 - `resources/views/profile.blade.php` - страница профиля с достижениями
+
+### Backend
+- `app/Http/Controllers/AchievementsController.php` - API для достижений (getAll, unlock, checkStreak)
+- `app/Http/Controllers/Api/UserDataController.php` - API для синхронизации данных
+- `app/Models/User.php` - модель пользователя с полем achievements
+- `database/migrations/2026_04_05_092329_add_user_data_fields_to_users_table.php` - миграция БД
+- `routes/web.php` - маршруты API

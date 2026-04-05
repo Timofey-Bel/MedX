@@ -81,6 +81,11 @@ php artisan serve
 - [docs/MIGRATION_README.md](docs/MIGRATION_README.md) - Детали миграции
 - [docs/SUMMARY.md](docs/SUMMARY.md) - Краткое резюме проекта
 - [docs/CHANGELOG_PHP85.md](docs/CHANGELOG_PHP85.md) - История изменений
+- [docs/CALENDAR.md](docs/CALENDAR.md) - Календарь ежедневных входов
+- [docs/ACHIEVEMENTS.md](docs/ACHIEVEMENTS.md) - Система достижений
+- [docs/POMODORO.md](docs/POMODORO.md) - Помодоро-таймер
+- [docs/DATABASE_SETUP.md](docs/DATABASE_SETUP.md) - Настройка БД
+- [docs/TESTING_AUTH.md](docs/TESTING_AUTH.md) - Тестирование аутентификации
 
 ## 🏗️ Структура проекта
 
@@ -90,8 +95,13 @@ MedX/
 │   ├── Helpers/
 │   │   └── ImageHelper.php      # Хелпер для изображений
 │   └── Http/Controllers/        # Контроллеры
+│       ├── Api/
+│       │   └── UserDataController.php  # API синхронизации данных
 │       ├── ShowcaseController.php
-│       ├── LoginController.php
+│       ├── AuthController.php   # Аутентификация
+│       ├── CalendarController.php  # Логика календаря
+│       ├── AchievementsController.php  # Логика достижений
+│       ├── ProfileController.php
 │       ├── MainShowcaseController.php
 │       ├── MainSettingsController.php
 │       ├── DesignSettingsController.php
@@ -129,6 +139,14 @@ MedX/
 │   │   ├── main_settings.css
 │   │   ├── main_tests.css
 │   │   ├── main_base.css
+│   │   ├── profile.css          # Стили профиля
+│   │   └── ...
+│   ├── js/
+│   │   ├── api-client.js        # API клиент
+│   │   ├── user-data-sync.js    # Синхронизация с БД
+│   │   ├── daily-calendar.js    # Календарь входов
+│   │   ├── achievements.js      # Система достижений
+│   │   ├── pomodoro-timer.js    # Помодоро-таймер
 │   │   └── ...
 │   ├── assets/medx/
 │   │   └── main_script.js       # Основной JavaScript
@@ -227,7 +245,7 @@ chmod -R 775 storage bootstrap/cache
 ✅ Страница конфиденциальности  
 ✅ FAQ с аккордеоном  
 ✅ О нас (команда)  
-✅ Профиль пользователя  
+✅ Профиль пользователя с достижениями  
 ✅ Адаптивный дизайн  
 ✅ Мобильное меню с анимацией  
 ✅ Поиск по страницам в header  
@@ -236,11 +254,29 @@ chmod -R 775 storage bootstrap/cache
 ✅ Изображения и иконки  
 ✅ Медицинские иконки для дисциплин  
 
+### 🎯 Система геймификации
+✅ Календарь ежедневных входов с заморозками  
+✅ Система достижений (12 достижений)  
+✅ Помодоро-таймер для продуктивности  
+✅ Подсчет streak (дни подряд)  
+✅ Всплывающие уведомления о достижениях  
+
+### 🔐 Аутентификация и данные
+✅ Регистрация и вход пользователей  
+✅ Защита страниц через middleware  
+✅ Персонализация (имя в приветствии)  
+✅ Хранение данных в БД (SQLite)  
+✅ API для синхронизации данных  
+✅ Автоматическая миграция из localStorage в БД  
+
 ## 🚀 Следующие шаги
 
-- [ ] Добавить аутентификацию Laravel
-- [ ] Подключить базу данных
-- [ ] Создать API для динамического контента
+- [x] Добавить аутентификацию Laravel
+- [x] Подключить базу данных
+- [x] Создать API для динамического контента
+- [x] Реализовать систему достижений
+- [x] Добавить календарь ежедневных входов
+- [x] Интегрировать помодоро-таймер
 - [ ] Добавить функционал тестов
 - [ ] Реализовать систему сообщества
 - [ ] Настроить HTTPS

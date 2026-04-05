@@ -26,6 +26,12 @@ class User extends Authenticatable
         'gender',
         'birthdate',
         'timezone',
+        'visited_days',
+        'first_visit_date',
+        'freeze_count',
+        'used_freezes',
+        'achievements',
+        'pomodoro_state',
     ];
 
     /**
@@ -49,8 +55,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'birthdate' => 'date',
+            'first_visit_date' => 'date',
+            'visited_days' => 'array',
+            'used_freezes' => 'array',
+            'achievements' => 'array',
+            'pomodoro_state' => 'array',
         ];
     }
+
+    /**
+     * The attributes that should have default values.
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = [
+        'freeze_count' => 5,
+        'visited_days' => '[]',
+        'used_freezes' => '[]',
+        'achievements' => '[]',
+    ];
 
     public function getDisplayNameAttribute(): string
     {

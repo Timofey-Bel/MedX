@@ -64,11 +64,7 @@ window.PomodoroNotification = {
 (function() {
     'use strict';
     
-    console.log('Загрузка скрипта помодоро таймера');
-    
     function initPomodoroTimer() {
-        console.log('Инициализация помодоро таймера');
-        
         const pomodoroTimer = {
             workTime: 25 * 60, // 25 минут в секундах
             shortBreak: 5 * 60, // 5 минут
@@ -95,15 +91,11 @@ window.PomodoroNotification = {
             },
             
             init() {
-                console.log('Инициализация таймера');
-                console.log('Элементы:', this.elements);
-                
                 // Загружаем состояние из localStorage
                 this.loadState();
                 
                 // Если элементы UI не найдены, запускаем фоновый режим
                 if (!this.elements.playBtn) {
-                    console.log('UI элементы не найдены, запуск в фоновом режиме');
                     this.startBackgroundMode();
                     return true;
                 }
@@ -112,7 +104,6 @@ window.PomodoroNotification = {
                 if (this.elements.playBtn) {
                     this.elements.playBtn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        console.log('Клик на play');
                         this.start();
                     });
                 }
@@ -120,7 +111,6 @@ window.PomodoroNotification = {
                 if (this.elements.pauseBtn) {
                     this.elements.pauseBtn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        console.log('Клик на pause');
                         this.pause();
                     });
                 }
@@ -128,7 +118,6 @@ window.PomodoroNotification = {
                 if (this.elements.resetBtn) {
                     this.elements.resetBtn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        console.log('Клик на reset');
                         this.reset();
                     });
                 }
@@ -168,7 +157,6 @@ window.PomodoroNotification = {
                 
                 this.updateDisplay();
                 
-                console.log('Таймер успешно инициализирован');
                 return true;
             },
             
@@ -234,7 +222,6 @@ window.PomodoroNotification = {
             },
             
             start() {
-                console.log('Запуск таймера');
                 if (!this.isRunning) {
                     // Обновляем время из полей ввода только если они есть и таймер не был восстановлен
                     if (this.elements.timerMinutes && this.elements.timerSeconds && this.currentTime === this.workTime) {
@@ -271,7 +258,6 @@ window.PomodoroNotification = {
             },
             
             pause() {
-                console.log('Пауза таймера');
                 this.isRunning = false;
                 clearInterval(this.interval);
                 this.saveState();
@@ -283,7 +269,6 @@ window.PomodoroNotification = {
             },
             
             reset() {
-                console.log('Сброс таймера');
                 this.pause();
                 this.switchToEditMode();
                 
@@ -300,7 +285,6 @@ window.PomodoroNotification = {
             },
             
             complete() {
-                console.log('Таймер завершен');
                 this.pause();
                 
                 if (!this.isBreak) {
@@ -457,14 +441,12 @@ window.PomodoroNotification = {
                             this.currentTime = state.currentTime || this.currentTime;
                         }
                     } catch (e) {
-                        console.error('Ошибка загрузки состояния таймера:', e);
+                        // Ошибка загрузки состояния
                     }
                 }
             },
             
             startBackgroundMode() {
-                console.log('Запуск фонового режима таймера');
-                
                 // Проверяем состояние каждую секунду
                 setInterval(() => {
                     const saved = localStorage.getItem('pomodoroState');
@@ -479,8 +461,6 @@ window.PomodoroNotification = {
                             
                             // Если время вышло (с небольшим допуском для точности)
                             if (timeLeft <= 0 && state.currentTime > 0) {
-                                console.log('Фоновый режим: время вышло, показываем уведомление');
-                                
                                 // Обновляем локальное состояние
                                 this.currentTime = 0;
                                 this.round = state.round;
@@ -492,14 +472,12 @@ window.PomodoroNotification = {
                             }
                         }
                     } catch (e) {
-                        console.error('Ошибка проверки состояния:', e);
+                        // Ошибка проверки состояния
                     }
                 }, 1000);
             },
             
             showCustomNotification(title, message, actionText) {
-                console.log('Уведомление:', title, message);
-                
                 // Используем кастомную систему уведомлений
                 if (window.PomodoroNotification) {
                     window.PomodoroNotification.show(title, message, actionText, () => {
@@ -519,19 +497,13 @@ window.PomodoroNotification = {
         const initialized = pomodoroTimer.init();
         
         if (initialized) {
-            console.log('Помодоро таймер готов к работе');
-            
             // Сохраняем глобально для доступа с других страниц
             window.pomodoroTimer = pomodoroTimer;
             
             // Запрос разрешения на уведомления
             if ('Notification' in window && Notification.permission === 'default') {
-                Notification.requestPermission().then(permission => {
-                    console.log('Разрешение на уведомления:', permission);
-                });
+                Notification.requestPermission();
             }
-        } else {
-            console.error('Не удалось инициализировать таймер');
         }
         
         return pomodoroTimer;

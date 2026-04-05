@@ -41,6 +41,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/main_base', [MainBaseController::class, 'index'])->name('main_base');
     Route::get('/main_base_clinical', [MainBaseClinicalController::class, 'index'])->name('main_base_clinical');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    
+    // API для календаря
+    Route::prefix('api/calendar')->group(function () {
+        Route::get('/', [\App\Http\Controllers\CalendarController::class, 'getData']);
+        Route::post('/mark-today', [\App\Http\Controllers\CalendarController::class, 'markToday']);
+    });
+    
+    // API для достижений
+    Route::prefix('api/achievements')->group(function () {
+        Route::get('/', [\App\Http\Controllers\AchievementsController::class, 'getAll']);
+        Route::post('/unlock', [\App\Http\Controllers\AchievementsController::class, 'unlock']);
+        Route::post('/check-streak', [\App\Http\Controllers\AchievementsController::class, 'checkStreak']);
+    });
+    
+    // API для синхронизации данных пользователя (legacy, можно удалить позже)
+    Route::prefix('api/user-data')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Api\UserDataController::class, 'getData']);
+        Route::post('/calendar', [\App\Http\Controllers\Api\UserDataController::class, 'saveCalendar']);
+        Route::post('/achievements', [\App\Http\Controllers\Api\UserDataController::class, 'saveAchievements']);
+        Route::post('/pomodoro', [\App\Http\Controllers\Api\UserDataController::class, 'savePomodoro']);
+    });
 });
 
 // Информационные страницы

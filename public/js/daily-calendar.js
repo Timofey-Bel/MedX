@@ -52,7 +52,17 @@
     
     // ------------------- Работа с localStorage -------------------
     
-    function loadVisitedDays() {
+    async function loadVisitedDays() {
+        // Ждем пока данные синхронизируются из БД
+        await new Promise(resolve => {
+            if (window.UserDataSync) {
+                // Даем время на синхронизацию
+                setTimeout(resolve, 500);
+            } else {
+                resolve();
+            }
+        });
+        
         const saved = localStorage.getItem('medx_visited_days');
         if (saved) {
             try {
@@ -107,14 +117,29 @@
     
     function saveVisitedDays() {
         localStorage.setItem('medx_visited_days', JSON.stringify([...visitedDays]));
+        
+        // Синхронизация с БД
+        if (window.UserDataSync) {
+            window.UserDataSync.saveCalendar();
+        }
     }
     
     function saveFreezeCount() {
         localStorage.setItem('medx_freeze_count', freezeCount);
+        
+        // Синхронизация с БД
+        if (window.UserDataSync) {
+            window.UserDataSync.saveCalendar();
+        }
     }
     
     function saveUsedFreezes() {
         localStorage.setItem('medx_used_freezes', JSON.stringify(usedFreezes));
+        
+        // Синхронизация с БД
+        if (window.UserDataSync) {
+            window.UserDataSync.saveCalendar();
+        }
     }
     
     // Применяем заморозки к пропущенным дням
@@ -239,7 +264,8 @@
         let currentDate = new Date(today);
         
         // Считаем дни подряд начиная с сегодня и идя назад
-        while (isDayVisited(currentDate)) {
+        // Учитываем как посещенные дни, так и замороженные
+        while (isDayVisited(currentDate) || isDayFrozen(currentDate)) {
             streak++;
             currentDate.setDate(currentDate.getDate() - 1);
             
@@ -250,12 +276,12 @@
         return streak;
     }
     
-    function initCalendar() {
+    async function initCalendar() {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         
         // Загружаем посещенные дни
-        loadVisitedDays();
+        await loadVisitedDays();
         
         // Проверяем достижения по streak
         const streak = calculateStreak();

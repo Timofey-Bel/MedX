@@ -349,3 +349,63 @@ object-fit: contain;
 
 
 
+
+
+/* Кастомный чекбокс "Запомнить меня" */
+.login__remember {
+    margin: 16px 0 0;
+}
+
+.login__remember-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.login__remember-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.login__remember-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-blue-40);
+    border-radius: 4px;
+    background-color: var(--white);
+    transition: all 0.2s ease;
+}
+
+.login__remember-checkbox:checked ~ .login__remember-label .login__remember-box {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.login__remember-checkbox:checked ~ .login__remember-label .login__remember-box::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.login__remember-label:hover .login__remember-box {
+    border-color: var(--primary-blue);
+}
+
+.login__remember-text {
+    font-family: var(--font-involve);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-dark-60);
+}
