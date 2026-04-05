@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/main_base', [MainBaseController::class, 'index'])->name('main_base');
     Route::get('/main_base_clinical', [MainBaseClinicalController::class, 'index'])->name('main_base_clinical');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/avatar', [ProfileController::class, 'uploadAvatar'])->name('profile.upload_avatar');
     
     // API для календаря
     Route::prefix('api/calendar')->group(function () {

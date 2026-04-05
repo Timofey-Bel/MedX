@@ -26,6 +26,7 @@ class User extends Authenticatable
         'gender',
         'birthdate',
         'timezone',
+        'avatar',
         'visited_days',
         'first_visit_date',
         'freeze_count',
@@ -90,5 +91,23 @@ class User extends Authenticatable
         }
         
         return $this->name;
+    }
+    
+    public function getAvatarLetterAttribute(): string
+    {
+        if ($this->first_name) {
+            return mb_strtoupper(mb_substr($this->first_name, 0, 1));
+        }
+        
+        if ($this->last_name) {
+            return mb_strtoupper(mb_substr($this->last_name, 0, 1));
+        }
+        
+        return mb_strtoupper(mb_substr($this->email, 0, 1));
+    }
+    
+    public function getAvatarUrlAttribute(): ?string
+    {
+        return $this->avatar ? asset('avatars/' . $this->avatar) : null;
     }
 }
