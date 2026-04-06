@@ -16,7 +16,7 @@
 
 <main class="profile-container">
     <section style="margin: 0 40px 40px;">
-        <h1 style="font-size: 1.5rem; font-weight: 600; color: #1e2c41; margin-bottom: 1.25rem;">МОЙ ПРОФИЛЬ</h1>
+        <h1 style="font-size: 2rem; font-weight: 600; color: #28282F; margin-bottom: 1.25rem; margin: 27px 0;">МОЙ ПРОФИЛЬ</h1>
     </section>
 
     <section class="page-header" style="margin: 0 40px 40px; position: relative; padding: 12px; background-color: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); max-width: 1280px; height: 167px; text-align: center;">

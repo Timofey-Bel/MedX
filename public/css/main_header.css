@@ -9,6 +9,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
+    gap: 12px;
 }
 header::before {
     content: "";
@@ -724,5 +725,9 @@ header::before {
     
     .sidebar {
         display: none;
+    }
+
+    .search-box {
+    width: auto;
     }
 }
