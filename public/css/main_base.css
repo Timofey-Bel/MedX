@@ -126,11 +126,32 @@
     .knowledge-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .btn-load-more {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 955px) {
+    .knowledge-card {
+        width: 300px;
+    }
+
+    .btn-load-more {
+        width: 90%;
+        /* margin: 40px !important; */
+    }
+
 }
 
 @media (max-width: 768px) {
     .knowledge-grid {
         grid-template-columns: 1fr;
+    }
+
+    .knowledge-card {
+        width: auto;
     }
     
     .disciplines-tags {
@@ -140,5 +161,18 @@
     .tag-btn {
         font-size: 12px;
         padding: 8px 16px;
+    }
+
+    /* .btn-load-more {
+        width: 688px;
+    } */
+
+    
+}
+
+@media (max-width: 562px) {
+
+    .breadcrumbs::after {
+        display: none;
     }
 }

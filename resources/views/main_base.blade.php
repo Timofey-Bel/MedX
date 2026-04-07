@@ -20,9 +20,9 @@
             <nav class="breadcrumbs">
                 <a class="active" href="{{ url('/main_base') }}">Фундаментальные дисциплины</a>
                 <a href="{{ url('/main_base_clinical') }}">Клинические дисциплины</a>
-                <a href="#">Медфакты</a>
+                <!-- <a href="#">Медфакты</a>
                 <a href="#">Изучённые</a>
-                <a href="#"><i class="heart-icon-small"></i> Избранное</a>
+                <a href="#"><i class="heart-icon-small"></i> Избранное</a> -->
             </nav>
         </section>
 
