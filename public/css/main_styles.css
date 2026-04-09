@@ -487,6 +487,8 @@ section {
     background-image: url("/assets/medx/img/main/showcase/no-results-bg.png");
     top: 0;
     left: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .gauge-fill {
@@ -1527,22 +1529,100 @@ section {
     height: 28px;
 }
 
-@media (max-width: 768px) {
-    
-    .banner-content {
-        padding: 28px 20px;
-    }
-    
-    .banner-vector-left,
-    .banner-vector-right {
-        display: none;
-    }
-    
+@media (max-width: 1200px) {
     .community-banner {
         height: auto;
         min-height: 198px;
     }
+
+    .banner-content {
+        padding: 28px 20px;
+    }
 }
+
+@media (max-width: 768px) {
+    
+    /* .banner-content {
+        padding: 28px 20px;
+    } */
+    
+    .banner-vector-right {
+        display: none;
+    }
+    
+    /* .community-banner {
+        height: auto;
+        min-height: 198px;
+    } */
+
+    .missions-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
+
+@media (max-width: 560px) { 
+
+    .banner-subtitle {
+        display: none;
+    }
+
+    .breadcrumbs-title {
+    margin: 10px 0;
+    }
+}
+
+@media (max-width: 492px) { 
+
+    .community-description {
+        display: none;
+    }
+
+    .breadcrumbs {
+        gap: 0.6rem ;
+        
+    }
+
+    .breadcrumbs::after {
+        display: none;
+    }
+
+    .breadcrumbs a {
+        font-size: 17px !important;
+        font-weight: 500;
+    }    
+
+    .breadcrumbs.active {
+        font-size: 18px !important;
+        font-weight: 600;
+    }
+
+    .banner-btn {
+        gap: 10px;
+        padding: 4px 10px;
+    }
+
+    .accordion-question {
+    font-size: 12px;
+
+    }
+
+    .section-title {
+        margin-top: 12px;
+        font-size: 16px;
+        margin-bottom: auto;
+    }
+
+    .accordion-toggle::before {
+        top: 5px;
+        width: 12px;
+    }
+
+    .accordion-toggle::after {
+        height: 12px;
+        left: 5px;
+    }
+}
+
 
 
 .showcase-bg-vector {
@@ -1741,6 +1821,10 @@ section {
     background: var(--dark-blue);
 }
 
+.news-pagination .swiper-pagination-bullet-active {
+        background: var(--primary-blue);
+    }
+
 /* Адаптив для мобильных */
 @media (max-width: 768px) {
     .pomodoro-notification {
@@ -1841,6 +1925,10 @@ section {
     
     .section-header {
         padding: 16px 0 12px;
+    }
+
+    .community-banner {
+        margin: 24px;
     }
     
     /* Activity section */
@@ -1944,7 +2032,17 @@ section {
     }
     
     .week-days {
+        gap: 10px;
+    }
+
+    .day {
         gap: 4px;
+        width: 20px;
+        height: 40px;
+    }
+
+    .day span {
+        font-size: 10px;
     }
     
     .nav-arrow {
