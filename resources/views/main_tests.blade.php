@@ -21,7 +21,8 @@
                 <a class="active" href="#">Создать тест</a>
                 <a href="#">Cтатистика</a>
                 <a href="#">решённые тесты</a>
-                <a href="#"><i class="heart-icon-small"></i> избранное</a>
+
+                <!-- <a href="#"><i class="heart-icon-small"></i> избранное</a> -->
             </nav>
         </section>
 

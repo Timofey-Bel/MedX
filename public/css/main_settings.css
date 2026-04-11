@@ -67,7 +67,7 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     max-width: 1280px;
-    height: 267px;
+    /* height: 267px; */
 }
 
 .section-header {
@@ -178,6 +178,18 @@ section {
     border-color: #087e90;
 }
 
+.logout-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 124, 137, 0.2);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logout-section form {
+    margin: 0;
+}
+
 
 /* Красивые стили для select как у поисковика */
 .form-section select {
@@ -233,4 +245,161 @@ section {
 .form-section select option:checked {
     background: #419AA4;
     color: white;
+}
+
+/* Адаптивность для info-grid */
+@media (max-width: 1200px) {
+    .info-grid {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .form-section {
+        flex: 1 1 calc(50% - 15px);
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .settings-title {
+        font-size: 1.5rem;
+        margin: 20px 20px 10px;
+    }
+    
+    .breadcrumbs {
+        margin: 0 20px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .breadcrumbs a {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    .page-header {
+        margin: 20px;
+        height: auto;
+        min-height: 140px;
+        padding: 20px 12px;
+    }
+    
+    .page-header-bg-1,
+    .page-header-bg-2 {
+        display: none;
+    }
+    
+    .page-info {
+        font-size: 18px;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .page-login {
+        font-size: 11px;
+    }
+    
+    .info-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-section {
+        width: 100%;
+    }
+    
+    .form-section input, select {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .section-main-information, .section-login-information {
+        height: auto;
+        min-height: auto;
+        padding: 20px;
+    }
+    
+    .section-header {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-header::before {
+        width: calc(100% - 40px);
+        top: 60px;
+    }
+    
+    section {
+        margin: 0 20px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-title {
+        font-size: 1.25rem;
+        margin: 15px 15px 10px;
+    }
+    
+    .breadcrumbs {
+        margin: 0 15px 15px;
+    }
+    
+    .breadcrumbs a {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    .page-header {
+        margin: 15px;
+        min-height: 120px;
+        padding: 15px 10px;
+    }
+    
+    .page-info {
+        font-size: 16px;
+    }
+    
+    .section-main-information, .section-login-information {
+        padding: 15px;
+    }
+    
+    .section-header {
+        font-size: 1rem;
+    }
+    
+    .section-header::before {
+        width: calc(100% - 30px);
+        top: 50px;
+    }
+    
+    section {
+        margin: 0 15px 15px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+    
+    .logout-section {
+        justify-content: center;
+    }
+    
+    .btn-secondary.logout {
+        width: 100%;
+    }
+    
+    .form-section input, select {
+        font-size: 14px;
+        height: 38px;
+        padding: 8px 14px;
+    }
+    
+    .form-section label {
+        font-size: 11px;
+    }
 }

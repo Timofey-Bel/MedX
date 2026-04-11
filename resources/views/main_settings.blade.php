@@ -175,11 +175,11 @@
                 <input id="password" type="password" placeholder="Пароль" value="••••••••">
             </div>
         </div>
-        <div class="button-group" style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; gap: 10px;">
-                <button class="btn btn-primary">СОХРАНИТЬ</button>
-                <button class="btn btn-secondary">ОТМЕНИТЬ</button>
-            </div>
+        <div class="button-group">
+            <button class="btn btn-primary">СОХРАНИТЬ</button>
+            <button class="btn btn-secondary">ОТМЕНИТЬ</button>
+        </div>
+        <div class="logout-section">
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-secondary logout">ВЫЙТИ ИЗ АККАУНТА</button>
