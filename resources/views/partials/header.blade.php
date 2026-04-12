@@ -10,7 +10,7 @@
             <nav class="nav-links">
                 <a href="{{ url('/main_showcase') }}" class="nav-link with-arrow">База знаний</a>
                 <a href="#" class="nav-link">Тарифы</a>
-                <a href="{{ url('/faq') }}" class="nav-link active">FAQ</a>
+                <a href="{{ url('/faq') }}" class="nav-link">FAQ</a>
                 <a href="#" class="nav-link">Добрые дела</a>
             </nav>
 

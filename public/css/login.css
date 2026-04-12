@@ -107,11 +107,6 @@ body {
     transition: all 0.2s;
 }
 
-
-@media (max-width: 1024px) {
-
-}
-
 /* Main layout */
 
 .main {
@@ -120,7 +115,7 @@ body {
     flex-direction: column;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 40px 80px 80px;
+    /* padding: 40px 80px 80px; */
     min-height: 100vh;
 }
 
@@ -313,17 +308,18 @@ object-fit: contain;
 
     .login__card {
         padding-inline: 16px;
+        height: auto !important;
+    }
+
+    .login__submit-text {
+        font-size: 19px;
+    }
+
+    .login__submit {
+        margin-top: 20px
     }
 }
 
-
-@media (max-width: 1024px) {
-
-}
-
-@media (max-width: 768px) {
-
-}
 
 .login__alternative {
     text-align: center;

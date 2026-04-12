@@ -113,7 +113,7 @@ section {
 
 
 @media (max-width: 1024px) {
-
+    
 }
 
 /* Main layout */
@@ -370,6 +370,11 @@ section {
 
     .login__card {
         padding-inline: 16px;
+        height: auto !important;
+    }
+    
+    .login__submit-text {
+        font-size: 19px;
     }
 }
 
@@ -378,9 +383,6 @@ section {
 
 }
 
-@media (max-width: 768px) {
-
-}
 
 .login__alternative {
     text-align: center;

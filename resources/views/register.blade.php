@@ -90,7 +90,7 @@
                                 class="login__input"
                                 type="password"
                                 name="password"
-                                placeholder="Введите пароль (минимум 6 символов)"
+                                placeholder="Введите пароль"
                                 required
                         />
                         <button type="button" class="password-toggle" aria-label="Показать пароль">
