@@ -206,4 +206,5 @@
 
 @section('scripts')
 <script src="{{ asset('assets/medx/main_script.js') }}"></script>
+<script src="{{ asset('js/faq-accordion.js') }}"></script>
 @endsection
