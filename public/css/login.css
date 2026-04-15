@@ -236,7 +236,7 @@ border-radius: 6px;
 border: 2px solid var(--primary-blue-40);
 padding: 10px 16px;
 font-family: 'Involve-Medium';
-font-weight: 600;
+/* font-weight: 600; */
 font-size: 20px;
 color: var(--text-dark);
 }
@@ -254,6 +254,10 @@ height: 24px;
 display: flex;
 align-items: center;
 justify-content: center;
+}
+
+.password-toggle:hover {
+opacity: 0.7;
 }
 
 .password-toggle__icon {
@@ -300,27 +304,6 @@ object-fit: contain;
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    .login {
-        margin-top: 24px;
-        margin-bottom: 40px;
-    }
-
-    .login__card {
-        padding-inline: 16px;
-        height: auto !important;
-    }
-
-    .login__submit-text {
-        font-size: 19px;
-    }
-
-    .login__submit {
-        margin-top: 20px
-    }
-}
-
-
 .login__alternative {
     text-align: center;
 }
@@ -340,11 +323,6 @@ object-fit: contain;
     text-decoration: none;
     object-fit: contain;
 }
-
-
-
-
-
 
 
 /* Кастомный чекбокс "Запомнить меня" */
@@ -405,3 +383,58 @@ object-fit: contain;
     font-size: 16px;
     color: var(--text-dark-60);
 }
+
+
+
+@media (max-width: 768px) {
+    .login {
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+
+    .login__card {
+        padding-inline: 16px;
+        height: auto !important;
+    }
+
+    .login__submit-text {
+        font-size: 19px;
+    }
+
+    .login__submit {
+        margin-top: 20px
+    }
+    
+    /* Отступ для мобильной навигации */
+    main {
+        padding-bottom: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .login__field-label {
+        padding-top: 10px;
+    }
+
+    .login__card {
+        padding: 20px 16px 20px;
+    }
+
+    .login__alternative-icons {
+        gap: 32px;
+        justify-content: center;
+    }
+
+    .login__submit {
+        height: 50px;
+        margin-top: 15px;
+    }
+
+    .login__divider {
+        margin: 14px 0 12px;
+    }
+
+
+}
+

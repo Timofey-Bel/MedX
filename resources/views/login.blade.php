@@ -13,8 +13,8 @@
 <main class="main">
     <section class="login">
         <div class="login__card">
-            <h1 class="login__title">Личный кабинет</h1>
-            <p class="login__subtitle">Войди в личный кабинет удобным способом</p>
+            <h1 class="login__title">Вход</h1>
+            <!-- <p class="login__subtitle">Войди удобным способом</p> -->
 
             <form class="login__form" action="{{ route('login') }}" method="post">
                 @csrf
@@ -65,7 +65,7 @@
                     <span class="login__divider-line"></span>
                 </div>
 
-                <p class="login__subtitle">Войдите через удобный сервис</p>
+                <!-- <p class="login__subtitle">Войдите через удобный сервис</p> -->
 
                 <div class="login__alternative">
                     <div class="login__alternative-icons">
@@ -94,4 +94,8 @@
     </section>
 </main>
 @include('partials.footer')
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/password-toggle.js') }}"></script>
 @endsection

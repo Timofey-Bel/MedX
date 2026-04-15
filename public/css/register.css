@@ -245,7 +245,7 @@ section {
     border: 2px solid var(--primary-blue-40);
     padding: 10px 16px;
     font-family: 'Involve-Medium';
-    font-weight: 600;
+    /* font-weight: 600; */
     font-size: 20px;
     color: var(--text-dark);
 }
@@ -263,6 +263,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.password-toggle:hover {
+    opacity: 0.7;
 }
 
 .password-toggle__icon {
@@ -375,6 +379,11 @@ section {
     
     .login__submit-text {
         font-size: 19px;
+    }
+    
+    /* Отступ для мобильной навигации */
+    main {
+        padding-bottom: 70px;
     }
 }
 
@@ -657,6 +666,14 @@ section {
     top: 100px;
     right: 0;
 }
+
+
+
+
+
+
+
+
 /* Адаптивность */
 @media (max-width: 1024px) {
     .features-grid {
@@ -689,6 +706,37 @@ section {
     .cta-button {
         width: 250px;
     }
+}
+
+@media (max-width: 480px) {
+
+    .login__field-label {
+        padding-top: 0;
+    }
+
+    .login__card {
+        padding: 20px 16px 20px;
+    }
+
+    .login__alternative-icons {
+        gap: 32px;
+        justify-content: center;
+    }
+
+    .login__submit {
+        height: 50px;
+        margin-top: 15px;
+    }
+
+    .checkbox-text {
+        font-size: 10px;
+    }
+
+    .login__divider {
+        margin: 14px 0 12px;
+    }
+
+
 }
 
 

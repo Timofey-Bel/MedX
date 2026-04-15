@@ -58,8 +58,8 @@
         </div>
         <div class="login">
             <div class="login__card">
-                <h1 class="login__title">Личный кабинет</h1>
-                <p class="login__subtitle">Войди в личный кабинет удобным способом</p>
+                <h1 class="login__title">Регистрация</h1>
+                <!-- <p class="login__subtitle">Выбери удобный способ регистрации</p> -->
 
                 <form class="login__form" action="{{ route('register') }}" method="post">
                     @csrf
@@ -104,7 +104,7 @@
                         <span class="login__divider-line"></span>
                     </div>
 
-                    <p class="login__subtitle">Войдите через удобный сервис</p>
+                    <!-- <p class="login__subtitle">Зарегестрируйся через удобный сервис</p> -->
 
                     <div class="login__alternative">
                         <div class="login__alternative-icons">
@@ -145,6 +145,7 @@
 @section('scripts')
 <script src="{{ asset('assets/medx/script.js') }}"></script>
 <script src="{{ asset('assets/medx/js/register.js') }}"></script>
+<script src="{{ asset('js/password-toggle.js') }}"></script>
 <script>
     const checkbox = document.getElementById('policyCheckbox');
     const registerBtn = document.getElementById('registerBtn');
