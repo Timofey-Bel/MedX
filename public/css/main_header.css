@@ -8,7 +8,7 @@ header {
     max-width: 1360px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 98;
     gap: 12px;
 }
 header::before {
@@ -33,7 +33,7 @@ header::before {
     gap: 12px;
     align-items: center;
     position: relative;
-    z-index: 10001;
+    z-index: 98;
 }
 
 
@@ -84,7 +84,7 @@ header::before {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     overflow-y: auto;
     display: none;
-    z-index: 10001;
+    z-index: 98 !important;
 }
 
 .search-results::-webkit-scrollbar {

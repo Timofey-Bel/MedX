@@ -10,11 +10,13 @@
 </head>
 <body>
     @yield('content')
-    @if(in_array(Route::currentRouteName(), ['main_showcase', 'main_base', 'main_base_clinical', 'main_tests', 'main_community', 'main_community_rules', 'main_confidentiality', 'profile', 'main_settings', 'design_settings', 'support_settings']))
+    @auth
         @include('components.mobile-bottom-nav')
-    @elseif(in_array(Route::currentRouteName(), ['about', 'login', 'register', 'showcase', 'faq']))
-        @include('components.public-mobile-nav')
-    @endif
+    @else
+        @if(in_array(Route::currentRouteName(), ['about', 'login', 'register', 'showcase', 'faq']))
+            @include('components.public-mobile-nav')
+        @endif
+    @endauth
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     @auth
     <script src="{{ asset('js/api-client.js') }}"></script>
