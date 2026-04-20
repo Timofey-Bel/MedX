@@ -16,6 +16,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\MainBaseController;
 use App\Http\Controllers\MainBaseClinicalController;
+use App\Http\Controllers\TariffsController;
 
 // Главная страница (showcase)
 Route::get('/', [ShowcaseController::class, 'index'])->name('showcase');
@@ -68,6 +69,7 @@ Route::middleware('auth')->group(function () {
 // Информационные страницы
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::get('/tariffs', [TariffsController::class, 'index'])->name('tariffs');
 
 Route::fallback(function () {
     return response()->view('errors.404', [], 404);

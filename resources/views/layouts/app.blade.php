@@ -13,7 +13,7 @@
     @auth
         @include('components.mobile-bottom-nav')
     @else
-        @if(in_array(Route::currentRouteName(), ['about', 'login', 'register', 'showcase', 'faq']))
+        @if(in_array(Route::currentRouteName(), ['about', 'login', 'register', 'showcase', 'faq', 'tariffs']))
             @include('components.public-mobile-nav')
         @endif
     @endauth
