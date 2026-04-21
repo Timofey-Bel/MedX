@@ -39,7 +39,7 @@ document.addEventListener('keydown', (e) => {
 // Поиск по страницам
 const searchPages = [
     { title: 'Главная', path: '/main_showcase', keywords: ['главная', 'витрина', 'showcase'] },
-    { title: 'Настройки', path: '/main_settings', keywords: ['настройки', 'профиль', 'settings'] },
+    { title: 'Настройки профиля', path: '/main_settings', keywords: ['настройки', 'профиль', 'выйти', 'settings'] },
     { title: 'Оформление', path: '/design_settings', keywords: ['оформление', 'тема', 'дизайн', 'design'] },
     { title: 'Поддержка', path: '/support_settings', keywords: ['поддержка', 'помощь', 'support', 'faq'] },
     { title: 'Тесты', path: '/main_tests', keywords: ['тесты', 'экзамены', 'tests'] },
@@ -47,7 +47,9 @@ const searchPages = [
     { title: 'Правила сообщества', path: '/main_community_rules', keywords: ['правила', 'rules'] },
     { title: 'Конфиденциальность', path: '/main_confidentiality', keywords: ['конфиденциальность', 'privacy'] },
     { title: 'База знаний', path: '/main_base', keywords: ['база знаний', 'знания', 'материалы', 'knowledge'] },
-    { title: 'Клинические дисциплины', path: '/main_base_clinical', keywords: ['клинические', 'clinical'] }
+    { title: 'Клинические дисциплины', path: '/main_base_clinical', keywords: ['клинические', 'clinical'] },
+    { title: 'Профиль', path: '/profile', keywords: ['профиль', 'мой', 'profile'] },
+
 ];
 
 const searchInput = document.getElementById('searchInput');
@@ -56,18 +58,18 @@ const searchResults = document.getElementById('searchResults');
 if (searchInput && searchResults) {
     searchInput.addEventListener('input', function(e) {
         const query = e.target.value.toLowerCase().trim();
-        
+
         if (query.length === 0) {
             searchResults.classList.remove('active');
             searchResults.innerHTML = '';
             return;
         }
-        
+
         const results = searchPages.filter(page => {
-            return page.title.toLowerCase().includes(query) || 
+            return page.title.toLowerCase().includes(query) ||
                    page.keywords.some(keyword => keyword.includes(query));
         });
-        
+
         if (results.length > 0) {
             searchResults.innerHTML = results.map(page => `
                 <div class="search-result-item" onclick="window.location.href='${page.path}'">
@@ -81,7 +83,7 @@ if (searchInput && searchResults) {
             searchResults.classList.add('active');
         }
     });
-    
+
     document.addEventListener('click', function(e) {
         if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
             searchResults.classList.remove('active');
@@ -103,21 +105,21 @@ if (favoriteBtn) {
 document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const navItems = document.querySelectorAll('.nav-item');
-    
+
     // Группы страниц для подсветки родительского пункта
     const pageGroups = {
         '/main_settings': ['/main_settings', '/design_settings', '/support_settings'],
         '/main_base': ['/main_base', '/main_base_clinical'],
         '/main_community': ['/main_community', '/main_community_rules', '/main_confidentiality']
     };
-    
+
     navItems.forEach(item => {
         item.classList.remove('active');
-        
+
         const link = item.querySelector('a');
         if (link) {
             const linkPath = new URL(link.href).pathname;
-            
+
             // Проверяем прямое совпадение
             if (linkPath === currentPath) {
                 item.classList.add('active');
@@ -129,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-        
+
         item.addEventListener('click', function(e) {
             if (!e.target.closest('a')) {
                 navItems.forEach(nav => nav.classList.remove('active'));
@@ -194,47 +196,47 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function() {
     const customSelect = document.getElementById('customTimeZone');
     if (!customSelect) return;
-    
+
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-option');
     const hiddenInput = document.getElementById('time-zone');
-    
+
     // Открытие/закрытие списка
     trigger.addEventListener('click', function(e) {
         e.stopPropagation();
         customSelect.classList.toggle('open');
     });
-    
+
     // Выбор опции
     options.forEach(option => {
         option.addEventListener('click', function() {
             const value = this.getAttribute('data-value');
             const text = this.textContent;
-            
+
             // Обновляем текст в trigger
             trigger.querySelector('span').textContent = text;
-            
+
             // Обновляем скрытое поле
             hiddenInput.value = value;
-            
+
             // Убираем selected со всех опций
             options.forEach(opt => opt.classList.remove('selected'));
-            
+
             // Добавляем selected к выбранной опции
             this.classList.add('selected');
-            
+
             // Закрываем список
             customSelect.classList.remove('open');
         });
     });
-    
+
     // Закрытие при клике вне списка
     document.addEventListener('click', function(e) {
         if (!customSelect.contains(e.target)) {
             customSelect.classList.remove('open');
         }
     });
-    
+
     // Закрытие по ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && customSelect.classList.contains('open')) {
