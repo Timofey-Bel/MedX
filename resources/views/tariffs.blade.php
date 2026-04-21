@@ -20,7 +20,7 @@
             <h1 class="hero-title">учись эффективно с medx</h1>
             <h2 class="hero-subtitle">и делай мир лучше</h2>
         </div>
-        
+
         <!-- Pricing Cards Inside Hero -->
         <div class="pricing-cards">
             <!-- Card 1: 1 месяц -->
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <p class="card-description">Идеально для старта, чтобы познакомиться с medx</p>
-                <button class="card-btn">Выбрать этот тариф</button>
+                <a href="{{ url('/login') }}"><button class="card-btn">Выбрать этот тариф</button></a>
             </div>
 
             <!-- Card 2: 1 год (Рекомендуем) -->
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <p class="card-description">самое выгодное предложение — экономия больше 30%</p>
-                <button class="card-btn">Выбрать этот тариф</button>
+                <a href="{{ url('/login') }}"><button class="card-btn">Выбрать этот тариф</button></a>
             </div>
 
             <!-- Card 3: 6 месяцев -->
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <p class="card-description">закрой семестр на отлично  вместе с нами</p>
-                <button class="card-btn">Выбрать этот тариф</button>
+                <a href="{{ url('/login') }}"><button class="card-btn">Выбрать этот тариф</button></a>
             </div>
         </div>
     </section>
@@ -193,9 +193,9 @@
                     Выбирай свой тариф и совершай
                     добрые дела вместе с нами!</h2>
                 <p class="charity-description">
-                    Часть средств от твоей подписки мы направляем 
-                    на благотворительность, поддерживая детей с 
-                    особенностями развития и онкологией, а также приюты для животных. 
+                    Часть средств от твоей подписки мы направляем
+                    на благотворительность, поддерживая детей с
+                    особенностями развития и онкологией, а также приюты для животных.
                 </p>
             </div>
             <div class='charity-white-bg'></div>
