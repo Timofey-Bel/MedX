@@ -71,13 +71,16 @@ header {
 .nav-link.with-arrow {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
 }
 
-.nav-link.with-arrow::after {
-    content: '▼';
+/* .nav-link.with-arrow::after {
+    background-image: url("/assets/medx/img/main/header/arrow.svg");
     font-size: 10px;
-}
+    width: 12px;
+    height: 7px;
+    position: absolute;
+} */
 
 .auth-buttons {
     display: flex;
@@ -137,3 +140,12 @@ header {
         display: none;
     }
 }
+
+
+
+
+
+
+
+
+

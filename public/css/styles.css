@@ -149,7 +149,7 @@ header {
     font-weight: 600;
 }
 
-.nav-link.with-arrow {
+/* .nav-link.with-arrow {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -158,7 +158,7 @@ header {
 .nav-link.with-arrow::after {
     content: '▼';
     font-size: 10px;
-}
+} */
 
 .auth-buttons {
     display: flex;
@@ -666,66 +666,66 @@ section {
     header {
         padding: 15px 0;
     }
-    
+
     .header-container {
         height: 60px;
         padding: 10px 15px;
     }
-    
+
     .logo-img {
         height: 30px;
     }
-    
+
     .logo-placeholder {
         width: 100px;
         height: 28px;
         font-size: 16px;
     }
-    
+
     .nav-links {
         display: none;
     }
-    
+
     .auth-buttons {
         gap: 8px;
     }
-    
+
     .btn-login {
         padding: 6px 16px;
         font-size: 14px;
         width: auto;
         height: 32px;
     }
-    
+
     .btn-trial {
         padding: 6px 16px;
         font-size: 14px;
         width: auto;
         height: 32px;
     }
-    
+
     /* Main block */
     section {
         margin: 30px auto;
     }
-    
+
     .mainblock {
         height: auto;
         min-height: 500px;
         padding: 30px 20px;
         margin: 0 15px;
     }
-    
+
     .mainblock-bg {
         padding: 40px;
         background-size: cover;
     }
-    
+
     .textmain {
         height: auto;
         padding: 0 10px;
     }
-    
+
     .btn_free {
         width: 100%;
         max-width: 320px;
@@ -734,78 +734,78 @@ section {
         top: 40px;
         margin-top: 20px;
     }
-    
+
     .text-wrapper-29 {
         font-size: 18px;
     }
-    
+
     /* Footer */
     .footer {
         padding-top: 60px;
         padding-bottom: 30px;
     }
-    
+
     .footer__inner {
         padding: 0 20px;
     }
-    
+
     .footer__top {
         flex-direction: column;
         gap: 30px;
         margin-bottom: 30px;
     }
-    
+
     .footer__brand {
         max-width: 100%;
     }
-    
+
     .footer__description {
         font-size: 16px;
     }
-    
+
     .footer__social {
         max-width: 100%;
     }
-    
+
     .footer__social-text {
         font-size: 16px;
     }
-    
+
     .footer__social-list {
         margin: 0 0 16px;
         flex-wrap: wrap;
     }
-    
+
     .footer__columns {
         grid-template-columns: 1fr;
         gap: 30px;
         margin-bottom: 30px;
     }
-    
+
     .footer__heading {
         font-size: 22px;
         margin-bottom: 12px;
     }
-    
+
     .footer__subheading {
         font-size: 16px;
         margin: 16px 0;
     }
-    
+
     .footer__discipline-grid {
         grid-template-columns: 1fr;
         gap: 12px;
     }
-    
+
     .footer__link {
         font-size: 14px;
         padding-bottom: 8px;
     }
-    
+
     .footer__link--login {
         padding-bottom: 30px;
     }
-    
+
     .footer__link--register {
         padding-top: 20px;
     }
@@ -821,17 +821,17 @@ section {
         height: 56px;
         padding: 8px 12px;
     }
-    
+
     .logo-img {
         height: 26px;
     }
-    
+
     .logo-placeholder {
         width: 80px;
         height: 24px;
         font-size: 14px;
     }
-    
+
     .btn-login,
     .btn-trial {
         font-size: 12px;
@@ -842,7 +842,7 @@ section {
      .btn-trial {
         display: none;
     }
-    
+
     .mainblock {
         min-height: 340px;
         padding: 20px 15px;
@@ -852,37 +852,37 @@ section {
     .mainblock-bg {
         display: none;
     }
-    
+
     .btn_free {
         max-width: 280px;
         height: 48px;
         font-size: 16px;
     }
-    
+
     .text-wrapper-29 {
         font-size: 16px;
     }
-    
+
     .footer__inner {
         padding: 0 15px;
     }
-    
+
     .footer__logo img {
         width: 220px;
     }
-    
+
     .footer__description {
         font-size: 14px;
     }
-    
+
     .footer__social-text {
         font-size: 14px;
     }
-    
+
     .footer__heading {
         font-size: 18px;
     }
-    
+
     .footer__subheading {
         font-size: 14px;
     }
@@ -935,12 +935,12 @@ section {
     .public-mobile-nav {
         display: flex;
     }
-    
+
     /* Скрыть footer на мобильных */
     .footer {
         display: none;
     }
-    
+
     /* Добавить отступ снизу для контента */
     main {
         padding-bottom: 70px;
