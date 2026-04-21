@@ -572,7 +572,7 @@
 @media (max-width: 480px) {
     .tariffs-hero {
         width: calc(100% - 20px);
-        min-height: auto;
+        height: auto;
         margin: 15px 10px 30px;
         padding-bottom: 20px;
     }
@@ -587,6 +587,7 @@
 
     .hero-content {
         padding-top: 30px;
+        margin-bottom: 20px;
     }
 
     .hero-title {
@@ -602,13 +603,14 @@
     .pricing-cards {
         margin-top: 30px;
         padding: 0 10px;
+        gap: 0;
     }
 
     .pricing-card {
         width: 100%;
         max-width: 350px;
         height: auto;
-        min-height: 450px;
+        min-height: 400px;
         padding: 30px 15px 15px;
     }
 
@@ -616,8 +618,9 @@
         width: 100%;
         max-width: 350px;
         height: auto;
-        min-height: 500px;
-        padding-top: 75px;
+        min-height: 400px;
+        /* padding-top: 75px; */
+        margin-top: 150px;
     }
 
     .card-period {
@@ -696,6 +699,7 @@
     .tariffs-charity {
         padding: 40px 15px;
         margin: 0 10px 30px;
+        height: auto;
     }
 
     .charity-title {
@@ -705,5 +709,11 @@
 
     .charity-description {
         font-size: 14px;
+    }
+
+    .charity-white-bg {
+        width: auto;
+        margin: 0;
+        margin-top: 20px;
     }
 }

@@ -348,6 +348,10 @@
 
 @media (max-width: 480px) {
 
+    section {
+        margin-bottom: 30px !important;
+    }
+
     .vector-27 {
         display: none;
     }
@@ -359,6 +363,7 @@
     .page-header {
         height: auto;
         padding: 10px;
+        margin-bottom: 40px;
     }
 
     .accordion-header {

@@ -345,6 +345,11 @@
 }
 
 @media (max-width: 576px) {
+
+     section {
+        margin-bottom: 30px !important;
+    }
+
     .container {
         padding: 0 var(--space-sm);
     }
@@ -376,5 +381,11 @@
     .btn-support {
         padding: 10px 24px;
         font-size: 16px;
+    }
+
+    .page-header {
+        height: auto;
+        padding: 10px;
+        margin-bottom: 40px;
     }
 }

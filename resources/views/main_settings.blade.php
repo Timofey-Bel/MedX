@@ -62,7 +62,7 @@
 
     <section class="section-main-information">
         <h2 class="section-header">Основная информация</h2>
-        
+
         @if (session('success'))
             <div id="successNotification" style="position: fixed; top: 20px; right: 20px; z-index: 9999; color: #087e90; padding: 15px 20px; background: #e0f4f5; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 250px; animation: slideIn 0.3s ease-out;">
                 {{ session('success') }}
