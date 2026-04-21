@@ -11,6 +11,7 @@
 @section('content')
 @include('partials.header')
 <main class="main">
+    <img src="https://medx/images/ui/login-vector.png" alt="" class="login-bg-vector">
     <section class="login">
         <div class="login__card">
             <h1 class="login__title">Вход</h1>
@@ -18,7 +19,7 @@
 
             <form class="login__form" action="{{ route('login') }}" method="post">
                 @csrf
-                
+
                 @if ($errors->any())
                     <div style="color: #e74c3c; margin-bottom: 15px; padding: 10px; background: #fee; border-radius: 8px;">
                         {{ $errors->first() }}

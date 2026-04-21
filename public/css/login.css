@@ -58,6 +58,18 @@ body {
     background-color: var(--bg-light);
 }
 
+.login-bg-vector {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    /* opacity: 0.5; */
+    top: 188px;
+}
+
 .page {
     min-height: 100vh;
 }
@@ -124,6 +136,7 @@ body {
     justify-content: center;
     margin-bottom: 80px;
     margin-top: 40px;
+    z-index: 1;
 }
 
 .login__card {
@@ -404,7 +417,7 @@ object-fit: contain;
     .login__submit {
         margin-top: 20px
     }
-    
+
     /* Отступ для мобильной навигации */
     main {
         padding-bottom: 70px;
