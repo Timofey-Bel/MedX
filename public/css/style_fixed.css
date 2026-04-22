@@ -70,24 +70,6 @@ a {
   --space-xl: 60px;
 }
 
-/* === MAIN SCREEN === */
-{
-  background-color: var(--bg-light);
-  width: 100%;
-  min-width: 1440px;
-  min-height: 9081px;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* === DECORATIVE VECTORS === */
-/*.vector {*/
-/*  position: absolute;*/
-/*  top: 4378px;*/
-/*  left: 0;*/
-/*  width: 1440px;*/
-/*  height: 423px;*/
-/*}*/
 .vector {
     background-image: url("/site/modules/medx/showcase/img/decorative-line-2.svg");
     background-repeat: no-repeat;
@@ -118,28 +100,9 @@ a {
   height: 371px;
 }
 
-/*.vector-3 {*/
-/*  position: absolute;*/
-/*  top: 3231px;*/
-/*  left: 690px;*/
-/*  width: 750px;*/
-/*  height: 726px;*/
-/*}*/
-
-/*.vector-4 {*/
-/*  !*position: absolute;*!*/
-/*  top: 633px;*/
-/*  left: 0;*/
-/*  width: 1440px;*/
-/*  height: 1054px;*/
-/*}*/
-
-
 /* === MOBILE SECTION === */
 .med-x {
   position: relative;
-  /*top: 8122px;*/
-  /*left: calc(50% - 440px);*/
   width: 880px;
   background: linear-gradient(90deg, rgba(0, 154, 171, 1) 0%, rgba(0, 124, 137, 1) 100%);
   -webkit-background-clip: text !important;
@@ -150,15 +113,12 @@ a {
   font-size: 44px;
   letter-spacing: -0.88px;
   line-height: normal;
-  /* margin: auto; */
   text-align: left;
   margin-left: 80px;
 }
 
 .free-mobile-friendly {
   position: relative;
-  /*top: 8290px;*/
-  /*left: calc(50% - 637.5px);*/
   width: 1275px;
   height: 705px;
 }
@@ -166,19 +126,14 @@ a {
 /* === FEATURE CARDS BLOCK === */
 .block {
   position: relative;
-  /*top: 4637px;*/
-  /*left: 80px;*/
   width: 1280px;
   height: 2299px;
   overflow: hidden;
   margin-bottom: 174px;
 }
 
-/* Card 1 */
 .card {
   position: absolute;
-  /*top: 0;*/
-  /*left: 0;*/
   border-radius: 20px 20px 0 0;
   width: 1280px;
   height: 780px;
@@ -461,17 +416,12 @@ a {
 }
 
 .conveyor-bar {
-    /*display: inline-block;*/
-    /*padding-left: 100%; !* Сдвиг, чтобы начать за границей *!*/
     animation: conveyor-move 10s linear infinite; /* Анимация */
     display: flex;
-    /*  !*width: 1440px;*!*/
     height: 65px;
-    /*  position: relative;*/
     align-items: center;
     gap: 16px;
     padding: 12px 20px;
-    /*  overflow: hidden;*/
 
 }
 
@@ -522,11 +472,8 @@ a {
 /* === LEARN SECTION === */
 .block-learn {
   position: relative;
-  /*top: 7110px;*/
-  /*left: calc(50% - 665px);*/
   width: 1331px;
   height: 633px;
-  /*margin: 60px auto;*/
 }
 
 .text-wrapper-7 {
@@ -881,8 +828,6 @@ a {
 /* === ABOUT US SECTION === */
 .block-about-us {
   position: relative;
-  /*top: 1050px;*/
-  /*left: 80px;*/
   width: 1280px;
   height: 2100px;
   display: flex;
@@ -1080,8 +1025,6 @@ a {
 /* === DISCIPLINES SECTION === */
 .block-disciplines {
   position: relative;
-  /*top: 3302px;*/
-  /*left: 80px;*/
   width: 1282px;
   height: 1182px;
   display: flex;
@@ -1519,11 +1462,8 @@ a {
   height: 64px;
   align-items: center;
   justify-content: space-around;
-  /*gap: 9.49px;*/
   padding: 16px 120px;
   position: relative;
-  /*top: 7844px;*/
-  /*left: calc(50% - 310px);*/
   background-color: var(--color-medium);
   border-radius: 12px;
   margin: 100px auto;
@@ -1542,18 +1482,6 @@ a {
   letter-spacing: 0.96px;
   line-height: normal;
 }
-
-/* === MAIN BLOCK (HERO) === */
-/*.mainblock {*/
-/*  position: absolute;*/
-/*  top: 40px;*/
-/*  left: 80px;*/
-/*  width: 1280px;*/
-/*  height: 780px;*/
-/*  background-color: var(--white);*/
-/*  border-radius: 20px;*/
-/*  box-shadow: var(--shadow);*/
-/*}*/
 
 .btnvoiti {
   position: absolute;
@@ -1661,14 +1589,6 @@ a {
   left: 91.55%;
 }
 
-/*.logo {*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: calc(50% - 364px);*/
-/*  width: 124px;*/
-/*  height: 34px;*/
-/*}*/
-
 .button {
   all: unset;
   box-sizing: border-box;
@@ -1696,17 +1616,6 @@ a {
   letter-spacing: 0;
   line-height: normal;
 }
-
-/*.textmain {*/
-/*  position: absolute;*/
-/*  top: 202px;*/
-/*  left: calc(50% - 387px);*/
-/*  width: 766px;*/
-/*  height: 346px;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*}*/
 
 .logo-2 {
   margin-left: -4px;
@@ -1822,12 +1731,5 @@ a {
     width: 360px;
     height: 210px;
   }
-
-  
-
-
-
-
-
 
 }

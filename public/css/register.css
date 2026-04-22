@@ -245,7 +245,6 @@ section {
     border: 2px solid var(--primary-blue-40);
     padding: 10px 16px;
     font-family: 'Involve-Medium';
-    /* font-weight: 600; */
     font-size: 20px;
     color: var(--text-dark);
 }
@@ -274,9 +273,6 @@ section {
     height: 100%;
     object-fit: contain;
 }
-/*.login__input::placeholder {*/
-/*    color: var(--text-dark-soft);*/
-/*}*/
 
 .login__submit {
     margin-top: 45px;
@@ -440,7 +436,6 @@ section {
 /* Левая колонка - 10 карточек */
 .left-column {
     position: absolute;
-    /*left: 80px;*/
     top: 60px;
 }
 
@@ -458,7 +453,6 @@ section {
 
 .card-title {
     position: absolute;
-    /*text-align: center;*/
     left: 50%;
     transform: translateX(-50%);
 }

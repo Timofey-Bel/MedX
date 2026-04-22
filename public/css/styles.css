@@ -60,7 +60,6 @@ a {
     width: 100%;
     max-width: 1328px;
     margin: 0 auto;
-    /* padding: 0 var(--space-md); */
 }
 
 .header-container,
@@ -133,8 +132,6 @@ header {
 
 .nav-link {
     font-size: 20px;
-    /*height: 27px;*/
-    /*font-weight: 500;*/
     color: var(--text-dark);
     text-decoration: none;
     transition: color 0.2s;
@@ -145,20 +142,8 @@ header {
 }
 
 .nav-link.active {
-    /* color: var(--primary-blue); */
     font-weight: 600;
 }
-
-/* .nav-link.with-arrow {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.nav-link.with-arrow::after {
-    content: '▼';
-    font-size: 10px;
-} */
 
 .auth-buttons {
     display: flex;
@@ -236,7 +221,6 @@ header {
 .footer::before {
     content: "";
     position: absolute;
-    /*top: 40px;*/
     left: 50%;
     transform: translateX(-50%);
     width: 1600px;
@@ -373,7 +357,6 @@ header {
 
 .footer__link {
     display: inline-block;
-    /*font-family: 'Involve-Medium'; */
     font-weight: 400;
     font-size: 14px;
     color: var(--white);
@@ -439,34 +422,19 @@ header {
 /* === MAIN BLOCK (HERO) === */
 main {
     background-color: #edf4f4;
-    /*width: 100%;*/
-    /*min-width: 1440px;*/
-    /*min-height: 9081px;*/
-    /*position: relative;*/
-    /*overflow-x: hidden;*/
     display: block;
 }
 
 section {
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
-    /*overflow: hidden;*/
-    /*margin-bottom: 60px;*/
-    /*margin-top: 60px;*/
     margin: 60px auto;
 }
 .container {
     width: 100%;
     max-width: 1280px;
-    /*padding-left: 15px;*/
-    /*padding-right: 15px;*/
     box-sizing: border-box;
     margin: auto;
 }
 .mainblock {
-    /*position: absolute;*/
-    /*top: 40px;*/
-    /*left: 80px;*/
     max-width: 1280px;
     height: 700px;
     background-color: #ffffff;
@@ -475,11 +443,10 @@ section {
     margin-right: auto;
     margin-left: auto;
     padding: 50px;
-    /* display: flex; */
-    margin: auto; /* Добавить вместо top/left */
-    text-align: center; /* Добавить */
-    position: relative; /* Добавить */
-    overflow: hidden; /* Добавить */
+    margin: auto; 
+    text-align: center; 
+    position: relative; 
+    overflow: hidden; 
 
 }
 
@@ -489,23 +456,19 @@ section {
     width: 100%;
     height: 100%;
     padding: 110px;
-    position: absolute; /* Добавить */
+    position: absolute; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    /*background-size: cover; !* Добавить - фон будет масштабироваться *!*/
-    background-position: center; /* Добавить */
-    background-repeat: no-repeat; /* Добавить */
-    z-index: 1; /* Добавить */
+    background-position: center;
+    background-repeat: no-repeat; 
+    z-index: 1; 
 }
 .textmain {
-    /*position: absolute;*/
     top: 72px;
-    /* left: calc(50% - 387px); */
-    margin: auto; /* Добавить вместо top/left */
-    text-align: center; /* Добавить */
-    /*width: 766px;*/
+    margin: auto; 
+    text-align: center; 
     height: 346px;
     display: flex;
     flex-direction: column;
@@ -518,21 +481,17 @@ section {
     height: 64px;
     align-items: center;
     justify-content: space-around;
-    /*gap: 9.49px;*/
     padding: 16px 120px;
-    /*position: absolute;*/
-    position: relative; /* Изменить с absolute на relative */
-    /*top: 590px;*/
-    /*left: calc(50% - 316px);*/
+    position: relative; 
     background-color: #009aaa;
     border-radius: 12px;
-    margin: 34px auto 0; /* Добавить */
+    margin: 34px auto 0;
     top: 72px;
 }
 
 .textmain, .btn_free {
-    position: relative; /* Добавить */
-    z-index: 2; /* Добавить - чтобы были выше фона */
+    position: relative; 
+    z-index: 2; 
 }
 
 .text-wrapper-29 {
@@ -553,23 +512,7 @@ section {
     width: 1440px;
 }
 
-/*.doodles {*/
-/*    !*position: absolute;*!*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    overflow:hidden;*/
-/*}*/
-
-/*.doodles-img {*/
-/*    !*position: absolute;*!*/
-/*    overflow:hidden;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    padding: 50px;*/
-/*}*/
-
 .group-2 {
-    /*position: absolute;*/
     width: 8.11%;
     height: 38.25%;
     top: 0;
@@ -577,7 +520,6 @@ section {
 }
 
 .group-3 {
-    /*position: absolute;*/
     width: 18.64%;
     height: 43.05%;
     top: 3.69%;
@@ -593,7 +535,6 @@ section {
 }
 
 .group-5 {
-    /*position: absolute;*/
     width: 13.89%;
     height: 35.23%;
     top: 51.76%;
@@ -601,7 +542,6 @@ section {
 }
 
 .group-6 {
-    /*position: absolute;*/
     width: 4.73%;
     height: 24.55%;
     top: 24.15%;
@@ -609,7 +549,6 @@ section {
 }
 
 .group-7 {
-    /*position: absolute;*/
     width: 7.34%;
     height: 28.88%;
     top: 67.73%;
@@ -644,7 +583,6 @@ section {
 }
 
 .vector-11 {
-    /*position: absolute;*/
     width: 6.67%;
     height: 9.75%;
     top: 0;
@@ -652,7 +590,6 @@ section {
 }
 
 .vector-12 {
-    /*position: absolute;*/
     width: 6.67%;
     height: 9.75%;
     top: 3.3%;
@@ -660,7 +597,6 @@ section {
 }
 
 .vector-13 {
-    /*position: absolute;*/
     width: 5.71%;
     height: 10.51%;
     top: 22.62%;
@@ -668,7 +604,6 @@ section {
 }
 
 .vector-14 {
-    /*position: absolute;*/
     width: 6.43%;
     height: 12.92%;
     top: 87.08%;
@@ -880,7 +815,6 @@ section {
     }
 
     .header-container {
-        /* height: 56px !important; */
         padding: 8px 12px;
         margin: 0 10px;
     }
