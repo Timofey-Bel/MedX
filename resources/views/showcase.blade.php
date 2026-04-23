@@ -39,6 +39,8 @@
         </div>
     </section>
     <section class="block-about-us">
+            <img src="https://medx/images/ui/vector-6@4x.png" alt="" class="vector-1">
+            <img src="https://medx/images/ui/vector-16@4x.png" alt="" class="vector-16">
         <div class="text">
             <div class="text-2">
                 <p class="med-x-2">ДОБРО ПОЖАЛОВАТЬ В MEDX —</p>
@@ -88,6 +90,8 @@
         </div>
     </section>
     <section class="block-disciplines">
+        <img src="https://medx/images/ui/vector-7@4x.png" alt="" class="vector-3">
+        <img src="https://medx/images/ui/vector-8@4x.png" alt="" class="vector-84">
         <p class="text-wrapper-23">ИЗУЧИ ВСЕ ДИСЦИПЛИНЫ ВМЕСТЕ С НАМИ</p>
         <div class="view-3">
             <div class="text-wrapper-24">ФУНДАМЕНТАЛЬНЫЕ ДИСЦИПЛИНЫ:</div>
@@ -393,6 +397,7 @@
         <div class="text-wrapper-29">НАЧАТЬ БЕСПЛАТНО</div>
     </section>
     <section class="under">
+        <img src="https://medx/images/ui/vector-13@4x.png" alt="" class="vector-134">
         <p class="med-x">MEDX ВСЕГДА С СОБОЙ.<br/>УЧИСЬ НА ЛЮБОМ УСТРОЙСТВЕ.</p>
         <img class="free-mobile-friendly" src="{{ asset('images/ui/devices.png') }}"/>
     </section>

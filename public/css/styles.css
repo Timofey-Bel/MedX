@@ -550,6 +550,7 @@ section {
 .under {
     position: relative;
     text-align: center;
+    width: 1440px;
 }
 
 /*.doodles {*/
@@ -607,6 +608,41 @@ section {
     left: 11.81%;
 }
 
+.group-7 {
+    /*position: absolute;*/
+    width: 7.34%;
+    height: 28.88%;
+    top: 67.73%;
+    left: 0;
+}
+
+.group-8 {
+    position: absolute;
+    width: 5.66%;
+    height: 29.96%;
+    top: 45.85%;
+    left: 68.49%;
+}
+
+.vector-1 {
+    width: 1440px;
+    height: 1026px;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -360px;
+}
+
+.vector-3 {
+    width: 750px;
+    height: 700px;
+    position: absolute;
+    top: -70px;
+    z-index: 0;
+    left: 610px;
+}
+
 .vector-11 {
     /*position: absolute;*/
     width: 6.67%;
@@ -621,14 +657,6 @@ section {
     height: 9.75%;
     top: 3.3%;
     left: 23.13%;
-}
-
-.group-7 {
-    /*position: absolute;*/
-    width: 7.34%;
-    height: 28.88%;
-    top: 67.73%;
-    left: 0;
 }
 
 .vector-13 {
@@ -647,13 +675,36 @@ section {
     left: 78.11%;
 }
 
-.group-8 {
+.vector-16 {
     position: absolute;
-    width: 5.66%;
-    height: 29.96%;
-    top: 45.85%;
-    left: 68.49%;
+    width: 1440px;
+    height: 882.5px;
+    z-index: 0;
+    top: 1000px;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
+.vector-84 {
+    position: absolute;
+    width: 1440px;
+    height: 395px;
+    z-index: 0;
+    top: 1100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.vector-134 {
+    position: absolute;
+    width: 1440px;
+    height: 343px;
+    z-index: 0;
+    top: -370px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 
 

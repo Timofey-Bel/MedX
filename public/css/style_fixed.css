@@ -51,7 +51,7 @@ a {
 
   --white: #FFFFFF;          /* Белый */
   --bg-light: #EDF4F4;       /* Светлый фон */
-  
+
 
   --font-onest: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-involve: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -126,20 +126,6 @@ a {
 /*  height: 726px;*/
 /*}*/
 
-.vector-3 {
-    background-image: url("/site/modules/medx/showcase/img/vector-7@4x.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 750px;
-    height: 726px;
-    position: absolute;
-    top: 3231px;
-    left: 690px;
-    z-index: 0;
-    pointer-events: none;
-}
-
 /*.vector-4 {*/
 /*  !*position: absolute;*!*/
 /*  top: 633px;*/
@@ -147,19 +133,7 @@ a {
 /*  width: 1440px;*/
 /*  height: 1054px;*/
 /*}*/
-.vector-1 {
-    background-image: url("/site/modules/medx/showcase/img/vector-6@4x.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 100%;
-    height: 1054px;
-    position: absolute;
-    top: 633px;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
-}
+
 
 /* === MOBILE SECTION === */
 .med-x {
@@ -176,7 +150,9 @@ a {
   font-size: 44px;
   letter-spacing: -0.88px;
   line-height: normal;
-    margin: auto;
+  /* margin: auto; */
+  text-align: left;
+  margin-left: 80px;
 }
 
 .free-mobile-friendly {
@@ -195,7 +171,7 @@ a {
   width: 1280px;
   height: 2299px;
   overflow: hidden;
-  /*margin: auto;*/
+  margin-bottom: 174px;
 }
 
 /* Card 1 */
@@ -472,38 +448,16 @@ a {
 }
 
 /* === RUNNING LINE === */
-/*.view {*/
-/*  position: absolute;*/
-/*  top: 880px;*/
-/*  left: 0;*/
-/*  !*width: 1440px;*!*/
-/*  height: 65px;*/
-/*  display: flex;*/
-/*}*/
 
-/*.view-2 {*/
-/*  display: flex;*/
-/*  !*width: 1440px;*!*/
-/*  height: 65px;*/
-/*  position: relative;*/
-/*  align-items: center;*/
-/*  gap: 16px;*/
-/*  padding: 12px 20px;*/
-/*  overflow: hidden;*/
-/*  background: linear-gradient(90deg, rgba(116, 181, 188, 1) 0%, rgba(0, 124, 137, 1) 100%);*/
-/*}*/
 .conveyor-container {
     width: 100%; /* Ширина контейнера */
     overflow: hidden; /* Скрываем выходящее за границы */
     white-space: nowrap; /* Запрещаем перенос текста */
     background: linear-gradient(90deg, rgba(116, 181, 188, 1) 0%, rgba(0, 124, 137, 1) 100%);
-    /*background-color: #f0f0f0;*/
-    /*  position: absolute;*/
-    /*  top: 880px;*/
-    /*  left: 0;*/
-    /*  !*width: 1440px;*!*/
-    /*  height: 65px;*/
     display: flex;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 125px;
 }
 
 .conveyor-bar {
@@ -933,7 +887,7 @@ a {
   height: 2100px;
   display: flex;
   gap: 42px;
-  /*margin: 60px auto;*/
+  margin-bottom: 150px;
 }
 
 .text {
@@ -1132,7 +1086,7 @@ a {
   height: 1182px;
   display: flex;
   flex-direction: column;
-  /*margin: 60px auto;*/
+  margin-bottom: 150px;
 }
 
 .text-wrapper-23 {
@@ -1151,6 +1105,7 @@ a {
   font-size: 44px;
   letter-spacing: -0.88px;
   line-height: normal;
+  z-index: 1;
 }
 
 .view-3 {
@@ -1571,7 +1526,9 @@ a {
   /*left: calc(50% - 310px);*/
   background-color: var(--color-medium);
   border-radius: 12px;
-  margin: 60px auto;
+  margin: 100px auto;
+  margin-bottom: 215px;
+  z-index: 1;
 }
 
 .text-wrapper-29 {
@@ -1825,7 +1782,7 @@ a {
    .h-2 {
     display: none;
   }
-  
+
   .conveyor-bar {
     height: 35px;
   }
