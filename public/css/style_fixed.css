@@ -1764,6 +1764,22 @@ a {
   .block-about-us, .block-disciplines, .block-learn, .block, .frame-30 {
     display: none;
   }
+
+  .med-x {
+    width: auto;
+    font-size: 36px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .free-mobile-friendly {
+    width: 100%;
+    height: auto;         
+  }
+
+  .h-2 {
+    margin-top: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1799,6 +1815,7 @@ a {
   .med-x {
     width: auto;
     font-size: 22px;
+    text-align: center;
   }
 
   .free-mobile-friendly {
@@ -1806,6 +1823,7 @@ a {
     height: 210px;
   }
 
+  
 
 
 

@@ -457,7 +457,7 @@ section {
 }
 .container {
     width: 100%;
-    /*max-width: 1280px;*/
+    max-width: 1280px;
     /*padding-left: 15px;*/
     /*padding-right: 15px;*/
     box-sizing: border-box;
@@ -719,8 +719,9 @@ section {
     }
 
     .header-container {
-        height: 60px;
+        height: 60px !important; 
         padding: 10px 15px;
+        margin: 0 15px;
     }
 
     .logo-img {
@@ -775,6 +776,7 @@ section {
     .textmain {
         height: auto;
         padding: 0 10px;
+        top: 0;
     }
 
     .btn_free {
@@ -860,6 +862,11 @@ section {
     .footer__link--register {
         padding-top: 20px;
     }
+
+    .under {
+    width: auto;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -869,8 +876,9 @@ section {
     }
 
     .header-container {
-        height: 56px;
+        /* height: 56px !important; */
         padding: 8px 12px;
+        margin: 0 10px;
     }
 
     .logo-img {
