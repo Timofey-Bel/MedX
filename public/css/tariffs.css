@@ -383,7 +383,7 @@
 @media (max-width: 1024px) {
     .tariffs-hero {
         width: calc(100% - 40px);
-        min-height: auto;
+        height: auto;
         margin: 30px 20px 60px;
         padding-bottom: 40px;
     }
