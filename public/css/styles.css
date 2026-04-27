@@ -875,6 +875,10 @@ section {
         padding: 0;
     }
 
+    header {
+        padding: 10px 0 20px !important;
+    }
+
     .header-container {
         /* height: 56px !important; */
         padding: 8px 12px;
@@ -909,7 +913,8 @@ section {
     }
 
     .mainblock-bg {
-        display: none;
+        background-size: contain;
+        margin-top: 35px;
     }
 
     .btn_free {
