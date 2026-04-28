@@ -106,27 +106,6 @@
     z-index: 0; /* ниже заголовков */
 }
 
-/* Основные стили */
-/** {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    box-sizing: border-box;*/
-/*}*/
-
-/*body {*/
-/*    font-family: 'Onest', sans-serif;*/
-/*    background: var(--bg-light);*/
-/*    position: relative;*/
-/*    overflow-x: hidden;*/
-/*}*/
-
-/*.container {*/
-/*    width: 1440px;*/
-/*    margin: 0 auto;*/
-/*    position: relative;*/
-/*    height: 5827px;*/
-/*}*/
-
 /* Декоративные элементы */
 .vector-16 {
     position: absolute;
