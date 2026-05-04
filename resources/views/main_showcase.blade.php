@@ -227,6 +227,7 @@
             <div class="swiper-pagination news-pagination"></div>
         </div>
     </section>
+    <section class="air"></section>
 
 </main>
 @endsection

@@ -58,6 +58,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     left: 80px;
     font-family: 'Onest', sans-serif;
@@ -65,6 +66,8 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     margin-left: 80px;
+    overflow-x: hidden;
+    max-width: 100vw; 
 }
 
 
@@ -76,13 +79,10 @@ main {
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
+    max-width: 100%;
+    padding-bottom: 40px;
 }
 
-@media (max-width: 1450px) {
-    main {
-        max-width: 100%
-    }
-}
 
 /* Верхняя панель */
 .top-bar {
@@ -457,7 +457,7 @@ section {
 
 /* Мои результаты */
 .results-section {
-    width: 401px;
+    width: 400px;
     height: 339px;
     left: 40px;
     top: 417px;
@@ -1186,6 +1186,7 @@ section {
     top: 417px;
     background: var(--white);
     border-radius: var(--radius-md);
+    margin-bottom: 40px;
 }
 
 .news-card {
@@ -1529,7 +1530,8 @@ section {
     height: 28px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1366px) {
+
     .community-banner {
         height: auto;
         min-height: 198px;
@@ -1537,6 +1539,41 @@ section {
 
     .banner-content {
         padding: 28px 20px;
+    }
+
+    body {
+        margin-left: 60px;
+    }
+
+    .articles-section {
+        width: 400px;
+        height: 195px;
+        left: 40px;
+        top: 800px;
+    }
+
+    .articles-section {
+        width: 400px;
+        height: 195px;
+        left: 40px;
+        top: 786px;
+    }
+
+    .news-section {
+        width: 400px;
+        height: 339px;
+        left: 469px;
+        top: 786px;
+    }
+
+    .news-image {
+        width: 360px;
+    }
+
+    .air {
+        width: 100%;
+        height: 40px;
+        top: 1116px;
     }
 }
 
