@@ -196,6 +196,10 @@ header::before {
     max-width: 100%;
 }
 
+.sidebar.expanded .user-section {
+    padding-left: 30px;
+}
+
 /* Логотип + кнопка */
 .logo-plus {
     /*width: 48px;*/
@@ -339,19 +343,6 @@ header::before {
 
 
 
-
-/* Основной контент */
-/*main {*/
-/*    margin-left: 80px;*/
-/*    padding: 40px;*/
-/*    transition: margin-left 0.3s ease;*/
-/*}*/
-
-/*.sidebar.expanded .main {*/
-/*    margin-left: 280px;*/
-/*}*/
-
-
 .container {
     position: relative;
     width: 1440px;
@@ -367,36 +358,7 @@ header::before {
     background: var(--white);
 }
 
-/*.logo-small {*/
-/*    position: absolute;*/
-/*    width: 40px;*/
-/*    height: 40px;*/
-/*    left: 20px;*/
-/*    top: 20px;*/
-/*    border: 2px solid var(--light-blue);*/
-/*}*/
 
-/*.logo-small::before,*/
-/*.logo-small::after {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    border: 2px solid var(--primary-blue);*/
-/*}*/
-
-/*.logo-small::before {*/
-/*    left: 29.17%;*/
-/*    right: 29.16%;*/
-/*    top: 50%;*/
-/*    bottom: 50%;*/
-/*}*/
-
-/*.logo-small::after {*/
-/*    left: 50%;*/
-/*    right: 8.33%;*/
-/*    top: 29.17%;*/
-/*    bottom: 70.83%;*/
-/*    transform: rotate(90deg);*/
-/*}*/
 
 .nav-menu {
     position: absolute;
@@ -436,71 +398,22 @@ header::before {
     height: 24px;
 }
 
-/*.home-icon::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 16.67%;*/
-/*    right: 16.67%;*/
-/*    top: 15.24%;*/
-/*    bottom: 16.66%;*/
-/*    border: 2px solid var(--primary-blue);*/
-/*}*/
-
-/*.note-icon::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 16.67%;*/
-/*    right: 8.33%;*/
-/*    top: 8.33%;*/
-/*    bottom: 16.67%;*/
-/*    border: 2px solid var(--primary-blue);*/
-/*}*/
-
-/*.heart-icon::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    width: 22px;*/
-/*    height: 18.22px;*/
-/*    left: 50%;*/
-/*    top: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    background: var(--primary-blue);*/
-/*    border: 2px solid var(--primary-blue);*/
-/*    border-radius: 0.5px;*/
-/*}*/
-
-/*.chat-icon::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 12.5%;*/
-/*    right: 12.5%;*/
-/*    top: 16.67%;*/
-/*    bottom: 16.67%;*/
-/*    border: 2px solid var(--primary-blue);*/
-/*}*/
-
-/*.globe-icon::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 12.5%;*/
-/*    right: 12.5%;*/
-/*    top: 12.5%;*/
-/*    bottom: 12.5%;*/
-/*    border: 2px solid var(--primary-blue);*/
-/*}*/
-
 .user-avatar {
     position: relative;
     width: 40px;
     height: 40px;
     /*top: 800px;*/
     flex-shrink: 0;
-    padding-top: 10px;
+    /* padding-top: 10px; */
+}
+
+.bottom-section {
+    margin-top: auto;
 }
 
 .user-section {
-    margin-top: auto;
-    padding: 20px 24px;
+    /* margin-top: auto; */
+    padding: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -589,6 +502,10 @@ header::before {
 
     .nav-item.settings {
         margin-top: 0;
+    }
+
+    .user-section {
+        padding: 15px;
     }
 
     .nav-menu {
