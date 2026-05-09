@@ -14,6 +14,8 @@ sudo dnf install -y wget curl git unzip nano vim
 
 ## Этап 2: Установка PHP 8.4
 
+xUV?aVZR*2wuuS
+
 ```bash
 # Добавить репозиторий Remi
 sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
